@@ -75,3 +75,15 @@ CREATE TABLE reserva(
     CONSTRAINT fk_reserva_estacionamento FOREIGN KEY (idEstacionamento) REFERENCES estacionamento(idEstacionamento),
     CONSTRAINT fk_reserva_acomodacao FOREIGN KEY (idAcomodacao) REFERENCES acomodacao(idAcomodacao)
 );
+
+CREATE TABLE consumo_frigobar (
+    idConsumo INT PRIMARY KEY AUTO_INCREMENT,
+    idReserva INT NOT NULL,
+    idFrigobar INT NOT NULL,
+    idItems INT NOT NULL,
+    quantidade INT NOT NULL,
+    data_consumo DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_consumo_reserva FOREIGN KEY (idReserva) REFERENCES reserva(idReserva),
+    CONSTRAINT fk_consumo_frigobar FOREIGN KEY (idFrigobar) REFERENCES frigobar(idFrigobar),
+    CONSTRAINT fk_consumo_items FOREIGN KEY (idItems) REFERENCES items(iditems)
+);
