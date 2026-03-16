@@ -1,120 +1,77 @@
-#criando tabela cliente
+CREATE DATABASE IF NOT EXISTS parnoica;
+USE parnoica;
 
-create database parnoica;
-
-use parnoica;
-
-create table cliente(
-    idusuario int primary key auto_increment,
-    nome varchar(250) ,
-    data_nascimento date,
-    cpf varchar(14) unique,
-    email varchar(250),
-    telefone varchar (11),
-	estado char(2),
-    cidade varchar(40)
+-- TABELA CLIENTE
+CREATE TABLE cliente(
+    idusuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(250) NOT NULL,
+    data_nascimento DATE,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    email VARCHAR(250),
+    telefone VARCHAR(15), -- Aumentado para suportar (XX) XXXXX-XXXX
+    estado CHAR(2),
+    cidade VARCHAR(40)
 );
 
-
-
-#TABELA ACOMODAÇÃO
-
-# create database acomodacao;
-
-# use acomodacao;
-
-#lembrar de atualizar o fk do frigobar
-create table acomodacao(
- idAcomodacao int primary key auto_increment,
- nome varchar (250),
- aStatus varchar (1),
- tipoAcomodacao varchar (250),
- capacidade varchar (2),
- valor varchar (50),
- frigobar_id varchar (2)
+-- TABELA ACOMODACAO
+-- Removi o frigobar_id daqui para evitar dependência circular, 
+-- já que a tabela frigobar aponta para acomodação.
+CREATE TABLE acomodacao(
+    idAcomodacao INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(250) NOT NULL,
+    aStatus VARCHAR(1),
+    tipoAcomodacao VARCHAR(250),
+    capacidade INT, -- Alterado para INT para cálculos
+    valor DECIMAL(10,2) -- Alterado para DECIMAL para operações financeiras
 );
 
-
-
-#TABELA FRIGOBAR
-
-#create database frigobar;
-
-#use frigobar;
-
-#criar um fk para o frigobar linkar com quarto
-create table frigobar (
-idFrigobar int primary key auto_increment,
-acomodacaoId varchar(10),
-fstatus varchar (1)
-
+-- TABELA FRIGOBAR
+CREATE TABLE frigobar (
+    idFrigobar INT PRIMARY KEY AUTO_INCREMENT,
+    idAcomodacao INT,
+    fstatus VARCHAR(1),
+    FOREIGN KEY (idAcomodacao) REFERENCES acomodacao(idAcomodacao)
 );
 
-#CRIANDO O ESTACIONAMENTO 
-
-#create database estacionamento;
-
-#use estacionamento;
-
-create table estacionamento (
-idEstacionamento int primary key auto_increment,
-status varchar (1)
+-- TABELA ESTACIONAMENTO 
+CREATE TABLE estacionamento (
+    idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
+    status VARCHAR(1)
 );
 
-
-# TABELA ITEMS
-
-#create database items;
-
-#use items;
- 
-create table items(
-iditems int primary key auto_increment,
-nome varchar (50),
-quantidade int (2),
-valor varchar (10)
-
+-- TABELA ITEMS
+CREATE TABLE items(
+    iditems INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50),
+    quantidade INT,
+    valor DECIMAL(10,2) -- Alterado para DECIMAL
 );
 
-#TABELA FUNCIONARIO
-
-#create database funcionario;
-
-#use funcionario;
-
-create table funcionario(
-idFuncionario int primary key auto_increment,
-nome varchar (250),
-status varchar(1)
-
+-- TABELA FUNCIONARIO
+CREATE TABLE funcionario(
+    idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(250) NOT NULL,
+    status VARCHAR(1)
 );
 
-
-
-
-#TABELA STATUS
-#create database fStatus;
-
-#use fstatus;
-
-create table fStatus (
-idStatus int primary key auto_increment,
-statusAtual varchar (1),
-descricao varchar (250)
+-- TABELA STATUS
+CREATE TABLE fStatus (
+    idStatus INT PRIMARY KEY AUTO_INCREMENT,
+    statusAtual VARCHAR(1),
+    descricao VARCHAR(250)
 );
 
-#TABELA RESERVA
-#create database reserva;
-
-#use reserva;
-
-create table reserva(
-idReserva int primary key auto_increment,
-foreign key (idusuario) references cliente(idusuario),
-foreign key (idEstacionamento) references estacionamento(idEstacionamento),
-foreign key(idAcomodacao) references acomodacao(idAcomodacao),
-data_checkin date,
-data_checkout date,
-n_clientes int (2)
- 
+-- TABELA RESERVA
+CREATE TABLE reserva(
+    idReserva INT PRIMARY KEY AUTO_INCREMENT,
+    idusuario INT, -- É necessário declarar a coluna antes de referenciar
+    idEstacionamento INT,
+    idAcomodacao INT,
+    data_checkin DATE,
+    data_checkout DATE,
+    n_clientes INT,
+    -- Definição das Chaves Estrangeiras
+    CONSTRAINT fk_reserva_cliente FOREIGN KEY (idusuario) REFERENCES cliente(idusuario),
+    CONSTRAINT fk_reserva_estacionamento FOREIGN KEY (idEstacionamento) REFERENCES estacionamento(idEstacionamento),
+    CONSTRAINT fk_reserva_acomodacao FOREIGN KEY (idAcomodacao) REFERENCES acomodacao(idAcomodacao)
 );
