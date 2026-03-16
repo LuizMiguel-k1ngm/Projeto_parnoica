@@ -7,8 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>home</p>
+
+    
+       
+
+
+
 
     
 </body>
-</html>
+</html> 
+
+
+
+
+
+
+

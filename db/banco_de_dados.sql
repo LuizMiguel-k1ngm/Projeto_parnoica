@@ -110,9 +110,9 @@ descricao varchar (250)
 
 create table reserva(
 idReserva int primary key auto_increment,
-fk_idusuario int, foreign key(pk_idusuario) references cliente(idusuario),
-fk_idEstacionamento int, foreign key(pk_idEstacionamento) references estacionamento(idEstacionamento),
-fk_idAcomodacao int, foreign key(pk_idAcomodacao) references acomodacao(idAcomodacao),
+foreign key (idusuario) references cliente(idusuario),
+foreign key (idEstacionamento) references estacionamento(idEstacionamento),
+foreign key(idAcomodacao) references acomodacao(idAcomodacao),
 data_checkin date,
 data_checkout date,
 n_clientes int (2)
