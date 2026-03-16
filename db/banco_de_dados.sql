@@ -1,8 +1,10 @@
-create database cliente;
+#criando tabela cliente
 
-use cliente;
+create database parnoica;
 
-create table usuarios(
+use parnoica;
+
+create table cliente(
     idusuario int primary key auto_increment,
     nome varchar(250) ,
     data_nascimento date,
@@ -15,12 +17,11 @@ create table usuarios(
 
 
 
-
 #TABELA ACOMODAÇÃO
 
-create database acomodacao;
+# create database acomodacao;
 
-use acomodacao;
+# use acomodacao;
 
 #lembrar de atualizar o fk do frigobar
 create table acomodacao(
@@ -37,9 +38,9 @@ create table acomodacao(
 
 #TABELA FRIGOBAR
 
-create database frigobar;
+#create database frigobar;
 
-use frigobar;
+#use frigobar;
 
 #criar um fk para o frigobar linkar com quarto
 create table frigobar (
@@ -51,9 +52,9 @@ fstatus varchar (1)
 
 #CRIANDO O ESTACIONAMENTO 
 
-create database estacionamento;
+#create database estacionamento;
 
-use estacionamento;
+#use estacionamento;
 
 create table estacionamento (
 idEstacionamento int primary key auto_increment,
@@ -63,9 +64,9 @@ status varchar (1)
 
 # TABELA ITEMS
 
-create database items;
+#create database items;
 
-use items;
+#use items;
  
 create table items(
 iditems int primary key auto_increment,
@@ -77,9 +78,9 @@ valor varchar (10)
 
 #TABELA FUNCIONARIO
 
-create database funcionario;
+#create database funcionario;
 
-use funcionario;
+#use funcionario;
 
 create table funcionario(
 idFuncionario int primary key auto_increment,
@@ -92,9 +93,9 @@ status varchar(1)
 
 
 #TABELA STATUS
-create database fStatus;
+#create database fStatus;
 
-use fstatus;
+#use fstatus;
 
 create table fStatus (
 idStatus int primary key auto_increment,
@@ -103,22 +104,17 @@ descricao varchar (250)
 );
 
 #TABELA RESERVA
-create database reserva;
+#create database reserva;
 
-use reserva;
+#use reserva;
 
 create table reserva(
 idReserva int primary key auto_increment,
-fk_id_usuario int, foreign key(pk_id_usuario) references usuarios(idusuario),
-fk_id_estacionamento int, foreign key(pk_id_estacionamento) references estacionamento(idEstacionamento),
-fk_id_acomodacao int, foreign key(pk_id_acomodacao) references acomodacao(idAcomodacao),
+fk_idusuario int, foreign key(pk_idusuario) references cliente(idusuario),
+fk_idEstacionamento int, foreign key(pk_idEstacionamento) references estacionamento(idEstacionamento),
+fk_idAcomodacao int, foreign key(pk_idAcomodacao) references acomodacao(idAcomodacao),
 data_checkin date,
 data_checkout date,
 n_clientes int (2)
  
-
-
-
 );
-
-
