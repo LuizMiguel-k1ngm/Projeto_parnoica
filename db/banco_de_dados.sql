@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS parnoica;
+CREATE DATABASE  parnoica;
 USE parnoica;
 
 -- TABELA CLIENTE
