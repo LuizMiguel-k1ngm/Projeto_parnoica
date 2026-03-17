@@ -86,3 +86,12 @@ CREATE TABLE consumo_frigobar (
     CONSTRAINT fk_consumo_frigobar FOREIGN KEY (idFrigobar) REFERENCES frigobar(idFrigobar),
     CONSTRAINT fk_consumo_items FOREIGN KEY (idItems) REFERENCES items(iditems)
 );
+
+CREATE TABLE  cargo (
+idCargo INT PRIMARY KEY AUTO_INCREMENT,
+cargo_nome varchar (250)
+
+);
+
+
+
