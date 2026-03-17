@@ -49,11 +49,18 @@ if($data_nascimento != ""){
 
 #regra cfp
 
+
+
 #regra telefone
+
+
 
 #regra estado
 
+
 #regra cidade
+
+
 
 #verificação de clientes já cadastrados
 
