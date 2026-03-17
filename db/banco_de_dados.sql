@@ -8,21 +8,19 @@ CREATE TABLE cliente(
     data_nascimento DATE,
     cpf VARCHAR(14) UNIQUE NOT NULL,
     email VARCHAR(250),
-    telefone VARCHAR(15), -- Aumentado para suportar (XX) XXXXX-XXXX
+    telefone VARCHAR(15), 
     estado CHAR(2),
     cidade VARCHAR(40)
 );
 
--- TABELA ACOMODACAO
--- Removi o frigobar_id daqui para evitar dependência circular, 
--- já que a tabela frigobar aponta para acomodação.
+
 CREATE TABLE acomodacao(
     idAcomodacao INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(250) NOT NULL,
     aStatus VARCHAR(1),
     tipoAcomodacao VARCHAR(250),
-    capacidade INT, -- Alterado para INT para cálculos
-    valor DECIMAL(10,2) -- Alterado para DECIMAL para operações financeiras
+    capacidade INT, 
+    valor DECIMAL(10,2) 
 );
 
 -- TABELA FRIGOBAR
@@ -44,7 +42,7 @@ CREATE TABLE items(
     iditems INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50),
     quantidade INT,
-    valor DECIMAL(10,2) -- Alterado para DECIMAL
+    valor DECIMAL(10,2) 
 );
 
 -- TABELA FUNCIONARIO
@@ -64,13 +62,13 @@ CREATE TABLE fStatus (
 -- TABELA RESERVA
 CREATE TABLE reserva(
     idReserva INT PRIMARY KEY AUTO_INCREMENT,
-    idusuario INT, -- É necessário declarar a coluna antes de referenciar
+    idusuario INT, 
     idEstacionamento INT,
     idAcomodacao INT,
     data_checkin DATE,
     data_checkout DATE,
     n_clientes INT,
-    -- Definição das Chaves Estrangeiras
+    
     CONSTRAINT fk_reserva_cliente FOREIGN KEY (idusuario) REFERENCES cliente(idusuario),
     CONSTRAINT fk_reserva_estacionamento FOREIGN KEY (idEstacionamento) REFERENCES estacionamento(idEstacionamento),
     CONSTRAINT fk_reserva_acomodacao FOREIGN KEY (idAcomodacao) REFERENCES acomodacao(idAcomodacao)
