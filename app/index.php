@@ -8,7 +8,15 @@
 </head>
 <body>
 
-    
+
+<h1>menu</h1>
+<a href="usuario/gUsuario.php">Cadastrar</a>
+<a href="usuario/cUsuario.php">Consultar</a>
+<a href="usuario/aUsuario.php">Atualizar</a>
+<a href="usuario/eUsuario.php">Excluir</a>
+
+
+
        
 
 
@@ -19,7 +27,7 @@
 </html> 
 
 
-
+<!-- criar tela principal para redirecionar para cadastro e reserva  !-->
 
 
 

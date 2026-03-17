@@ -1,120 +1,98 @@
-#criando tabela cliente
+CREATE DATABASE  parnoica;
+USE parnoica;
 
-create database parnoica;
-
-use parnoica;
-
-create table cliente(
-    idusuario int primary key auto_increment,
-    nome varchar(250) ,
-    data_nascimento date,
-    cpf varchar(14) unique,
-    email varchar(250),
-    telefone varchar (11),
-	estado char(2),
-    cidade varchar(40)
+-- TABELA CLIENTE
+CREATE TABLE cliente(
+    idusuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(250) NOT NULL,
+    data_nascimento DATE,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    email VARCHAR(250),
+    telefone VARCHAR(15), 
+    estado CHAR(2),
+    cidade VARCHAR(40),
+    cStatus varchar(1)
 );
 
 
+CREATE TABLE acomodacao(
+    idAcomodacao INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(250) NOT NULL,
+    aStatus VARCHAR(1),
+    tipoAcomodacao VARCHAR(250),
+    capacidade INT, 
+    valor DECIMAL(10,2) 
+);
 
-#TABELA ACOMODAÇÃO
+-- TABELA FRIGOBAR
+CREATE TABLE frigobar (
+    idFrigobar INT PRIMARY KEY AUTO_INCREMENT,
+    idAcomodacao INT,
+    fstatus VARCHAR(1),
+    FOREIGN KEY (idAcomodacao) REFERENCES acomodacao(idAcomodacao)
+);
 
-# create database acomodacao;
+-- TABELA ESTACIONAMENTO 
+CREATE TABLE estacionamento (
+    idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
+    status VARCHAR(1)
+);
 
-# use acomodacao;
+-- TABELA ITEMS
+CREATE TABLE items(
+    iditems INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50),
+    quantidade INT,
+    valor DECIMAL(10,2) 
+);
 
-#lembrar de atualizar o fk do frigobar
-create table acomodacao(
- idAcomodacao int primary key auto_increment,
- nome varchar (250),
- aStatus varchar (1),
- tipoAcomodacao varchar (250),
- capacidade varchar (2),
- valor varchar (50),
- frigobar_id varchar (2)
+-- TABELA FUNCIONARIO
+CREATE TABLE funcionario(
+    idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(250) NOT NULL,
+    status VARCHAR(1),
+    cargo int,
+    CONSTRAINT fk_cargo_funcionario FOREIGN KEY (idCargo) REFERENCES cargo(idCargo),
+);
+
+-- TABELA STATUS
+CREATE TABLE fStatus (
+    idStatus INT PRIMARY KEY AUTO_INCREMENT,
+    statusAtual VARCHAR(1),
+    descricao VARCHAR(250)
+);
+
+-- TABELA RESERVA
+CREATE TABLE reserva(
+    idReserva INT PRIMARY KEY AUTO_INCREMENT,
+    idusuario INT, 
+    idEstacionamento INT,
+    idAcomodacao INT,
+    data_checkin DATE,
+    data_checkout DATE,
+    n_clientes INT,
+    
+    CONSTRAINT fk_reserva_cliente FOREIGN KEY (idusuario) REFERENCES cliente(idusuario),
+    CONSTRAINT fk_reserva_estacionamento FOREIGN KEY (idEstacionamento) REFERENCES estacionamento(idEstacionamento),
+    CONSTRAINT fk_reserva_acomodacao FOREIGN KEY (idAcomodacao) REFERENCES acomodacao(idAcomodacao)
+);
+
+CREATE TABLE consumo_frigobar (
+    idConsumo INT PRIMARY KEY AUTO_INCREMENT,
+    idReserva INT NOT NULL,
+    idFrigobar INT NOT NULL,
+    idItems INT NOT NULL,
+    quantidade INT NOT NULL,
+    data_consumo DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_consumo_reserva FOREIGN KEY (idReserva) REFERENCES reserva(idReserva),
+    CONSTRAINT fk_consumo_frigobar FOREIGN KEY (idFrigobar) REFERENCES frigobar(idFrigobar),
+    CONSTRAINT fk_consumo_items FOREIGN KEY (idItems) REFERENCES items(iditems)
+);
+
+CREATE TABLE  cargo (
+idCargo INT PRIMARY KEY AUTO_INCREMENT,
+cargo_nome varchar (250)
+
 );
 
 
-
-#TABELA FRIGOBAR
-
-#create database frigobar;
-
-#use frigobar;
-
-#criar um fk para o frigobar linkar com quarto
-create table frigobar (
-idFrigobar int primary key auto_increment,
-acomodacaoId varchar(10),
-fstatus varchar (1)
-
-);
-
-#CRIANDO O ESTACIONAMENTO 
-
-#create database estacionamento;
-
-#use estacionamento;
-
-create table estacionamento (
-idEstacionamento int primary key auto_increment,
-status varchar (1)
-);
-
-
-# TABELA ITEMS
-
-#create database items;
-
-#use items;
- 
-create table items(
-iditems int primary key auto_increment,
-nome varchar (50),
-quantidade int (2),
-valor varchar (10)
-
-);
-
-#TABELA FUNCIONARIO
-
-#create database funcionario;
-
-#use funcionario;
-
-create table funcionario(
-idFuncionario int primary key auto_increment,
-nome varchar (250),
-status varchar(1)
-
-);
-
-
-
-
-#TABELA STATUS
-#create database fStatus;
-
-#use fstatus;
-
-create table fStatus (
-idStatus int primary key auto_increment,
-statusAtual varchar (1),
-descricao varchar (250)
-);
-
-#TABELA RESERVA
-#create database reserva;
-
-#use reserva;
-
-create table reserva(
-idReserva int primary key auto_increment,
-foreign key (idusuario) references cliente(idusuario),
-foreign key (idEstacionamento) references estacionamento(idEstacionamento),
-foreign key(idAcomodacao) references acomodacao(idAcomodacao),
-data_checkin date,
-data_checkout date,
-n_clientes int (2)
- 
-);
