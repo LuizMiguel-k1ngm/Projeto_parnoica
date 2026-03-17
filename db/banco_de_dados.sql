@@ -10,7 +10,8 @@ CREATE TABLE cliente(
     email VARCHAR(250),
     telefone VARCHAR(15), 
     estado CHAR(2),
-    cidade VARCHAR(40)
+    cidade VARCHAR(40),
+    cStatus varchar(1)
 );
 
 
