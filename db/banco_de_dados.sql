@@ -1,5 +1,5 @@
-CREATE DATABASE  parnoica;
-USE parnoica;
+CREATE DATABASE  parnaoica;
+USE parnaoica;
 
 -- TABELA CLIENTE
 CREATE TABLE cliente(
@@ -50,7 +50,9 @@ CREATE TABLE items(
 CREATE TABLE funcionario(
     idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(250) NOT NULL,
-    status VARCHAR(1)
+    status VARCHAR(1),
+    idCargo INT,
+    CONSTRAINT fk_funcionario_cargo FOREIGN KEY (idCargo) REFERENCES cargo(idCargo)
 );
 
 -- TABELA STATUS
@@ -99,6 +101,7 @@ statusAtual VARCHAR(1),
 descricao VARCHAR(250)
 
 );
+
 
 
 
