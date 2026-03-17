@@ -50,17 +50,11 @@ CREATE TABLE items(
 CREATE TABLE funcionario(
     idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(250) NOT NULL,
-<<<<<<< HEAD
-    status VARCHAR(1),
-    cargo int,
-    CONSTRAINT fk_cargo_funcionario FOREIGN KEY (idCargo) REFERENCES cargo(idCargo),
-=======
     status VARCHAR(1)
->>>>>>> 9106e2fee32b998c36a57d8d03614a0a6ddbfc07
 );
 
 -- TABELA STATUS
-CREATE TABLE fStatus (
+CREATE TABLE rStatus (
     idStatus INT PRIMARY KEY AUTO_INCREMENT,
     statusAtual VARCHAR(1),
     descricao VARCHAR(250)
@@ -99,8 +93,12 @@ cargo_nome varchar (250)
 
 );
 
+CREATE TABLE uStatus (
+iduStatus INT PRIMARY KEY AUTO_INCREMENT,
+statusAtual VARCHAR(1),
+descricao VARCHAR(250)
 
-<<<<<<< HEAD
-=======
+);
 
->>>>>>> 9106e2fee32b998c36a57d8d03614a0a6ddbfc07
+
+
