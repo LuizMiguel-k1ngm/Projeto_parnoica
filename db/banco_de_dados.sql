@@ -55,7 +55,8 @@ CREATE TABLE funcionario(
     CONSTRAINT fk_funcionario_cargo FOREIGN KEY (idCargo) REFERENCES cargo(idCargo)
 );
 
--- TABELA STATUS
+-- TABELA STATUS(para usar na reserva)
+
 CREATE TABLE rStatus (
     idStatus INT PRIMARY KEY AUTO_INCREMENT,
     statusAtual VARCHAR(1),
@@ -95,6 +96,7 @@ cargo_nome varchar (250)
 
 );
 
+-- TABELA STATUS (para usar no Usuario)
 CREATE TABLE uStatus (
 iduStatus INT PRIMARY KEY AUTO_INCREMENT,
 statusAtual VARCHAR(1),
