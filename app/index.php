@@ -8,8 +8,25 @@
   </head>
   <body>
     <h1>Menu</h1>
-    <a href="colaborador/index.php">Login</a>
-
+    
+        <form action="verificarlogin.php" method="post">
+            
+            Login:<br/>
+            <input type="text" name="login" /><br/>
+            
+            Senha:<br/>
+            <input type="password" name="senha"/><br/>
+            
+            <input type="submit" value="Login"/>
+            
+        </form>
+        
+        <?php
+            if(!empty($_GET["msg"])){
+            $msg = $_GET["msg"];            
+            echo $msg;
+            }
+        ?>
 
 
 
