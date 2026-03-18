@@ -1,6 +1,6 @@
 <?php
 @$con = mysqli_connect("localhost","root","");
-@mysqli_select_db( $con,"parnoica");
+@mysqli_select_db( $con,"parnaoica");
 
 echo "conexao estabelecida";
 

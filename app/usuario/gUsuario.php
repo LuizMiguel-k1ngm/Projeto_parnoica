@@ -51,18 +51,44 @@ if($data_nascimento != ""){
 
 
 
+
+
+
+
+
 #regra telefone
+
+
+
+
 
 
 
 #regra estado
 
 
+
+
+
+
+
 #regra cidade
 
 
 
+
+
+
+
+
 #verificação de clientes já cadastrados
+
+
+
+
+
+
+
 
 
 ?>
