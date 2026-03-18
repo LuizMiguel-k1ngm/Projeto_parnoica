@@ -87,6 +87,9 @@ if($data_nascimento != ""){
 
 
 
+#verificação de das flags e conexão com db
+
+
 
 
 

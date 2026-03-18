@@ -31,9 +31,14 @@
         Estado: <br>
         <input type="text" name = "estado" require ="true">
         
-<br>
+        <br>
         Cidade: <br>
         <input type="text" name = "cidade" require ="true">
+
+        <br>
+        <br>
+
+        <input type="submit"  >
         
 
     </form>
