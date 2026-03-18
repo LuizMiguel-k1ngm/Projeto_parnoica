@@ -102,4 +102,12 @@ iduStatus INT PRIMARY KEY AUTO_INCREMENT,
 statusAtual VARCHAR(1),
 descricao VARCHAR(250)
 
+<<<<<<< HEAD
 );
+=======
+);
+
+
+
+
+>>>>>>> ed3e7756bfa2f022a6e38942d6889005c04a6d7f
