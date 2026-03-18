@@ -52,6 +52,7 @@ CREATE TABLE funcionario(
     nome VARCHAR(250) NOT NULL,
     status VARCHAR(1),
     idCargo INT,
+    senha VARCHAR(255) NOT NULL,
     CONSTRAINT fk_funcionario_cargo FOREIGN KEY (idCargo) REFERENCES cargo(idCargo)
 );
 
