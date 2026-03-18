@@ -8,11 +8,7 @@
   </head>
   <body>
     <h1>Menu</h1>
-
-    
-    <a href="usuario/index.php">Cadastrar Usuario <br></a>
-    <a href="reserva/index.php">Cadastrar Reserva</a>
-
+    <a href="colaborador/index.php">Login</a>
 
 
 
