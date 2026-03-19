@@ -7,7 +7,7 @@
     
     //http://php.net/manual/pt_BR/function.mysql-real-escape-string.php
     
-    include_once './conn.php';
+    include_once 'config/conn.php';
 
    echo $sqli = "select * from funcionario where 
             login = '".$login."' AND senha = '".$senha."'";
@@ -20,7 +20,7 @@
         $_SESSION["login"] = $row["login"]; //guardando no navegador(sessao) o valor do login
         $_SESSION["perfil"] = $row["perfil"];
         $_SESSION["tempo"] = time();
-        header("location:painel.php");
+        header("location: colaborador/painel.php");
         
     }else{
         $msg = "Login/Senha invalido(s)";

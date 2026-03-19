@@ -102,12 +102,19 @@ iduStatus INT PRIMARY KEY AUTO_INCREMENT,
 statusAtual VARCHAR(1),
 descricao VARCHAR(250)
 
-<<<<<<< HEAD
-);
-=======
 );
 
+-- TABELA DE LOGIN DOS COLABORADORES
+create table login(
+id INT PRIMARY KEY AUTO_INCREMENT,
+login varchar(50),
+senha varchar(255),
+id_funcionario int not null,
+CONSTRAINT fk_id_funcionario FOREIGN KEY (id_funcionario) REFERENCES funcionario(id_funcionario)
+
+ 
 
 
+);
 
->>>>>>> ed3e7756bfa2f022a6e38942d6889005c04a6d7f
+
