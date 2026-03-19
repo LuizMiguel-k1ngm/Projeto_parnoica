@@ -111,7 +111,7 @@ id INT PRIMARY KEY AUTO_INCREMENT,
 login varchar(50),
 senha varchar(255),
 id_funcionario int not null,
-CONSTRAINT fk_id_funcionario FOREIGN KEY (id_funcionario) REFERENCES funcionario(id_funcionario)
+CONSTRAINT fk_id_funcionario FOREIGN KEY (idFuncionario) REFERENCES funcionario(idFuncionario)
 
  
 

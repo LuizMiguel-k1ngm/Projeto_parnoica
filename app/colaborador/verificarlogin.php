@@ -9,7 +9,7 @@
     
     include_once 'config/conn.php';
 
-   echo $sqli = "select * from funcionario where 
+   echo $sqli = "select * from login where 
             login = '".$login."' AND senha = '".$senha."'";
     
     $result = mysqli_query($con, $sqli);
