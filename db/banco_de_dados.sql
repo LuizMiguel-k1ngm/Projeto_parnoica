@@ -1,8 +1,39 @@
-CREATE DATABASE  parnaoica;
+CREATE DATABASE IF NOT EXISTS parnaoica;
 USE parnaoica;
 
--- TABELA CLIENTE
-CREATE TABLE cliente(
+-- 1. TABELAS SEM CHAVES ESTRANGEIRAS (PAIS)
+CREATE TABLE cargo (
+    idCargo INT PRIMARY KEY AUTO_INCREMENT,
+    cargo_nome VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE uStatus (
+    iduStatus INT PRIMARY KEY AUTO_INCREMENT,
+    statusAtual VARCHAR(1),
+    descricao VARCHAR(250)
+);
+
+CREATE TABLE rStatus (
+    idStatus INT PRIMARY KEY AUTO_INCREMENT,
+    statusAtual VARCHAR(1),
+    descricao VARCHAR(250)
+);
+
+CREATE TABLE estacionamento (
+    idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
+    status VARCHAR(1) -- 'D' Disponível, 'O' Ocupado
+);
+
+CREATE TABLE items (
+    iditems INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50),
+    quantidade INT,
+    valor DECIMAL(10,2),
+    iStatus VARCHAR(1) DEFAULT 'A' -- Para o Admin poder inativar itens
+);
+
+-- 2. TABELAS COM CHAVES ESTRANGEIRAS SIMPLES
+CREATE TABLE cliente (
     idusuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(250) NOT NULL,
     data_nascimento DATE,
@@ -11,20 +42,36 @@ CREATE TABLE cliente(
     telefone VARCHAR(15), 
     estado CHAR(2),
     cidade VARCHAR(40),
-    cStatus varchar(1)
+    cStatus VARCHAR(1) DEFAULT 'A' -- A = Ativo, I = Inativo
 );
 
-
-CREATE TABLE acomodacao(
+CREATE TABLE acomodacao (
     idAcomodacao INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(250) NOT NULL,
-    aStatus VARCHAR(1),
+    numero_quarto INT, -- Exigido no desafio
+    aStatus VARCHAR(1) DEFAULT 'A',
     tipoAcomodacao VARCHAR(250),
     capacidade INT, 
     valor DECIMAL(10,2) 
 );
 
--- TABELA FRIGOBAR
+CREATE TABLE funcionario (
+    idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(250) NOT NULL,
+    status VARCHAR(1) DEFAULT 'A',
+    idCargo INT,
+    CONSTRAINT fk_funcionario_cargo FOREIGN KEY (idCargo) REFERENCES cargo(idCargo)
+);
+
+-- 3. TABELAS DEPENDENTES (FILHAS)
+CREATE TABLE login (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    usuario_login VARCHAR(50) UNIQUE,
+    senha VARCHAR(255),
+    idFuncionario INT NOT NULL,
+    CONSTRAINT fk_id_funcionario FOREIGN KEY (idFuncionario) REFERENCES funcionario(idFuncionario)
+);
+
 CREATE TABLE frigobar (
     idFrigobar INT PRIMARY KEY AUTO_INCREMENT,
     idAcomodacao INT,
@@ -32,40 +79,7 @@ CREATE TABLE frigobar (
     FOREIGN KEY (idAcomodacao) REFERENCES acomodacao(idAcomodacao)
 );
 
--- TABELA ESTACIONAMENTO 
-CREATE TABLE estacionamento (
-    idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
-    status VARCHAR(1)
-);
-
--- TABELA ITEMS
-CREATE TABLE items(
-    iditems INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(50),
-    quantidade INT,
-    valor DECIMAL(10,2) 
-);
-
--- TABELA FUNCIONARIO
-CREATE TABLE funcionario(
-    idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(250) NOT NULL,
-    status VARCHAR(1),
-    idCargo INT,
-    senha VARCHAR(255) NOT NULL,
-    CONSTRAINT fk_funcionario_cargo FOREIGN KEY (idCargo) REFERENCES cargo(idCargo)
-);
-
--- TABELA STATUS(para usar na reserva)
-
-CREATE TABLE rStatus (
-    idStatus INT PRIMARY KEY AUTO_INCREMENT,
-    statusAtual VARCHAR(1),
-    descricao VARCHAR(250)
-);
-
--- TABELA RESERVA
-CREATE TABLE reserva(
+CREATE TABLE reserva (
     idReserva INT PRIMARY KEY AUTO_INCREMENT,
     idusuario INT, 
     idEstacionamento INT,
@@ -73,7 +87,7 @@ CREATE TABLE reserva(
     data_checkin DATE,
     data_checkout DATE,
     n_clientes INT,
-    
+    valor_total_pago DECIMAL(10,2), -- Importante para Relatório Financeiro
     CONSTRAINT fk_reserva_cliente FOREIGN KEY (idusuario) REFERENCES cliente(idusuario),
     CONSTRAINT fk_reserva_estacionamento FOREIGN KEY (idEstacionamento) REFERENCES estacionamento(idEstacionamento),
     CONSTRAINT fk_reserva_acomodacao FOREIGN KEY (idAcomodacao) REFERENCES acomodacao(idAcomodacao)
@@ -85,37 +99,19 @@ CREATE TABLE consumo_frigobar (
     idFrigobar INT NOT NULL,
     idItems INT NOT NULL,
     quantidade INT NOT NULL,
+    valor_unitario_pago DECIMAL(10,2), -- Rentabilidade: preço do item na hora da venda
     data_consumo DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_consumo_reserva FOREIGN KEY (idReserva) REFERENCES reserva(idReserva),
     CONSTRAINT fk_consumo_frigobar FOREIGN KEY (idFrigobar) REFERENCES frigobar(idFrigobar),
     CONSTRAINT fk_consumo_items FOREIGN KEY (idItems) REFERENCES items(iditems)
 );
 
-CREATE TABLE  cargo (
-idCargo INT PRIMARY KEY AUTO_INCREMENT,
-cargo_nome varchar (250)
-
+-- TABELA DE LOG (Requisito: Log de Alterações)
+CREATE TABLE logs (
+    idLog INT PRIMARY KEY AUTO_INCREMENT,
+    idFuncionario INT,
+    acao VARCHAR(255),
+    tabela_afetada VARCHAR(50),
+    data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_log_func FOREIGN KEY (idFuncionario) REFERENCES funcionario(idFuncionario)
 );
-
--- TABELA STATUS (para usar no Usuario)
-CREATE TABLE uStatus (
-iduStatus INT PRIMARY KEY AUTO_INCREMENT,
-statusAtual VARCHAR(1),
-descricao VARCHAR(250)
-
-);
-
--- TABELA DE LOGIN DOS COLABORADORES
-create table login(
-id INT PRIMARY KEY AUTO_INCREMENT,
-login varchar(50),
-senha varchar(255),
-id_funcionario int not null,
-CONSTRAINT fk_id_funcionario FOREIGN KEY (idFuncionario) REFERENCES funcionario(idFuncionario)
-
- 
-
-
-);
-
-
