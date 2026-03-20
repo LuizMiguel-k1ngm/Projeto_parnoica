@@ -95,7 +95,7 @@ CREATE TABLE reserva (
     data_checkin DATE,
     data_checkout DATE,
     n_clientes INT,
-    valor_total_pago DECIMAL(10,2), -- Importante para Relatório Financeiro
+    valor_total_pago DECIMAL(10,2), 
     CONSTRAINT fk_reserva_cliente FOREIGN KEY (idusuario) REFERENCES cliente(idusuario),
     CONSTRAINT fk_reserva_estacionamento FOREIGN KEY (idEstacionamento) REFERENCES estacionamento(idEstacionamento),
     CONSTRAINT fk_reserva_acomodacao FOREIGN KEY (idAcomodacao) REFERENCES acomodacao(idAcomodacao)
@@ -114,7 +114,7 @@ CREATE TABLE consumo_frigobar (
     CONSTRAINT fk_consumo_items FOREIGN KEY (idItems) REFERENCES items(iditems)
 );
 
--- TABELA DE LOG (Requisito: Log de Alterações)
+-- TABELA DE LOG 
 CREATE TABLE logs (
     idLog INT PRIMARY KEY AUTO_INCREMENT,
     idFuncionario INT,

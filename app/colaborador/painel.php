@@ -19,14 +19,14 @@ include_once'./validar.php';
 <!-- criar aqui o redirecionamento para adm e funcionario-->
 
    <?php
-            if($_SESSION["perfil"] == "administrador"){
+            if($_SESSION["idCargo"] == 1){
                 include_once 'menu_adm.php';
-            }elseif($_SESSION["perfil"] == "funcionario"){
+            }elseif($_SESSION["idCargo"] == 2){
                 include_once 'reserva/gReserva.php';
             }
         ?>
         
-
+0
 
     
 </body>
