@@ -17,7 +17,7 @@
         //echo "logado";
         $row = mysqli_fetch_array($result);
         $_SESSION["login"] = $row["login"]; //guardando no navegador(sessao) o valor do login
-         $_SESSION["idCargo"] = $row["idCargo"];
+        $_SESSION["idCargo"] = $row["idCargo"];
         $_SESSION["tempo"] = time();
         header("location:painel.php");
         
