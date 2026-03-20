@@ -23,7 +23,7 @@
         
     }else{
         $msg = "Login/Senha invalido(s)";
-        header("location:index.php?msg=".$msg);
+        header("location:../index.php?msg=".$msg);
     }
     
 
