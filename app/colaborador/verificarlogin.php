@@ -7,7 +7,7 @@
     
     //http://php.net/manual/pt_BR/function.mysql-real-escape-string.php
     
-    include_once 'config/conn.php';
+    include_once '../../config/conn.php';
 
    echo $sqli = "select * from login where 
             login = '".$login."' AND senha = '".$senha."'";
@@ -17,7 +17,7 @@
     if(mysqli_num_rows($result) >= 1){
         //echo "logado";
         $row = mysqli_fetch_array($result);
-        $_SESSION["login"] = $row["login"]; //guardando no navegador(sessao) o valor do login
+        $_SESSION["login"] = $row["login"];
         $_SESSION["perfil"] = $row["perfil"];
         $_SESSION["tempo"] = time();
         header("location: colaborador/painel.php");

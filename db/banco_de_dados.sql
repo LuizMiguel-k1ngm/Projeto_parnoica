@@ -1,28 +1,34 @@
-CREATE DATABASE IF NOT EXISTS parnaoica;
+CREATE DATABASE parnaoica;
 USE parnaoica;
 
--- 1. TABELAS SEM CHAVES ESTRANGEIRAS (PAIS)
+-- tabela de cargo
 CREATE TABLE cargo (
     idCargo INT PRIMARY KEY AUTO_INCREMENT,
     cargo_nome VARCHAR(250) NOT NULL
 );
-
+ 
+--tabela de status do usuário
 CREATE TABLE uStatus (
     iduStatus INT PRIMARY KEY AUTO_INCREMENT,
     statusAtual VARCHAR(1),
     descricao VARCHAR(250)
 );
 
+-- tabela de status da reserva
 CREATE TABLE rStatus (
     idStatus INT PRIMARY KEY AUTO_INCREMENT,
     statusAtual VARCHAR(1),
     descricao VARCHAR(250)
 );
 
+--tabela de estacionamento
+
 CREATE TABLE estacionamento (
     idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
-    status VARCHAR(1) -- 'D' Disponível, 'O' Ocupado
+    status VARCHAR(1) 
 );
+
+--tabela de itens
 
 CREATE TABLE items (
     iditems INT PRIMARY KEY AUTO_INCREMENT,
@@ -32,7 +38,9 @@ CREATE TABLE items (
     iStatus VARCHAR(1) DEFAULT 'A' -- Para o Admin poder inativar itens
 );
 
--- 2. TABELAS COM CHAVES ESTRANGEIRAS SIMPLES
+
+
+-- tabela cliente
 CREATE TABLE cliente (
     idusuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(250) NOT NULL,
