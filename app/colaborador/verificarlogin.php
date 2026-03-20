@@ -20,7 +20,7 @@
         $_SESSION["login"] = $row["login"];
         $_SESSION["perfil"] = $row["perfil"];
         $_SESSION["tempo"] = time();
-        header("location: colaborador/painel.php");
+        header("location: painel.php");
         
     }else{
         $msg = "Login/Senha invalido(s)";

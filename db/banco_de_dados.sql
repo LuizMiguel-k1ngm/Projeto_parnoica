@@ -35,7 +35,7 @@ CREATE TABLE items (
     nome VARCHAR(50),
     quantidade INT,
     valor DECIMAL(10,2),
-    iStatus VARCHAR(1) DEFAULT 'A' -- Para o Admin poder inativar itens
+    iStatus VARCHAR(1) DEFAULT 'A' 
 );
 
 
@@ -50,13 +50,13 @@ CREATE TABLE cliente (
     telefone VARCHAR(15), 
     estado CHAR(2),
     cidade VARCHAR(40),
-    cStatus VARCHAR(1) DEFAULT 'A' -- A = Ativo, I = Inativo
+    cStatus VARCHAR(1) DEFAULT 'A' 
 );
 
 CREATE TABLE acomodacao (
     idAcomodacao INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(250) NOT NULL,
-    numero_quarto INT, -- Exigido no desafio
+    numero_quarto INT, 
     aStatus VARCHAR(1) DEFAULT 'A',
     tipoAcomodacao VARCHAR(250),
     capacidade INT, 
@@ -107,7 +107,7 @@ CREATE TABLE consumo_frigobar (
     idFrigobar INT NOT NULL,
     idItems INT NOT NULL,
     quantidade INT NOT NULL,
-    valor_unitario_pago DECIMAL(10,2), -- Rentabilidade: preço do item na hora da venda
+    valor_unitario_pago DECIMAL(10,2),
     data_consumo DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_consumo_reserva FOREIGN KEY (idReserva) REFERENCES reserva(idReserva),
     CONSTRAINT fk_consumo_frigobar FOREIGN KEY (idFrigobar) REFERENCES frigobar(idFrigobar),
