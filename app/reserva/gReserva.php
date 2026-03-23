@@ -1,13 +1,20 @@
 <?php
     #gravar reserva
-    $login = $_POST["login"];
-    $senha = md5($_POST["senha"]);
-    $perfil = $_POST["perfil"];
+    $idusuario = $_POST["idusuario"];
+    $idEstacionamento = $_POST["idEstacionamento"];
+    $idAcomodacao = $_POST["idAcomodacao"];
+    $data_checkin = $_POST["data_checkin"];
+    $data_checkout = $_POST["data_checkout"];
+    $n_clientes = $_POST["n_clientes"];
+    #valor total pago ficou para pensar o que fazer com ele
 
-    include_once './conexao.php';
+
+
+    include_once '../_config/conn.php';
     
-    $sqli = "insert into usuarios values(null,
-            '".$login."','".$senha."','".$perfil."')";
+    $sqli = "insert into reserva values(null,
+            '".$idusuario."','".$idEstacionamento."','".$idAcomodacao."',
+             '".$data_checkin ."', .'".$data_checkout."', '".$n_clientes."', null)";
     
     //echo $sql;    
     if(mysqli_query($con, $sqli)){
@@ -18,4 +25,4 @@
     
     mysqli_close($con);
 ?>
-<a href="painel.php">Painel de Controle</a>
+<a href="../index.php">Painel de Controle</a>

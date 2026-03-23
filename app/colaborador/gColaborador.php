@@ -6,7 +6,7 @@
     $status = $_POST["status"];
     $idCargo = $_POST["idCargo"];
 
-    include_once './conexao.php';
+    include_once '../_config/conexao.php';
     
     $sqli = "insert into funcionario values(null,
             '".$nome."','".$status."','".$idCargo."')";
