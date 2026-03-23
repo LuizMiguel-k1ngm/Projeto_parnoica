@@ -8,7 +8,7 @@
 <body>
     <h1>Cadastro Usuário</h1>
 
-    <form action="gUsuario" method = "post">
+    <form action="../usuario/gUsuario" method = "post">
         Nome: <br>
         <input type="text" name = "nome" require ="true">
         <br>

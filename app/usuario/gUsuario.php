@@ -1,4 +1,6 @@
 <?php
+#gravar usuario
+
 date_default_timezone_set("America/Sao_Paulo");
 
 $nome = $_POST["nome"];

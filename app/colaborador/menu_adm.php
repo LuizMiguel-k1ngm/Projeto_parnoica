@@ -3,7 +3,7 @@ include './validar.php'
 
 ?>
 
-<a href="gColaborador.php">Cadastrar colaborador</a>
+<a href="../include/cadastro_colaborador.php">Cadastrar colaborador</a>
 <br>
 
 <a href="../reserva/gReserva.php">Cadastrar Reserva</a>
@@ -18,5 +18,5 @@ include './validar.php'
 <a href="../usuario/aUsuario.php">Alterações Cliente</a>
 <br>
 
-<a href="">Sair</a>
+<a href="../include/sair.php">Sair</a>
 
