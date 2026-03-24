@@ -74,7 +74,7 @@ CREATE TABLE funcionario (
 -- 3. TABELAS DEPENDENTES (FILHAS)
 CREATE TABLE login (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    usuario_login VARCHAR(50) UNIQUE,
+    login VARCHAR(50) UNIQUE,
     senha VARCHAR(255),
     idFuncionario INT NOT NULL,
     CONSTRAINT fk_id_funcionario FOREIGN KEY (idFuncionario) REFERENCES funcionario(idFuncionario)

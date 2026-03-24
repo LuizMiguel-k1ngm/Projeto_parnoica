@@ -18,5 +18,8 @@ include './validar.php'
 <a href="../usuario/aUsuario.php">Alterações Cliente</a>
 <br>
 
+<a href="../frigobar/eFrigobar.php">Excluir frigobar</a>
+<br>
+
 <a href="../include/sair.php">Sair</a>
 
