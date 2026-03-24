@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php //session_start(); 
  include_once './validar.php';
 ?>
@@ -51,3 +52,8 @@
     
 </body>
 </html>
+=======
+<?php
+
+?>
+>>>>>>> df98f19aaa8b2d8aeb25ab54b93b897a6b5a734d
