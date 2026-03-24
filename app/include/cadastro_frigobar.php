@@ -12,7 +12,7 @@
             
                 
                <select name="idAcomodacao" > 
-               <optgroup    label = "Escolha a acomodação">
+               <optgroup label = "Escolha a acomodação">
                 <option value = 1 >Suíte Lopes Mendes</option>
                 <option value = 2 >Suíte Parnaoica</option>
                 <option value = 3 >Suíte Lagoa Azul</option>
