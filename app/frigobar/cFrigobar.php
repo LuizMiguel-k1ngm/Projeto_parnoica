@@ -1,6 +1,5 @@
 <?php
 
-
         //testando se alguem pesquisou algo
         if (!empty($_GET["idFrigobar"])) {
             $idFrigobar = $_GET["idFrigobar"];
@@ -21,7 +20,7 @@
                         <th>Id da acomodação</th>
                         <th>Status</th>
                         <th>Editar</th>
-                        <th>Excluir</th>
+                     <!--   <th>Excluir</th> -->
                     </tr>                                                
                     <?php
                     while ($row = mysqli_fetch_array($result)) {
@@ -31,8 +30,8 @@
                             <td><?php echo $row["idFrigobar"] ?></td>
                             <td><?php echo $row["idAcomodacao"] ?></td>
                             <td><?php echo $row["fstatus"] ?></td>
-                            <td><a href="../include/atualizar_frigobar.php?mat=<?php echo $row["fstatus"] ?>">...</a></td>
-                            <td><a href="#" onclick="excluir(<?php echo $row["idFrigobar"] ?>)">X</a></td>
+                            <td><a href="../include/atualizar_frigobar.php?idFrigobar=<?php echo $row["idFrigobar"] ?>">...</a></td>
+                           <!-- <td><a href="#" onclick="excluir(<?php echo $row["idFrigobar"] ?>)">X</a></td> -->
                         </tr>
 
                         <?php
