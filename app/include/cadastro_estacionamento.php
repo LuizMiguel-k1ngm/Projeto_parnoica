@@ -32,7 +32,7 @@
         <br />
         <br>
 
-        Frigobar status<br />
+        Estacionamento status<br />
         <input type="radio" name="status" value="A" required /> Ativo
         <input type="radio" name="status" value="I"  required/> Inativo <br>
 
