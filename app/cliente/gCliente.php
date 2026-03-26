@@ -18,7 +18,10 @@ $status = 'A'; //default para cadastro
 
 
 
-$data_nascimento = $ano . "-" . $mes . "-" . $dia;
+$data_nascimento = $ano. "-" . $mes . "-" . $dia;
+
+
+
 
 include_once '../_config/conn.php';
 
