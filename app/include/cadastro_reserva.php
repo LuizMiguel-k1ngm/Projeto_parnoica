@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -14,10 +14,10 @@
     <form action="../reserva/gReserva.php" method="post">
 
         Número do cliente:<br />
-        <input type="text" name="idusuario" /><br />
+        <input type="number" name="idusuario" pattern="/d"  min="1" required/><br />
 
         N° vaga do estacionamento:<br />
-        <input type="text" name="idEstacionamento" /><br />
+        <input type="number" name="idEstacionamento"  pattern="[0-9]{2}"  required  min= "1" max = "13"/><br />
         <br>
 
         <select name="Acomodacao">
@@ -40,7 +40,7 @@
         <input type="date" name="data_checkout" /><br />
         <br>
         Numero de Pessoas:<br />
-        <input type="number" name="n_clientes" /><br />
+        <input type="number" name="n_clientes" min = '1' max = '4'/><br />
         <br>
 
 

@@ -5,22 +5,26 @@
 date_default_timezone_set("America/Sao_Paulo");
 
 $nome = $_POST["nome"];
-$data_nascimento = $_POST["data_nascimento"];
+$dia = $_POST["dia"];
+$mes = $_POST["mes"];
+$ano = $_POST["ano"];
 $cpf = $_POST["cpf"];
 $email = $_POST["email"];
 $telefone = $_POST["telefone"];
 $estado = $_POST["estado"];
 $cidade = $_POST["cidade"];
+$status = 'A'; //default para cadastro
 
 
 
-// $dtnasc = $ano . "-" . $mes . "-" . $dia;
 
-include_once '../config/conn.php';
+$data_nascimento = $ano . "-" . $mes . "-" . $dia;
+
+include_once '../_config/conn.php';
 
 
 //consultar pelo CPF a existecia do cliente    
-$consultacpf = "select * from cliente where cpf = '" . $cpf . "'";
+$consultacpf = "select * from parnaoica.cliente where cpf = '" . $cpf . "'";
 $result = mysqli_query($con, $consultacpf);
 if (mysqli_num_rows($result) == 1) {
     echo "Cliente ja cadastrado!";
@@ -28,24 +32,13 @@ if (mysqli_num_rows($result) == 1) {
 
 
     $sqli = "insert into parnaoica.cliente values(null,
-            '" . $nome . "','" . $dtnasc . "','" . $cpf . "','" . $email . "', '" . $telefone . "', '" . $estado . "','" . $cidade . ")";
+            '" . $nome . "','" . $data_nascimento . "','" . $cpf . "','" . $email . "', '" . $telefone . "', '" . $estado . "','" . $cidade ."', '".$status ."' )";
 
     if ($con->query($sqli)) {
         //gravou cliente, tenta gravar endereço
         //retorna o id gerado pela ultima inserção
         $id = mysqli_insert_id($con);
 
-        $sql2 = "insert into endereco values(null,
-                '" . $endereco . "','" . $cep . "','" . $estado . "','" . $cidade . "'," . $id . ")";
-
-        if ($con->query($sql2)) {
-            echo "Gravado com sucesso!";
-        } else {
-            echo "Erro ao gravar endereco!";
-            //gravou cliente, mas nao gravou endereco...apaga cliente
-            $sql3 = "delete from cliente where idcliente = " . $id;
-            $con->query($sql3);
-        }
     } else {
         echo "Erro ao gravar cliente!";
     }

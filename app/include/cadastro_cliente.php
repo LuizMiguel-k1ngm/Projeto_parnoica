@@ -34,14 +34,37 @@
 
     <h1>Cadastro Usuário</h1>
 
-    <form action="../cliente/gCliente" method="post">
+    <form action="../cliente/gCliente.php" method="post">
         Nome: <br>
         <input type="text" name="nome" required pattern="[A-Za-z ]+">
         <br>
 
 
-        Data de Nascimento: <br>
-        <input type="date" name="data_nascimento" id="data_nascimento" required max="current" max="2026-03-26"  >
+         Data de Nascimento:<br/>
+            <select name="dia">
+                <option value=""/>Dia
+                <?php
+                for ($i = 1; $i <= 31; $i++) {
+                    echo "<option value='" . $i . "'/>" . $i;
+                }
+                ?>
+            </select>
+            <select name="mes">
+                <option value=""/>Mês
+                <?php
+                for ($i = 1; $i <= 12; $i++) {
+                    echo "<option value='" . $i . "'/>" . $i;
+                }
+                ?>
+            </select>
+             <select name="ano">
+                <option value=""/>Ano
+                <?php
+                for ($i = date("Y"); $i >= date("Y") - 100; $i--) {
+                    echo "<option value='" . $i . "'/>" . $i;
+                }
+                ?>
+            </select>        
 </br>
 
 
