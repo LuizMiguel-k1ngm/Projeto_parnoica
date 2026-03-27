@@ -24,5 +24,5 @@ include './validar.php'
 <a href="../include/consultar_cliente.php">Consultar cliente</a>
 <br>
 
-<a href="../include/sair.php">Sair</a>
+<a href="../include/painel.php">Sair</a>
 

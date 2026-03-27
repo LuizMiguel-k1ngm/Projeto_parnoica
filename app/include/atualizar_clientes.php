@@ -41,17 +41,16 @@
 
 
         <h3>Mudar informações</h3> 
-         Novo email: <br><br>
-        <input type="text" name="email" require="true" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
-        
+        Email: <br>
+        <input type="text" name="email" require="true" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+        <br>
          <br><br>
-        Novo telefone: <br><input type="tel" name = "telefone" require="true" required pattern="[0-9]{11}"  title="Digite apenas os números do telefone sem espaços" >
+        Novo telefone: <br><input type="tel" name = "telefone" pattern="[0-9]{11}"  title="Digite apenas os números do telefone sem espaços" >
          <br>
 
 
 
-       <h4>Status do cliente</h4><input type="radio" name="cStatus" value="A" 
-         /> Ativo
+       <h4>Status do cliente</h4><input type="radio" name="cStatus" value="A" required/> Ativo
         <input type="radio" name="cStatus" value="I" /> Inativo <br>
         <br>
         <input type="submit" value="Enviar" />
