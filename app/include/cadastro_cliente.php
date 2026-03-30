@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuario</title>
-
-
 
     <script type="text/javascript" src="../js/cidades-estados-v0.2.js"></script>
     <script type="text/javascript">
@@ -20,9 +16,9 @@
     </script>
 
     <style>
-        #estado,
-        #cidade {
+        #estado,#cidade {
             width: 190px;
+
         }
     </style>
 
@@ -30,7 +26,6 @@
 </head>
 
 <body>
-
 
     <h1>Cadastro Usuário</h1>
 
@@ -40,37 +35,37 @@
         <br>
 
 
-         Data de Nascimento:<br/>
-            <select name="dia">
-                <option value=""/>Dia
-                <?php
-                for ($i = 1; $i <= 31; $i++) {
-                    echo "<option value='" . $i . "'/>" . $i;
-                }
-                ?>
-            </select>
-            <select name="mes">
-                <option value=""/>Mês
-                <?php
-                for ($i = 1; $i <= 12; $i++) {
-                    echo "<option value='" . $i . "'/>" . $i;
-                }
-                ?>
-            </select>
-             <select name="ano">
-                <option value=""/>Ano
-                <?php
-                for ($i = date("Y"); $i >= date("Y") - 100; $i--) {
-                    echo "<option value='" . $i . "'/>" . $i;
-                }
-                ?>
-            </select>        
-</br>
+        Data de Nascimento:<br />
+        <select name="dia">
+            <option value="" />Dia
+            <?php
+            for ($i = 01; $i <= 31; $i++) {
+                echo "<option value='" . $i . "'/>" . $i;
+            }
+            ?>
+        </select>
+        <select name="mes">
+            <option value="" />Mês
+            <?php
+            for ($i = 01; $i <= 12; $i++) {
+                echo "<option value='" . $i . "'/>" . $i;
+            }
+            ?>
+        </select>
+        <select name="ano">
+            <option value="" />Ano
+            <?php
+            for ($i = date("Y"); $i >= date("Y") - 100; $i--) {
+                echo "<option value='" . $i . "'/>" . $i;
+            }
+            ?>
+        </select>
+        </br>
 
 
 
         CPF: <br>
-        <input type= "text" name="cpf" require="true" required pattern="[0-9]{11}" minlength="11" placeholder="00000000000" title="digite apenas os números do CPF">
+        <input type="text" name="cpf" require="true" required pattern="[0-9]{11}" minlength="11" placeholder="00000000000" title="digite apenas os números do CPF">
         <br>
 
         Email: <br>
@@ -96,8 +91,6 @@
 
 
     </form>
-
-
 
 </body>
 

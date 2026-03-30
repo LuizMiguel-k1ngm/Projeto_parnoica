@@ -6,7 +6,7 @@ include './validar.php'
 <a href="../include/cadastro_colaborador.php">Cadastrar colaborador</a>
 <br>
 
-<a href="../include/casdastro_reserva.php">Cadastrar Reserva</a>
+<a href="../include/cadastro_reserva.php">Cadastrar Reserva</a>
 <br>
 
 <a href="../include/cadastro_cliente.php">Cadastrar Cliente</a>

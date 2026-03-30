@@ -16,10 +16,7 @@ $cidade = $_POST["cidade"];
 $status = 'A'; //default para cadastro
 
 
-
-
-$data_nascimento = $ano. "-" . $mes . "-" . $dia;
-
+$data_nascimento = $ano . "-" . $mes . "-" . $dia;
 
 
 
@@ -35,13 +32,13 @@ if (mysqli_num_rows($result) == 1) {
 
 
     $sqli = "insert into parnaoica.cliente values(null,
-            '" . $nome . "','" . $data_nascimento . "','" . $cpf . "','" . $email . "', '" . $telefone . "', '" . $estado . "','" . $cidade ."', '".$status ."' )";
+            '" . $nome . "','" . $data_nascimento . "','" . $cpf . "','" . $email . "', '" . $telefone . "', '" . $estado . "','" . $cidade . "', '" . $status . "' )";
 
     if ($con->query($sqli)) {
         //gravou cliente, tenta gravar endereço
         //retorna o id gerado pela ultima inserção
+        echo "Gravado com sucesso!";
         $id = mysqli_insert_id($con);
-
     } else {
         echo "Erro ao gravar cliente!";
     }
