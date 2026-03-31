@@ -11,7 +11,7 @@
     <h1>Cadastro do estacionamento</h1>
     <form action="../estacionamento/gEstacionamento.php" method="post">
 
-
+        // rever isso aqui para tabela filtrado por id;
         <select name="idEstacionamento">
             <optgroup label="Escolha a vaga">
                 <option value=1>Vaga 1</option>

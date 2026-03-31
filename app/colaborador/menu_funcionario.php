@@ -17,8 +17,12 @@ include './validar.php'
 <a href="../include/cadastro_estacionamento.php">Cadatro Estacionamento</a>
 -->
  
+
 <br>
-<a href="../usuario/aUsuario.php">Alterações Cliente</a>
+<a href="../include/atualizar_clientes.php">Alterações Cliente</a>
+<br>
+
+<a href="../include/consultar_acomodacao.php">Consulta acomodação</a>
 <br>
 
 <a href="../include/sair.php">Sair</a>

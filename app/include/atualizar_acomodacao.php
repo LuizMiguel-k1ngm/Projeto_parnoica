@@ -1,34 +1,34 @@
-//tentar filtrar inves do idFrigobar filtrar pelo fStatus
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Atualizar acomodação</title>
 </head>
 
 <body>
-    <?php
 
-    $idFrigobar = $_GET["idFrigobar"];
+ <?php
+
+/*    $idAcomodacao = $_GET["idAcomodacao"];
 
     include_once '../_config/conn.php';
 
-    $sqli = "select * from parnaoica.frigobar where idFrigobar = " . $idFrigobar;
+    $sqli = "select * from parnaoica.acomodacao where idAcomodacao = " . $idAcomodacao;
     $result = mysqli_query($con, $sqli);
     $row = mysqli_fetch_array($result);
-    ?>
-
-    <!-- editar/atualizar o frigobar -->
-    <h3>Atualizar do frigobar</h3>
-
-    <form action="../frigobar/aFrigobar.php" method="post">
+    */?>
 
 
-        <input type="hidden" readonly="true" name="idFrigobar" value="<?php echo $row["idFrigobar"] ?>" />
 
 
+<h3>Atualizar do acomodação</h3>
+
+    <form action="../acomodacao/aAcomodacao.php" method="post">
+
+
+        <input type="hidden" readonly="true" name="idAcomodacao" value="<?php echo $row["idAcomodacao"] ?>" />
 
 
         <?php echo 'Frigobar ' . $idFrigobar; ?> <br> <br>
@@ -40,9 +40,6 @@
         <input type="submit" value="Enviar" />
 
     </form>
-
-
-
 
 </body>
 

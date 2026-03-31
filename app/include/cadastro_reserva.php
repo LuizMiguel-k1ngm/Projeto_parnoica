@@ -51,7 +51,7 @@
         <input type="date" name="data_checkout" /><br />
         <br>
         Numero de Pessoas:<br />
-        <input type="number" name="n_clientes" min='1' max='4' /><br />
+        <input type="number" name="n_clientes" min='1' max='2' /><br />
         <br>
         <!-- criar o valor_total_pago-->
          

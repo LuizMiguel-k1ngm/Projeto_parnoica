@@ -1,3 +1,4 @@
+// criar a tabela para consulta
 <?php
 include_once '../cliente/cCliente.php';
 ?>

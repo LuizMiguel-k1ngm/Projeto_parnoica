@@ -1,3 +1,4 @@
+// criar a tabela para consulta
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
