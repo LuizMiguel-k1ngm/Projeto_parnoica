@@ -20,7 +20,7 @@
         <input type="number" name="idEstacionamento" pattern="[0-9]{2}" required min="1" max="13" /><br />
           --> <br>
 
- <select name="idAcomodacao">
+        <select name="idAcomodacao">
             <optgroup label="Escolha a acomodação">
                 <option value=1>Suíte Lopes Mendes - R$ 2500.00</option>
                 <option value=2>Suíte Parnaoica - R$ 3500.00</option>
@@ -54,7 +54,7 @@
         <input type="number" name="n_clientes" min='1' max='2' /><br />
         <br>
         <!-- criar o valor_total_pago-->
-         
+
 
         <input type="submit" value="Enviar" />
 
