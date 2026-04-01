@@ -1,20 +1,22 @@
 <?php
-include_once '../acomodacao/cAcomodacao.php';
+ include_once '../acomodacao/cAcomodacao.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta acomodação</title>
 </head>
+
 <body>
 
-<h3>Consulta Acomodação</h3>
+    <h3>Consulta Acomodação</h3>
 
     <form action="../acomodacao/cAcomodacao.php" method="get">
-       Tipo acomodação: <br>
+        Tipo acomodação: <br>
         <input type="radio" name="tipoAcomodacao" value="suíte" required />Suíte
         <input type="radio" name="tipoAcomodacao" value="apartamento" />Apartamento <br>
         <br>
@@ -23,10 +25,11 @@ include_once '../acomodacao/cAcomodacao.php';
         <input type="radio" name="aStatus" value="I" /> Inativo <br>
         <br>
         <input type="submit" value="Buscar">
+
     </form>
 
 
 
-    
 </body>
+
 </html>

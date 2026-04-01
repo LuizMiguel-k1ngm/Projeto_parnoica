@@ -9,34 +9,39 @@
 
 <body>
 
- <?php
-
-/*    $idAcomodacao = $_GET["idAcomodacao"];
+    <?php
+    $numero_quarto = $_GET["numero_quarto"];
 
     include_once '../_config/conn.php';
 
-    $sqli = "select * from parnaoica.acomodacao where idAcomodacao = " . $idAcomodacao;
+    $sqli = "select * from parnaoica.acomodacao where numero_quarto = " . $numero_quarto;
     $result = mysqli_query($con, $sqli);
     $row = mysqli_fetch_array($result);
-    */?>
 
-
-
-
-<h3>Atualizar do acomodação</h3>
+    ?>
 
     <form action="../acomodacao/aAcomodacao.php" method="post">
 
 
         <input type="hidden" readonly="true" name="idAcomodacao" value="<?php echo $row["idAcomodacao"] ?>" />
 
+        <?php echo 'Dados da acomodação:' ?> <br><br>
+        <?php echo ' Nome: ' . $row["nome"] ?> <br>
+        <?php echo ' numero do quarto: ' . $numero_quarto ?> <br>
+        <?php echo ' Status: ' . $row['aStatus']; ?> <br>
+        <?php echo ' Tipo: ' . $row['tipoAcomodacao']; ?> <br>
+        <?php echo ' Valor: ' . $row['valor']; ?> <br>
 
-        <?php echo 'Frigobar ' . $idFrigobar; ?> <br> <br>
-        
+
+        <h3>Atualizar do acomodação</h3>
         selecione o status<br />
-        <input type="radio" name="fstatus" value="A" /> Ativo
-        <input type="radio" name="fstatus" value="I" /> Inativo <br>
+
+        <input type="radio" name="aStatus" value="A" /> Ativo
+        <input type="radio" name="aStatus" value="I" /> Inativo <br>
         <br>
+
+        valor: <input type="number" name="valor">
+
         <input type="submit" value="Enviar" />
 
     </form>

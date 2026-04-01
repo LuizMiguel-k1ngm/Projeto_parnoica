@@ -23,8 +23,8 @@ if (!empty($_GET["tipoAcomodacao"])) {
                 <th>Capacidade</th>
                 <th>Status</th>
                 <th>Valor</th>
-                <!-- <th>Editar</th> -->
-                <!--  <th>Excluir</th> -->
+                <th>Editar</th>
+                <th>Excluir</th>
             </tr>
             <?php
             while ($row = mysqli_fetch_array($result)) {
@@ -37,7 +37,8 @@ if (!empty($_GET["tipoAcomodacao"])) {
                     <td><?php echo $row["capacidade"] ?></td>
                     <td><?php echo $row["aStatus"] ?></td>
                     <td><?php echo $row["valor"] ?></td>
-                    <!-- <td><a href="#" onclick="excluir(<?php echo $row["idFrigobar"] ?>)">X</a></td> -->
+                    <td><a href="../include/atualizar_acomodacao.php?numero_quarto=<?php echo $row["numero_quarto"] ?>">...</a></td>
+                    <td><a href="../acomodacao/eAcomodacao.php" onclick="excluir(<?php echo $row["numero_quarto"] ?>)">X</a></td>
                 </tr>
 
             <?php

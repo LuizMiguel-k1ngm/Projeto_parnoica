@@ -19,8 +19,7 @@ include_once'./validar.php';
 
   <?php
         echo "Seja bem vindo(a) ".$_SESSION["login"];
-
-        
+    
  ?>
 
 <!-- criar aqui o redirecionamento para adm e funcionario-->

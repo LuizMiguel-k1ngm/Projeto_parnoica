@@ -14,15 +14,13 @@ include './validar.php'
 
 <a href="../include/cadastro_acomodacao.php">Cadastrar Acomodação</a>
 <br>
-
+<!--
 <a href="../include/atualizar_reserva.php">Alterações Reserva</a>
 <br>
 
 <a href="../include/atualizar_cliente.php">Alterações Cliente</a>
-<br>
+<br> -->
 
-<a href="../include/atualizar_acomodacao.php">Alterações acomodacao</a>
-<br>
 
 <a href="../include/consultar_frigobar.php">Consultar frigobar</a>
 <br>

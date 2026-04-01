@@ -12,10 +12,6 @@ $valor = str_replace(',', '.', $valor_sem_ponto);
 
 include_once '../_config/conn.php';
 
-
-
-
-
 $sqli = "insert into parnaoica.acomodacao values(null,
             '" . $nome . "','" . $numero_quarto . "','" . $aStatus . "','" . $tipoAcomodacao . "', '" . $capacidade . "', '" . $valor . "' )";
 if (mysqli_query($con, $sqli)) {
