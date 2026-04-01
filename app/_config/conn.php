@@ -3,6 +3,4 @@
 @mysqli_select_db( $con,"parnaoica");
 
 
-
-
 ?>

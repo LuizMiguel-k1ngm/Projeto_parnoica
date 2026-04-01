@@ -7,7 +7,14 @@ $tipoAcomodacao = $_POST["tipoAcomodacao"];
 $capacidade = $_POST["capacidade"];
 $valor = $_POST["valor"];
 
+$valor_sem_ponto = str_replace('.', '', $valor);
+$valor = str_replace(',', '.', $valor_sem_ponto);
+
 include_once '../_config/conn.php';
+
+
+
+
 
 $sqli = "insert into parnaoica.acomodacao values(null,
             '" . $nome . "','" . $numero_quarto . "','" . $aStatus . "','" . $tipoAcomodacao . "', '" . $capacidade . "', '" . $valor . "' )";
