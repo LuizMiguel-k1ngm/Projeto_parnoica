@@ -1,4 +1,3 @@
-// criar a tabela para consulta
 <?php
 include_once '../cliente/cCliente.php';
 ?>
@@ -16,8 +15,9 @@ include_once '../cliente/cCliente.php';
     <h3>Consulta cliente</h3>
 
     <form action="../cliente/cCliente.php" method="get">
-        CPF do cliente:
-        <input type="text" name="cpf" require="true" required pattern="[0-9]{11}" minlength="11" placeholder="00000000000" title="digite apenas os números do CPF">
+        Status do Cliente: <br>
+        <input type="radio" name="cStatus" value="A" required /> Ativo
+        <input type="radio" name="cStatus" value="I" /> Inativo <br>
         <input type="submit" value="Buscar">
     </form>
 

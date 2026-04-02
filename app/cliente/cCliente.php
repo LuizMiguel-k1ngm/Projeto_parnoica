@@ -1,20 +1,17 @@
 <?php
-#consultar usuario
 
-//parou aqui!!! 26/03/2026
-//testando se alguem pesquisou algo
-if (!empty($_GET["cpf"])) {
-    $cpf = $_GET["cpf"];
+if (!empty($_GET["cStatus"])) {
+    $cStatus = $_GET["cStatus"];
 
     include_once '../_config/conn.php';
 
-    $sqli = "select * from parnaoica.cliente where cpf like '" . $cpf . "%'";
+    $sqli = "select * from parnaoica.cliente where cStatus like '" . $cStatus . "%'";
 
     $result = mysqli_query($con, $sqli);
     $totalregistros = mysqli_num_rows($result); //num de linhas
 
     if ($totalregistros > 0) {
-        //echo "OK";
+       
 ?>
         <table width="900px" border="1px">
             <tr>
@@ -22,6 +19,7 @@ if (!empty($_GET["cpf"])) {
                 <th>Nome</th>
                 <th>cpf</th>
                 <th>email</th>
+                <th>telefone</th>
                 <th>Status</th>
                 <th>Editar</th>
                 <!--   <th>Excluir</th> -->
@@ -35,6 +33,7 @@ if (!empty($_GET["cpf"])) {
                     <td><?php echo $row["nome"] ?></td>
                     <td><?php echo $row["cpf"] ?></td>
                     <td><?php echo $row["email"] ?></td>
+                    <td><?php echo $row["telefone"] ?></td>
                     <td><?php echo $row["cStatus"] ?></td>
                     <td><a href="../include/atualizar_clientes.php?idusuario=<?php echo $row["idusuario"] ?>">...</a></td>
                     <!-- <td><a href="#" onclick="excluir(<?php echo $row["idFrigobar"] ?>)">X</a></td> -->
@@ -42,13 +41,13 @@ if (!empty($_GET["cpf"])) {
 
             <?php
             }
-            //echo "</table>";
+
             ?>
         </table>
 <?php
         echo "Total de registros: " . $totalregistros;
     } else {
-        echo "Nenhum frigobar encontrado!";
+        echo "Nenhum cliente encontrado!";
     }
 
     mysqli_close($con);

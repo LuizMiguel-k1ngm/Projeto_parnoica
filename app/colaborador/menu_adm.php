@@ -3,25 +3,8 @@ include './validar.php'
 
 ?>
 
-<a href="../include/cadastro_colaborador.php">Cadastrar colaborador</a>
+ //aqui seria itens do frigobar 
 <br>
-
-<a href="../include/cadastro_reserva.php">Cadastrar Reserva</a>
-<br>
-
-<a href="../include/cadastro_cliente.php">Cadastrar Cliente</a>
-<br>
-
-<a href="../include/cadastro_acomodacao.php">Cadastrar Acomodação</a>
-<br>
-<!--
-<a href="../include/atualizar_reserva.php">Alterações Reserva</a>
-<br>
-
-<a href="../include/atualizar_cliente.php">Alterações Cliente</a>
-<br> -->
-
-
 <a href="../include/consultar_frigobar.php">Consultar frigobar</a>
 <br>
 

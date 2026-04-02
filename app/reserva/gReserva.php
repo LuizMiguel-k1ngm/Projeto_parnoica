@@ -18,6 +18,7 @@ $quantidade_dias = $dias->days;
 
 include_once '../_config/conn.php';
 
+//criar variavel para conferir status da acomodacao filtrando pelo ID
 
 if($saida <= $entrada){
 //erro de datas

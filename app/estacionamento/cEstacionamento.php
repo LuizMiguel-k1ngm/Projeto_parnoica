@@ -1,4 +1,4 @@
 <?php
-#para consulta vaga do estacionamento;
+//mexer aqui para cadastrar estacionamento
 
 ?>

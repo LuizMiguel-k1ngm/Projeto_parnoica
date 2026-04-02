@@ -1,3 +1,4 @@
+//
 <?php
 include './validar.php'
 
@@ -7,23 +8,21 @@ include './validar.php'
 <br>
 
 <a href="../include/cadastro_reserva.php">Cadastrar reserva</a>
+<br>
 
+<a href="../include/cadastro_acomodacao.php">Cadastrar Acomodação</a>
+<br>
+
+<a href="#">Cadastrar itens no frigobar</a>
+<br>
+
+<a href="../include/cadastro_acomodacao.php">Check-in</a>
+<br>
+
+<a href="../include/cadastro_acomodacao.php">Check-out</a>
+<br>
  
-<!--
-<a href="../include/cadastro_frigobar.php">Cadastrar Frigobar</a>
-<br>
-
-
-<a href="../include/cadastro_estacionamento.php">Cadatro Estacionamento</a>
--->
- 
 
 <br>
-<a href="../include/atualizar_clientes.php">Alterações Cliente</a>
-<br>
-
-<a href="../include/consultar_acomodacao.php">Consulta acomodação</a>
-<br>
-
 <a href="../include/sair.php">Sair</a>
 

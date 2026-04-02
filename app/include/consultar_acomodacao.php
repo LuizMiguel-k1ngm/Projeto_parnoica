@@ -1,5 +1,5 @@
 <?php
- include_once '../acomodacao/cAcomodacao.php';
+include_once '../acomodacao/cAcomodacao.php';
 ?>
 
 <!DOCTYPE html>
@@ -27,8 +27,6 @@
         <input type="submit" value="Buscar">
 
     </form>
-
-
 
 </body>
 
