@@ -14,5 +14,8 @@ include './validar.php'
 <a href="../include/consultar_acomodacao.php">Consultar acomodação</a>
 <br>
 
+<a href="../include/cadastro_itensFrigobar.php">Cadastrar itens no frigobar</a>
+<br>
+
 <a href="../include/painel.php">Sair</a>
 
