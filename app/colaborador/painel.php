@@ -19,6 +19,8 @@ include_once'./validar.php';
 
   <?php
         echo "Seja bem vindo(a) ".$_SESSION["login"];
+
+
     
  ?>
 

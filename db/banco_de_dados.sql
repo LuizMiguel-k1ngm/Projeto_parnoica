@@ -66,6 +66,9 @@ CREATE TABLE acomodacao (
 CREATE TABLE funcionario (
     idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(250) NOT NULL,
+    cpf VARCHAR (14) NOT NULL,
+    telefone VARCHAR(15),
+    email VARCHAR(255),
     status VARCHAR(1) DEFAULT 'A',
     idCargo INT,
     CONSTRAINT fk_funcionario_cargo FOREIGN KEY (idCargo) REFERENCES cargo(idCargo)

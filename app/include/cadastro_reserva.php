@@ -39,10 +39,7 @@
         </select>
 
         <br>
-        <!--
-        Número Acomodação:<br />
-        <input type="number" name="idAcomodacao" min = '1' max ='13'  /><br />
-        -->
+
         <br>
         Data check-in:<br />
         <input type="date" name="data_checkin" /><br />

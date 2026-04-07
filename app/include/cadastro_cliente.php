@@ -36,7 +36,7 @@
 
 
         Data de Nascimento:<br />
-        <select name="dia">
+        <select name="dia" required>
             <option value="" />Dia
             <?php
             for ($i = 01; $i <= 31; $i++) {
@@ -44,7 +44,7 @@
             }
             ?>
         </select>
-        <select name="mes">
+        <select name="mes" required>
             <option value="" />Mês
             <?php
             for ($i = 01; $i <= 12; $i++) {
@@ -52,7 +52,7 @@
             }
             ?>
         </select>
-        <select name="ano">
+        <select name="ano" required>
             <option value="" />Ano
             <?php
             for ($i = date("Y"); $i >= date("Y") - 100; $i--) {
