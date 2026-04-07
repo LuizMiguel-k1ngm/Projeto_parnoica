@@ -3,7 +3,7 @@ include './validar.php'
 
 ?>
 
- //aqui seria itens do frigobar 
+//aqui seria itens do frigobar
 <br>
 <a href="../include/consultar_frigobar.php">Consultar frigobar</a>
 <br>
@@ -17,5 +17,4 @@ include './validar.php'
 <a href="../include/cadastro_itensFrigobar.php">Cadastrar itens no frigobar</a>
 <br>
 
-<a href="../include/painel.php">Sair</a>
-
+<a href="../colaborador/painel.php">Sair</a>
