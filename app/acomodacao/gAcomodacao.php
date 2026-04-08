@@ -12,6 +12,13 @@ $valor = str_replace(',', '.', $valor_sem_ponto);
 
 include_once '../_config/conn.php';
 
+$consulta_numero_quarto = "select * from parnaoica.acomodacao where numero_quarto = '" . $numero_quarto . "'";
+$result = mysqli_query($con, $consulta_numero_quarto);
+
+if (mysqli_num_rows($result) == 1) {
+    echo "Número de acomodação já cadastrado!. Tente novamente";
+} else {
+
 $sqli = "insert into parnaoica.acomodacao values(null,
             '" . $nome . "','" . $numero_quarto . "','" . $aStatus . "','" . $tipoAcomodacao . "', '" . $capacidade . "', '" . $valor . "' )";
 if (mysqli_query($con, $sqli)) {
@@ -20,7 +27,9 @@ if (mysqli_query($con, $sqli)) {
     echo "Erro ao gravar!";
 }
 
-mysqli_close($con);
+}
+$con->close();
+// mysqli_close($con);
 
 ?>
 <br>

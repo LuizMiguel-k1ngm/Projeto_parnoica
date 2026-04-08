@@ -6,8 +6,11 @@ if (!empty($_GET["idCargo"])) {
 
     $sqli = "select * from parnaoica.funcionario where idCargo like '" . $idCargo . "%'";
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> eec2b8580dfd4d1ee5c7358764fa9442dfe24032
     $result = mysqli_query($con, $sqli);
     $totalregistros = mysqli_num_rows($result); //num de linhas
 
@@ -16,13 +19,20 @@ if (!empty($_GET["idCargo"])) {
 ?>
 <table width="900px" border="1px">
     <tr>
+<<<<<<< HEAD
         <th>Id</th>
+=======
+        <th>Id do Funcionario</th>
+>>>>>>> eec2b8580dfd4d1ee5c7358764fa9442dfe24032
         <th>Nome</th>
         <th>cpf</th>
         <th>telefone</th>
         <th>Email</th>
         <th>Status</th>
+<<<<<<< HEAD
 
+=======
+>>>>>>> eec2b8580dfd4d1ee5c7358764fa9442dfe24032
         <th>Editar</th>
         <!--   <th>Excluir</th> -->
     </tr>
@@ -37,11 +47,18 @@ if (!empty($_GET["idCargo"])) {
         <td><?php echo $row["idFuncionario"] ?></td>
         <td><?php echo $row["nome"] ?></td>
         <td><?php echo $row["cpf"] ?></td>
+<<<<<<< HEAD
         <td><?php echo $row["telefone"] ?></td>
         <td><?php echo $row["email"] ?></td>
 
         <td><?php echo $row["cStatus"] ?></td>
         <td><a href="../include/atualizar_colaborador.php?idFuncionario=<?php echo $row["idFuncionario"] ?>">...</a></td>
+=======
+        <td><?php echo $row["email"] ?></td>
+        <td><?php echo $row["telefone"] ?></td>
+        <td><?php echo $row["status"] ?></td>
+        <td><a href="../include/atualizar_colaborador.php?idusuario=<?php echo $row["idFuncionario"] ?>">...</a></td>
+>>>>>>> eec2b8580dfd4d1ee5c7358764fa9442dfe24032
         <!-- <td><a href="#" onclick="excluir(<?php echo $row["idFrigobar"] ?>)">X</a></td> -->
     </tr>
 

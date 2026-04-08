@@ -7,7 +7,7 @@ CREATE TABLE cargo (
     cargo_nome VARCHAR(250) NOT NULL
 );
  
---tabela de status do usuário
+-- tabela de status do usuário
 CREATE TABLE uStatus (
     iduStatus INT PRIMARY KEY AUTO_INCREMENT,
     statusAtual VARCHAR(1),
@@ -21,14 +21,14 @@ CREATE TABLE rStatus (
     descricao VARCHAR(250)
 );
 
---tabela de estacionamento
+-- tabela de estacionamento
 
 CREATE TABLE estacionamento (
     idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
     status VARCHAR(1) 
 );
 
---tabela de itens
+-- tabela de itens
 
 CREATE TABLE items (
     iditems INT PRIMARY KEY AUTO_INCREMENT,

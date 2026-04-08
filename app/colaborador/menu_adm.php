@@ -27,5 +27,8 @@ include './validar.php'
 <a href="../include/cadastro_login_colaborador.php">Cadastrar acesso do colaborador</a>
 <br>
 
-<a href="../index.php">Sair</a>
 
+<<<<<<< HEAD
+=======
+<a href="../index.php">Sair</a>
+>>>>>>> eec2b8580dfd4d1ee5c7358764fa9442dfe24032
