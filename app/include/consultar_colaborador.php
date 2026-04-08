@@ -7,7 +7,16 @@
 </head>
 <body>
 
-<h4>Consulta colaborador</h4>
+<h3>Consulta colaborador</h3>
+
+    <form action="../colaborador/cColaborador.php" method="get">
+
+        Cargo: <br>
+        <input type="radio" name="idCargo" value="1" required /> Administrador
+        <input type="radio" name="idCargo" value="2" required /> Funcionario
+        <br>
+        <input type="submit" value="Buscar">
+    </form>
 
 
     

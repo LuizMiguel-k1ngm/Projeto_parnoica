@@ -12,7 +12,7 @@
 
     <h4>Cadastro login do Colaborador</h4>
 
-    <form action="../colaborador/gColaborador.php" method="post">
+    <form action="../login/gLogin.php" method="post">
 
        Matricula:<br />
         <input type="text" name="matricula" /><br />
