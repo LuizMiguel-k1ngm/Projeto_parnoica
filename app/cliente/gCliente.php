@@ -27,7 +27,7 @@ include_once '../_config/conn.php';
 $consultacpf = "select * from parnaoica.cliente where cpf = '" . $cpf . "'";
 $result = mysqli_query($con, $consultacpf);
 if (mysqli_num_rows($result) == 1) {
-    echo "Cliente ja cadastrado!";
+    echo "Cliente já cadastrado!";
 } else {
 
 

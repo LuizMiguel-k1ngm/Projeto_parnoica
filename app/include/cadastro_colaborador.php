@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h3>Cadastro de colaborador</h3>
-     <form action="../cliente/gCliente.php" method="post">
+    <form action="../colaborador/gColaborador.php" method="post">
         Nome: <br>
         <input type="text" name="nome" required pattern="[A-Za-z ]+">
         <br>
@@ -43,7 +45,8 @@
 
 
         CPF: <br>
-        <input type="text" name="cpf" require="true" required pattern="[0-9]{11}" minlength="11" placeholder="00000000000" title="digite apenas os números do CPF">
+        <input type="text" name="cpf" require="true" required pattern="[0-9]{11}" minlength="11"
+            placeholder="00000000000" title="digite apenas os números do CPF">
         <br>
 
         Email: <br>
@@ -51,8 +54,14 @@
         <br>
 
         Telefone: <br>
-        <input type="tel" name="telefone" require="true" required pattern="[0-9]{11}" placeholder="21911111111" title="Digite apenas os números do telefone sem espaços">
+        <input type="tel" name="telefone" require="true" required pattern="[0-9]{11}" placeholder="21911111111"
+            title="Digite apenas os números do telefone sem espaços">
         <br>
+        <br>
+
+        Cargo<br />
+        <input type="radio" name="idCargo" value="1" required /> Administrador
+        <input type="radio" name="idCargo" value="2" required /> Funcionario <br>
 
 
         <input type="submit">
@@ -62,6 +71,7 @@
 
 
 
-    
+
 </body>
+
 </html>

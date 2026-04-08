@@ -8,10 +8,6 @@ $data_checkout = $_POST["data_checkout"];
 $n_clientes = $_POST["n_clientes"];
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4ccc1c2654a5b9f673fe817e66a15115ec176955
 $data_atual = date('Y-m-d');
 $entrada = new DateTime($data_checkin);
 $saida = new DateTime($data_checkout);
@@ -33,7 +29,7 @@ $sql_filtro = "SELECT id_reserva FROM parnaoica.reserva
 $resultado_filtro = mysqli_query($con, $sql_filtro);
 
 
-<<<<<<< HEAD
+
 $sql_filtro = "SELECT idReserva FROM parnaoica.reserva 
                WHERE idAcomodacao = '$idAcomodacao' 
                AND ('$data_checkin' < data_checkout AND '$data_checkout' > data_checkin)";
@@ -67,22 +63,22 @@ if ($data_atual <= $entrada) {
 } else if (mysqli_num_rows($resultado_filtro) > 0) {
     echo ("Desculpe! Esta acomodação já está ocupada no período selecionado.");
 } else {
-=======
+
 
 //criar variavel para conferir status da acomodacao filtrando pelo ID
 
 if($data_checkin <= $data_atual){
 //erro de datas
 echo("A data de checkin deve ser posterior a data atual");
->>>>>>> 4ccc1c2654a5b9f673fe817e66a15115ec176955
+
 
     $valor_total_pago = ($valor_acomodacao * $n_clientes) * $quantidade_dias;
 
-<<<<<<< HEAD
+
     $sqli = "insert into reserva values(null,
             '" . $idusuario . "','" . $idEstacionamento . "','" . $idAcomodacao . "',
              '" . $data_checkin . "', .'" . $data_checkout . "', '" . $n_clientes . "', null)";
-=======
+
 }
 if($saida <= $entrada){
     echo( "A data de checkin deve ser posterior a data atual");
@@ -145,7 +141,7 @@ if (mysqli_query($con, $sqli)) {
 mysqli_close($con);
 
     include_once '../_config/conn.php';
->>>>>>> 4ccc1c2654a5b9f673fe817e66a15115ec176955
+    
 
 
 
@@ -154,15 +150,15 @@ mysqli_close($con);
     }else {
         echo "Erro ao gravar!";
     }
-<<<<<<< HEAD
+
 }
 
 mysqli_close($con);
 
-=======
+
     
     mysqli_close($con);
->>>>>>> 4ccc1c2654a5b9f673fe817e66a15115ec176955
+
 
 ?>
 <a href="../index.php">Painel de Controle</a>
