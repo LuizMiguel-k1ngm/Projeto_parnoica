@@ -1,3 +1,7 @@
+<?php
+    require('../_config/conn.php')
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,22 +24,17 @@
         <input type="number" name="idEstacionamento" pattern="[0-9]{2}" required min="1" max="13" /><br />
           --> <br>
 
+
+
         <select name="idAcomodacao">
-            <optgroup label="Escolha a acomodação">
-                <option value=1>Suíte Lopes Mendes - R$ 2500.00</option>
-                <option value=2>Suíte Parnaoica - R$ 3500.00</option>
-                <option value=3>Suíte Lagoa Azul - R$ 4000.00</option>
-                <option value=4>Apartamento 1 - R$ 1500.00</option>
-                <option value=5>Apartamento 2 - R$ 1500.00</option>
-                <option value=6>Apartamento 3 - R$ 1500.00</option>
-                <option value=7>Apartamento 4 - R$ 1500.00</option>
-                <option value=8>Apartamento 5 - R$ 1500.00</option>
-                <option value=9>Apartamento 6 - R$ 1500.00</option>
-                <option value=10>Apartamento 7 - R$ 1500.00</option>
-                <option value=11>Apartamento 8 - R$ 1500.00</option>
-                <option value=12>Apartamento 9 - R$ 1500.00</option>
-                <option value=13>Apartamento 10 - R$ 1500.00</option>
-            </optgroup>
+              <?php 
+                $sqlConsultaAcomodacao = "SELECT idAcomodacao, nome FROM acomodacao";
+                $queryConsultaAcomodacao = mysqli_query($con, $sqlConsultaAcomodacao);
+
+                while($row = mysqli_fetch_assoc($queryConsultaAcomodacao)) { ?>
+                    <option value=<?= $row['idAcomodacao'] ?>><?= $row['nome'] ?></option>
+                <?php }?>
+
         </select>
 
         <br>

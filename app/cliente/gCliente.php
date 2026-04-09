@@ -44,3 +44,9 @@ if (mysqli_num_rows($result) == 1) {
     }
 }
 $con->close();
+
+?>
+<br>
+<a href="../include/cadastro_cliente.php">Cadastrar outro cliente</a><br>
+<a href="../colaborador/menu_funcionario.php">Painel</a><br>
+<a href="../include/sair.php">Sair</a>
