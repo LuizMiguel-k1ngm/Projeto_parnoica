@@ -1,4 +1,3 @@
-//tentar filtrar inves do idFrigobar filtrar pelo fStatus
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -32,12 +31,14 @@
 
 
         <?php echo 'Frigobar ' . $idFrigobar; ?> <br> <br>
-        
+              
         selecione o status<br />
         <input type="radio" name="fstatus" value="A" /> Ativo
         <input type="radio" name="fstatus" value="I" /> Inativo <br>
         <br>
         <input type="submit" value="Enviar" />
+
+
 
     </form>
 

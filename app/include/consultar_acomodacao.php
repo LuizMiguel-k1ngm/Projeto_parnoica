@@ -26,6 +26,12 @@ include_once '../acomodacao/cAcomodacao.php';
         <br>
         <input type="submit" value="Buscar">
 
+        
+
+
+
+
+
     </form>
 
 </body>

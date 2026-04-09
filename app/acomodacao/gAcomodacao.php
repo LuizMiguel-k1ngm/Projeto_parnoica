@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) == 1) {
 } else {
 
 $sqli = "insert into parnaoica.acomodacao values(null,
-            '" . $nome . "','" . $numero_quarto . "','" . $aStatus . "','" . $tipoAcomodacao . "', '" . $capacidade . "', '" . $valor . "' )";
+            '" . $nome . "','" . $numero_quarto . "','" . $aStatus . "','" . $tipoAcomodacao . "', '" . $capacidade . "', '" . $valor . "' )";            
 if (mysqli_query($con, $sqli)) {
     echo "Gravado com sucesso!";
 } else {

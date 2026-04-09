@@ -32,6 +32,8 @@
         <input type="radio" name="tipoAcomodacao" value="apartamento" />Apartamento
         <br /><br />
 
+    
+
         <input type="submit" value="Enviar" />
     </form>
 

@@ -9,11 +9,11 @@
 
 <body>
     <h3>Cadastro de colaborador</h3>
-<<<<<<< HEAD
+
      <form action="../colaborador/gColaborador.php" method="post">
-=======
+
     <form action="../colaborador/gColaborador.php" method="post">
->>>>>>> eec2b8580dfd4d1ee5c7358764fa9442dfe24032
+
         Nome: <br>
         <input type="text" name="nome" required pattern="[A-Za-z ]+">
         <br>
@@ -61,19 +61,13 @@
         <input type="tel" name="telefone" require="true" required pattern="[0-9]{11}" placeholder="21911111111"
             title="Digite apenas os números do telefone sem espaços">
         <br>
-<<<<<<< HEAD
+
          Cargo: <br>
         <input type="radio" name="idCargo" value="1" required /> Administrador
         <input type="radio" name="idCargo" value="2" /> Funcionario <br>
         <br>
-=======
         <br>
 
-        Cargo<br />
-        <input type="radio" name="idCargo" value="1" required /> Administrador
-        <input type="radio" name="idCargo" value="2" required /> Funcionario <br>
-
->>>>>>> eec2b8580dfd4d1ee5c7358764fa9442dfe24032
 
         <input type="submit">
 

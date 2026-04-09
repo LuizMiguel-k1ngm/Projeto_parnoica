@@ -23,4 +23,8 @@
     mysqli_close($con);
 ?>
 <br/>
-<a href="../index.php">Página Inicial</a>
+<a href="../colaborador/menu_adm.php">Painel</a>
+<br>
+<a href="../include/consultar_frigobar.php">Consultar frigobar</a>
+<br>
+<a href="../include/sair.php">Sair</a>

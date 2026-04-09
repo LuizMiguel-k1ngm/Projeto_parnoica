@@ -1,11 +1,22 @@
 <?php
-    #gravar reserva
-    $idAcomodacao = $_POST["idAcomodacao"];
-    $fstatus = $_POST["fstatus"];
-
-    #valor total pago ficou para pensar o que fazer com ele
 
     include_once '../_config/conn.php';
+
+
+    $idAcomodacao = $_POST["idAcomodacao"];
+    $fstatus = $_POST['fstatus'];
+    
+
+$consulta_frigobar = "select * from parnaoica.frigobar where idAcomodacao = '" . $idAcomodacao . "'";
+$result = mysqli_query($con, $consulta_frigobar);
+
+if(mysqli_num_rows($result) ==1){
+    echo "A acomodação já possui Frigobar cadastrado";
+}
+
+
+else{
+
     
       $sqli = "insert into frigobar values(null,
                 '".$idAcomodacao."','".$fstatus."')";
@@ -15,7 +26,7 @@
     }else{
         echo "Erro ao gravar!";
     }
-    
+}    
     mysqli_close($con);
 ?>
 <br>

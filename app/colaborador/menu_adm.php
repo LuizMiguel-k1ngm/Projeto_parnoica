@@ -17,9 +17,15 @@ include './validar.php'
 <a href="../include/consultar_colaborador.php">Consultar colaborador</a>
 <br>
 
+<a href="../include/cadastro_frigobar.php">Cadastrar Frigobar</a>
+<br>
+
 
 <a href="../include/cadastro_itensFrigobar.php">Cadastrar itens no frigobar</a>
 <br>
+
+
+
 
 
 <a href="../include/cadastro_colaborador.php">Cadastrar Colaborador</a>
@@ -27,8 +33,5 @@ include './validar.php'
 <a href="../include/cadastro_login_colaborador.php">Cadastrar acesso do colaborador</a>
 <br>
 
-
-<<<<<<< HEAD
-=======
 <a href="../index.php">Sair</a>
->>>>>>> eec2b8580dfd4d1ee5c7358764fa9442dfe24032
+
