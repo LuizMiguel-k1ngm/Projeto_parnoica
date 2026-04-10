@@ -1,7 +1,3 @@
-<?php
-include_once '../frigobar/cFrigobar.php';
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,11 +10,20 @@ include_once '../frigobar/cFrigobar.php';
 <body>
     <h3>Consulta Frigobar</h3>
 
-    <form action="../frigobar/cFrigobar.php" method="get">
+    <form action="consultar_frigobar.php" method="get">
         Id do frigobar:
         <input type="number" step="1" patter="/d" min="1" max='13' name="idFrigobar" required>
         <input type="submit" value="Buscar">
     </form>
+
+
+    <hr>
+    <?php
+    include_once '../frigobar/cFrigobar.php';
+    ?>
+    <hr>
+
+
 
 
 

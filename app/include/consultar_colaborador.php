@@ -13,7 +13,7 @@
  <h3>Consulta colaborador</h3>
  
 
-    <form action="../colaborador/cColaborador.php" method="get">
+    <form action="consultar_colaborador.php" method="get">
 
         Cargo: <br>
         <input type="radio" name="idCargo" value="1" required /> Administrador
@@ -21,6 +21,15 @@
         <br>
         <input type="submit" value="Buscar">
     </form>
+
+    <hr/>
+    <?php
+    include '../colaborador/cColaborador.php'
+
+    ?>
+
+
+    <hr/>
  
 
 

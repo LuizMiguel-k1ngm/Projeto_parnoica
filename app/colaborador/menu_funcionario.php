@@ -3,6 +3,11 @@ include './validar.php'
 
 ?>
 
+<h3>Menu de Funcionario</h3>
+
+<p>Opções: </p>
+<hr>
+
 <a href="../include/cadastro_cliente.php">Cadastrar cliente</a>
 <br>
 

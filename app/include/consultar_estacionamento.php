@@ -1,4 +1,4 @@
-// criar a tabela para consulta
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,12 +8,20 @@
 </head>
 <body>
     <h1>consulta estacionamento</h1>
-    <form action="../estacionamento/cEstacionamento.php" method="get">
+    <form action="consultar_estacionamento.php" method="get">
         N° da vaga:
         <input type="number" step="1" patter="/d" min="1" max ='13' name="idEstacionamento" required>
         <input type="submit" value="Buscar">
     </form>
 
+
+    <hr/>
+    <?php
+    include '../estacionamento/cEstacionamento.php';
+
+    ?> 
+
+    <hr/>
 
 
 </body>

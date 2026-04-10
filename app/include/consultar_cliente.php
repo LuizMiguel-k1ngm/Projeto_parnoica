@@ -1,7 +1,3 @@
-<?php
-include_once '../cliente/cCliente.php';
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,14 +10,19 @@ include_once '../cliente/cCliente.php';
 <body>
     <h3>Consulta cliente</h3>
 
-    <form action="../cliente/cCliente.php" method="get">
+    <form action="consultar_cliente.php" method="get">
         Status do Cliente: <br>
         <input type="radio" name="cStatus" value="A" required /> Ativo
         <input type="radio" name="cStatus" value="I" /> Inativo <br>
         <input type="submit" value="Buscar">
     </form>
 
+</hr>
+    <?php
+    include_once '../cliente/cCliente.php';
+    ?>
 
+    <hr />
 
 
 </body>

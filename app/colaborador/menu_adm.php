@@ -3,8 +3,11 @@ include './validar.php'
 
 ?>
 
-//aqui seria itens do frigobar
+<h3>Menu de administrador</h3>
 <br>
+
+<p>Opções: </p>
+<hr>
 <a href="../include/consultar_frigobar.php">Consultar frigobar</a>
 <br>
 

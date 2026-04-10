@@ -32,9 +32,6 @@
 
     </form>
 
-    <?php
-
-    ?>
 </body>
 
 </html>

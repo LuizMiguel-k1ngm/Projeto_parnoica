@@ -35,8 +35,6 @@ if (mysqli_num_rows($result) == 1) {
             '" . $nome . "','" . $data_nascimento . "','" . $cpf . "','" . $email . "', '" . $telefone . "', '" . $estado . "','" . $cidade . "', '" . $status . "' )";
 
     if ($con->query($sqli)) {
-        //gravou cliente, tenta gravar endereço
-        //retorna o id gerado pela ultima inserção
         echo "Gravado com sucesso!";
         $id = mysqli_insert_id($con);
     } else {
