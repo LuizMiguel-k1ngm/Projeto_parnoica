@@ -1,12 +1,12 @@
 <?php
 
 //testando se alguem pesquisou algo
-if (!empty($_GET["idFrigobar"])) {
-    $idFrigobar = $_GET["idFrigobar"];
+if (!empty($_GET["fstatus"])) {
+    $fstatus = $_GET["fstatus"];
 
     include_once '../_config/conn.php';
 
-    $sqli = "select * from frigobar where idFrigobar like '" . $idFrigobar . "%'";
+    $sqli = "select * from frigobar where fstatus like '" . $fstatus . "%'";
 
     $result = mysqli_query($con, $sqli);
     $totalregistros = mysqli_num_rows($result); //num de linhas

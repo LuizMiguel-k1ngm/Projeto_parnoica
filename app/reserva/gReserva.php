@@ -18,18 +18,7 @@ $dias = $entrada->diff($saida);
 $quantidade_dias = $dias->days;
 
 //filtro para reservas
-
-
-
-$sql_filtro = "SELECT id_reserva FROM parnaoica.reserva 
-               WHERE id_acomodacao = '$idAcomodacao' 
-               AND ('$data_checkin' < data_checkout AND '$data_checkout' > data_checkin)";
-
-               
-$resultado_filtro = mysqli_query($con, $sql_filtro);
-
-
-
+        
 $sql_filtro = "SELECT idReserva FROM parnaoica.reserva 
                WHERE idAcomodacao = '$idAcomodacao' 
                AND ('$data_checkin' < data_checkout AND '$data_checkout' > data_checkin)";

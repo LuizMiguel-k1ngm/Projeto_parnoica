@@ -28,12 +28,12 @@
 
         <select name="idAcomodacao">
               <?php 
-                $sqlConsultaAcomodacao = "SELECT idAcomodacao, nome FROM acomodacao";
+           /*     $sqlConsultaAcomodacao = "SELECT idAcomodacao, nome FROM acomodacao";
                 $queryConsultaAcomodacao = mysqli_query($con, $sqlConsultaAcomodacao);
 
                 while($row = mysqli_fetch_assoc($queryConsultaAcomodacao)) { ?>
                     <option value=<?= $row['idAcomodacao'] ?>><?= $row['nome'] ?></option>
-                <?php }?>
+                <?php }*/?>
 
         </select>
 

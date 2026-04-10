@@ -11,10 +11,16 @@
     <h3>Consulta Frigobar</h3>
 
     <form action="consultar_frigobar.php" method="get">
-        Id do frigobar:
-        <input type="number" step="1" patter="/d" min="1" max='13' name="idFrigobar" required>
+        <br>
+        Status: <br>
+        <input type="radio" name="fstatus" value="A"/> Ativo
+        <input type="radio" name="fstatus" value="I" /> Inativo <br>
+        <br>
         <input type="submit" value="Buscar">
+
     </form>
+
+
 
 
     <hr>

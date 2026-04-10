@@ -8,7 +8,7 @@
 <body>
 
 <h3>Cadastro Itens no Frigobar</h3>
-    <form action="../frigobar/cFrigobar.php" method="get">
+    <form action="../itens_frigobar/gIFrigobar.php" method="get">
         Id do frigobar:
         <input type="number" step="1" patter="/d" min="1" max='13' name="idFrigobar" required>
         <input type="submit" value="Buscar">
