@@ -17,23 +17,23 @@
 
     <form action="../reserva/gReserva.php" method="post">
 
-        Número do cliente:<br />
-        <input type="number" name="idusuario" pattern="/d" min="1" required /><br />
-        <!--
-        N° vaga do estacionamento:<br />
-        <input type="number" name="idEstacionamento" pattern="[0-9]{2}" required min="1" max="13" /><br />
-          --> <br>
+        <select name="idCliente"> 
+            <?php $sqlConsultaCliente = "SELECT idusuario, nome FROM cliente"; 
+            $queryConsultaCliente = mysqli_query($con, $sqlConsultaCliente);
+             while($row = mysqli_fetch_assoc($queryConsultaCliente)) 
+                { ?> <option value=<?= $row['idusuario'] ?>><?= $row['nome']
+                 ?></option> <?php }?> </select>
 
-
+<br><br>
 
         <select name="idAcomodacao">
               <?php 
-           /*     $sqlConsultaAcomodacao = "SELECT idAcomodacao, nome FROM acomodacao";
+                $sqlConsultaAcomodacao = "SELECT idAcomodacao, nome FROM acomodacao";
                 $queryConsultaAcomodacao = mysqli_query($con, $sqlConsultaAcomodacao);
 
                 while($row = mysqli_fetch_assoc($queryConsultaAcomodacao)) { ?>
                     <option value=<?= $row['idAcomodacao'] ?>><?= $row['nome'] ?></option>
-                <?php }*/?>
+                <?php }?>
 
         </select>
 
