@@ -44,7 +44,7 @@
            
         </select>
 
-      <input type="number" max = 10 min = 1 required placeholder="1" default = 1> 
+      <input type="number" name="quantida" max = 10 min = 1 required placeholder="1" default = 1> 
 
 
 
