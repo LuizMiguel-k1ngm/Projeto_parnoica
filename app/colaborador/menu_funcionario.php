@@ -17,10 +17,10 @@ include './validar.php'
 <a href="../include/cadastro_acomodacao.php">Cadastrar Acomodação</a>
 <br>
 
-<a href="../include/cadastro_acomodacao.php">Check-in</a>
+<a href="#">Check-in</a>
 <br>
 
-<a href="../include/cadastro_acomodacao.php">Check-out</a>
+<a href="#">Check-out</a>
 <br>
  
 

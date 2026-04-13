@@ -32,7 +32,7 @@
         <br>
         
         Frigobar status<br />
-        <input type="radio" name="fstatus" value="A" /> Ativo
+        <input type="radio" name="fstatus" value="A" required /> Ativo
         <input type="radio" name="fstatus" value="I" /> Inativo <br>
 
 
