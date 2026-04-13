@@ -14,7 +14,6 @@
     <h1>Cadastro itens no frigobar</h1>
     <form action="../itens_frigobar/gItens_Frigobar.php" method="post">
 
-
         <select name="idAcomodacao">
             <?php 
                 $sqlConsultaAcomodacao = "SELECT idAcomodacao, nome FROM acomodacao";
@@ -44,7 +43,7 @@
            
         </select>
 
-      <input type="number" name="quantida" max = 10 min = 1 required placeholder="1" default = 1> 
+      <input type="number" name max = 10 min = 1 required placeholder="1" default = 1> 
 
 
 

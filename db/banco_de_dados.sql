@@ -126,3 +126,8 @@ CREATE TABLE logs (
     data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_log_func FOREIGN KEY (idFuncionario) REFERENCES funcionario(idFuncionario)
 );
+
+
+//criei tambem uma tabela para Status do frigobar;
+
+//colocar o status na reserva 
