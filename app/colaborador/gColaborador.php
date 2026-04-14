@@ -35,14 +35,14 @@ date_default_timezone_set("America/Sao_Paulo");
 
 //consultar pelo CPF a existecia do cliente    
  
-$consultacpf = "select * from parnaoica.funcionario where cpf = '" . $cpf . "'";
+$consultacpf = "SELECT * from parnaoica.funcionario where cpf = '" . $cpf . "'";
 $result = mysqli_query($con, $consultacpf);
 if (mysqli_num_rows($result) == 1) {
     echo "Colaborador ja cadastrado!";
 } else {
 
 
-    $sqli = "insert into parnaoica.funcionario values(null,
+    $sqli = "INSERT into parnaoica.funcionario values(null,
             '" . $nome . "','" . $cpf . "','" . $telefone . "','" . $email . "', '" . $status . "', '" . $idCargo . "','" . $data_nascimento . "' )";
 
     if ($con->query($sqli)) {

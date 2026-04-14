@@ -10,14 +10,14 @@ $perfil = $_POST["perfil"];
 
 
 
-$consulta_login = "select * from parnaoica.login where login = '" . $login . "'";
+$consulta_login = " SELECT * FROM parnaoica.login WHERE login = '" . $login . "'";
 $result = mysqli_query($con, $consulta_login);
 if (mysqli_num_rows($result) == 1) {
     echo "Login indisponível!";
 } else {
 
 
-    $sqli = "insert into parnaoica.login values(null,
+    $sqli = "INSERT into parnaoica.login values(null,
             '" . $login . "','" . $senha . "','" . $matricula . "')";
 
     if ($con->query($sqli)) {

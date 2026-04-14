@@ -25,3 +25,4 @@ if (mysqli_num_rows($result) >= 1) {
     $msg = "Login/Senha invalido(s)";
     header("location:../index.php?msg=" . $msg);
 }
+

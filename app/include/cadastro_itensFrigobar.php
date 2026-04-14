@@ -14,13 +14,13 @@
     <h1>Cadastro itens no frigobar</h1>
     <form action="../itens_frigobar/gItens_Frigobar.php" method="post">
 
-        <select name="idAcomodacao">
+       Código da reserva: <br><select name="idReserva">
             <?php 
-                $sqlConsultaAcomodacao = "SELECT idAcomodacao, nome FROM acomodacao";
-                $queryConsultaAcomodacao = mysqli_query($con, $sqlConsultaAcomodacao);
+                $sqlConsultaReserva = "SELECT idReserva, idAcomodacao FROM reserva";
+                $queryConsultaReserva = mysqli_query($con, $sqlConsultaReserva);
 
-                while($row = mysqli_fetch_assoc($queryConsultaAcomodacao)) { ?>
-                    <option value=<?= $row['idAcomodacao'] ?>><?= $row['nome']?> </option>
+                while($row = mysqli_fetch_assoc($queryConsultaReserva)) { ?>
+                    <option value=<?= $row['idReserva'] ?>><?= $row['idReserva']?> </option>
                 <?php }?>
            ?>
         </select>
@@ -43,7 +43,7 @@
            
         </select>
 
-      <input type="number" name max = 10 min = 1 required placeholder="1" default = 1> 
+      <input type="number" name = "quantidade" max = 10 min = 1 required placeholder="1" default = 1> 
 
 
 

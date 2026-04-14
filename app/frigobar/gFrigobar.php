@@ -7,7 +7,7 @@
     $fstatus = $_POST['fstatus'];
     
 
-$consulta_frigobar = "select * from parnaoica.frigobar where idAcomodacao = '" . $idAcomodacao . "'";
+$consulta_frigobar = "SELECT * from parnaoica.frigobar where idAcomodacao = '" . $idAcomodacao . "'";
 $result = mysqli_query($con, $consulta_frigobar);
 
 if(mysqli_num_rows($result) ==1){
@@ -18,7 +18,7 @@ if(mysqli_num_rows($result) ==1){
 else{
 
     
-      $sqli = "insert into frigobar values(null,
+      $sqli = "INSERT into frigobar values(null,
                 '".$idAcomodacao."','".$fstatus."')";
     //echo $sql;    
     if(mysqli_query($con, $sqli)){

@@ -1,7 +1,6 @@
 <?php
 #gravar usuario
 
-
 date_default_timezone_set("America/Sao_Paulo");
 
 $nome = $_POST["nome"];
@@ -24,14 +23,14 @@ include_once '../_config/conn.php';
 
 
 //consultar pelo CPF a existecia do cliente    
-$consultacpf = "select * from parnaoica.cliente where cpf = '" . $cpf . "'";
+$consultacpf = "SELECT * from parnaoica.cliente where cpf = '" . $cpf . "'";
 $result = mysqli_query($con, $consultacpf);
 if (mysqli_num_rows($result) == 1) {
     echo "Cliente já cadastrado!";
 } else {
 
 
-    $sqli = "insert into parnaoica.cliente values(null,
+    $sqli = "INSERT into parnaoica.cliente values(null,
             '" . $nome . "','" . $data_nascimento . "','" . $cpf . "','" . $email . "', '" . $telefone . "', '" . $estado . "','" . $cidade . "', '" . $status . "' )";
 
     if ($con->query($sqli)) {
