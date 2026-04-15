@@ -1,17 +1,18 @@
 <?php
+date_default_timezone_set("America/Sao_Paulo");
 include_once '../_config/conn.php';
+
 
 $idusuario = $_POST["idCliente"];
 $idAcomodacao = $_POST["idAcomodacao"];
 $data_checkin = $_POST["data_checkin"];
 $data_checkout = $_POST["data_checkout"];
 $n_clientes = $_POST["n_clientes"];
-
+$r_status = 'PE'; // recebe status pendente como default
 
 $data_atual = date('Y-m-d');
 $entrada = new DateTime($data_checkin);
 $saida = new DateTime($data_checkout);
-
 
 
 $dias = $entrada->diff($saida);
@@ -31,101 +32,33 @@ $resultado_filtro = mysqli_query($con, $sql_filtro);
 $sql_filtro_valor = "SELECT * FROM parnaoica.acomodacao 
                WHERE idAcomodacao = '$idAcomodacao' ";
 
-
 $resultado_valor_acomodacao_filtro = mysqli_query($con, $sql_filtro_valor);
 $valor_acomodacao = mysqli_fetch_assoc($resultado_valor_acomodacao_filtro);
+$row_valor_acomodacao = $valor_acomodacao['valor'];
+//  var_dump($row_valor_acomodacao);
+//  die;
 
-var_dump($valor_acomodacao);
-die;
+$valor_total_pago = ($row_valor_acomodacao * $n_clientes) * $quantidade_dias;
+//  var_dump($valor_total_pago);
+//  die;
 
-
-
-
-//criar variavel para conferir status da acomodacao filtrando pelo ID
 
 if ($data_atual <= $entrada) {
-    //erro de datas
     echo "A data de check-in deve ser posterior a data atual";
-}
- else if ($saida <= $entrada) {
-    //conferir se a acomodação está disponivel;
+} else if ($saida <= $entrada) {
     echo "A data de check-out deve ser posterior a data de check-in";
-} 
-else if (mysqli_num_rows($resultado_filtro) > 0) {
+} else if (mysqli_num_rows($resultado_filtro) > 0) {
     echo ("Desculpe! Esta acomodação já está ocupada no período selecionado.");
-} 
-else if ($n_clientes > 2) {
+} else if ($n_clientes > 2) {
     echo "número de clientes excedeu o limite da acomodação!";
-} 
-else {
+} else {
     //criar variavel para conferir status da acomodacao filtrando pelo ID
+    // $valor_total_pago = ($valor_acomodacao * $n_clientes) * $quantidade_dias;
 
-    if ($data_checkin <= $data_atual) {
-        //erro de datas
-        echo ("A data de checkin deve ser posterior a data atual");
-
-
-        $valor_total_pago = ($valor_acomodacao * $n_clientes) * $quantidade_dias;
-
-
-        $sqli = "insert into reserva values(null,
-            '" . $idusuario . "','" . $idEstacionamento . "','" . $idAcomodacao . "',
-             '" . $data_checkin . "', .'" . $data_checkout . "', '" . $n_clientes . "', null)";
-    }if ($saida <= $entrada) {
-        echo ("A data de checkin deve ser posterior a data atual");
-    }if (mysqli_num_rows($resultado_filtro) > 0) {
-        echo ("Desculpe! Esta acomodação já está ocupada no período selecionado.");
-        //confirmada
-        //colocar um switch case para calcular o valor por (id_acomodação*n_clientes)*quantidade_dias
-
-
-    }else {
-    }
-
-    #valor total pago ficou para pensar o que fazer com ele
-    // valor total pago da reserva = (valor_reserva * n_pessoas) * dias_de_reserva
-    // dias de reserva = diferença entre check-in e check-out, pode ser usado a função diff()
-
-
-    // include_once '../_config/conn.php';
-
-
-
-
+    //ver essa entrade de sql
     $sqli = "insert into reserva values(null,
             '" . $idusuario . "','" . $idEstacionamento . "','" . $idAcomodacao . "',
-             '" . $data_checkin . "', .'" . $data_checkout . "', '" . $n_clientes . "', null)";
-
-
-    #criar objetos de data
-    $entrada = new DateTime($data_checkin);
-    $saida = new DateTime($data_checkout);
-
-    #criar o intervalo de dias  
-    $dias = $entrada->diff($saida);
-
-    #quantidade total de dias
-    $quantidade_dias = $dias->days;
-
-
-    #valor total pago ficou para pensar o que fazer com ele
-    // valor total pago da reserva = (valor_reserva * n_pessoas) * dias_de_reserva
-    // dias de reserva = diferença entre check-in e check-out, pode ser usado a função diff()
-
-
-    //echo $sql;    
-    if (mysqli_query($con, $sqli)) {
-        echo "Gravado com sucesso!";
-    } else {
-        echo "Erro ao gravar!";
-    }
-
-
-    mysqli_close($con);
-
-    include_once '../_config/conn.php';
-
-
+             '" . $data_checkin . "', .'" . $data_checkout . "', '" . $n_clientes . "', '" . $valor_total_pago . "', '" . $r_status . "')";
 
 
     if (mysqli_query($con, $sqli)) {
@@ -135,12 +68,21 @@ else {
     }
 }
 
+
+// if (mysqli_query($con, $sqli)) {
+//     echo "Gravado com sucesso!";
+// } else {
+//     echo "Erro ao gravar!";
+// }
+
 mysqli_close($con);
 
-
-
-mysqli_close($con);
 
 
 ?>
-<a href="../index.php">Painel de Controle</a>
+<br>
+<a href="../colaborador/menu_funcionario.php">Painel de Controle</a>
+<br>
+<a href="../include/cadastro_reserva.php">Registrar outra reserva</a>
+<br>
+<a href="../include/sair.php">Sair</a>
