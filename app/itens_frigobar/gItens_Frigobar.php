@@ -31,12 +31,6 @@ $idFrigobar = mysqli_fetch_assoc($query_idFrigobar);
 $row_frigobar = $idFrigobar['idFrigobar'];
 
 
-//valor do item
-$sql_valor = "SELECT valor FROM itens WHERE idItens = $idItens";
-$query_valor = mysqli_query($con, $sql_valor); 
-$valor = mysqli_fetch_assoc($query_valor);
-$row_valor = $valor['valor'];
-
 
 $sqli = "INSERT INTO consumo_frigobar VALUES(NULL,
  '" . $reserva . "', '" . $row_frigobar . "', '". $idItens . "', '" . $quantidade . "','" . $row_valor . "', '" . $data_consumo . "' )";
@@ -47,14 +41,12 @@ $sqli = "INSERT INTO consumo_frigobar VALUES(NULL,
     } else {
         echo "Erro ao gravar item!";
     }
-
-
-
 }
 $con->close();
 
 ?>
 
+<br>
 <a href="../include/cadastro_itensFrigobar.php">Cadastrar outro item</a><br>
-<a href="../colaborador/menu_funcionario.php">Painel</a><br>
+<a href="../colaborador/menu_adm.php">Painel</a><br>
 <a href="../include/sair.php">Sair</a>

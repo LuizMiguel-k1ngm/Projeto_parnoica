@@ -6,12 +6,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro itens frigobar</title>
+    <title>Cadastro consumo itens frigobar</title>
 </head>
 <body>
 
 
-    <h1>Cadastro itens no frigobar</h1>
+    <h1>Cadastro itens consumidos do frigobar</h1>
     <form action="../itens_frigobar/gItens_Frigobar.php" method="post">
 
        Código da reserva: <br><select name="idReserva">
@@ -33,7 +33,7 @@
                 $queryConsultaItens = mysqli_query($con, $sqlConsultaItens);
 
                 while($row = mysqli_fetch_assoc($queryConsultaItens)) { ?>
-                    <option value=<?= $row['idItens'] ?>><?= $row['nome']?>, R$<?= $row['valor']?> </option>
+                    <option value=<?= $row['idItens'] ?>><?= $row['nome']?> | R$<?= $row['valor']?> </option>
                    
                 <?php }?>
 
@@ -43,7 +43,7 @@
            
         </select>
 
-      <input type="number" name = "quantidade" max = 10 min = 1 required placeholder="1" default = 1> 
+      <input type="number" name = "quantidade" max = 5 min = 1 required placeholder="0" default = 1> 
 
 
 

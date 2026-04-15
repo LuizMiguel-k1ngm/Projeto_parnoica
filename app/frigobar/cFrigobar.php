@@ -20,6 +20,8 @@ if (!empty($_GET["fstatus"])) {
                 <th>Id da acomodação</th>
                 <th>Status</th>
                 <th>Editar</th>
+
+
                 <!--   <th>Excluir</th> -->
             </tr>
             <?php
@@ -31,7 +33,7 @@ if (!empty($_GET["fstatus"])) {
                     <td><?php echo $row["idAcomodacao"] ?></td>
                     <td><?php echo $row["fstatus"] ?></td>
                     <td><a href="../include/atualizar_frigobar.php?idFrigobar=<?php echo $row["idFrigobar"] ?>">...</a></td>
-                    <!-- <td><a href="#" onclick="excluir(<?php echo $row["idFrigobar"] ?>)">X</a></td> -->
+                   <!-- <td><a href="#" onclick="excluir(<?php echo $row["idFrigobar"] ?>)">X</a></td> -->
                 </tr>
 
             <?php

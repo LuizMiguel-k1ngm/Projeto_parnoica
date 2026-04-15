@@ -24,15 +24,18 @@ include './validar.php'
 <br>
 
 
-<a href="../include/cadastro_itensFrigobar.php">Cadastrar itens no frigobar</a>
+<a href="../include/cadastro_kit_frigobar.php">Cadastrar itens do frigobar</a>
 <br>
 
-
-
-
+<a href="../include/cadastro_itensFrigobar.php">Cadastrar Consumo do frigobar</a>
+<br>
 
 <a href="../include/cadastro_colaborador.php">Cadastrar Colaborador</a>
 <br>
+
+
+
+
 <a href="../include/cadastro_login_colaborador.php">Cadastrar acesso do colaborador</a>
 <br>
 

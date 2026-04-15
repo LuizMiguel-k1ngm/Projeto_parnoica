@@ -1,7 +1,7 @@
 <?php
 include_once '../_config/conn.php';
 
-$idusuario = $_POST["idusuario"];
+$idusuario = $_POST["idCliente"];
 $idAcomodacao = $_POST["idAcomodacao"];
 $data_checkin = $_POST["data_checkin"];
 $data_checkout = $_POST["data_checkout"];
@@ -18,7 +18,7 @@ $dias = $entrada->diff($saida);
 $quantidade_dias = $dias->days;
 
 //filtro para reservas
-        
+
 $sql_filtro = "SELECT idReserva FROM parnaoica.reserva 
                WHERE idAcomodacao = '$idAcomodacao' 
                AND ('$data_checkin' < data_checkout AND '$data_checkout' > data_checkin)";
@@ -36,7 +36,7 @@ $resultado_valor_acomodacao_filtro = mysqli_query($con, $sql_filtro_valor);
 $valor_acomodacao = mysqli_fetch_assoc($resultado_valor_acomodacao_filtro);
 
 var_dump($valor_acomodacao);
- die;
+die;
 
 
 
@@ -46,59 +46,53 @@ var_dump($valor_acomodacao);
 if ($data_atual <= $entrada) {
     //erro de datas
     echo "A data de check-in deve ser posterior a data atual";
-} else if ($saida <= $entrada) {
+}
+ else if ($saida <= $entrada) {
     //conferir se a acomodação está disponivel;
     echo "A data de check-out deve ser posterior a data de check-in";
-} else if (mysqli_num_rows($resultado_filtro) > 0) {
+} 
+else if (mysqli_num_rows($resultado_filtro) > 0) {
     echo ("Desculpe! Esta acomodação já está ocupada no período selecionado.");
-} else {
+} 
+else if ($n_clientes > 2) {
+    echo "número de clientes excedeu o limite da acomodação!";
+} 
+else {
+    //criar variavel para conferir status da acomodacao filtrando pelo ID
+
+    if ($data_checkin <= $data_atual) {
+        //erro de datas
+        echo ("A data de checkin deve ser posterior a data atual");
 
 
-//criar variavel para conferir status da acomodacao filtrando pelo ID
-
-if($data_checkin <= $data_atual){
-//erro de datas
-echo("A data de checkin deve ser posterior a data atual");
+        $valor_total_pago = ($valor_acomodacao * $n_clientes) * $quantidade_dias;
 
 
-    $valor_total_pago = ($valor_acomodacao * $n_clientes) * $quantidade_dias;
+        $sqli = "insert into reserva values(null,
+            '" . $idusuario . "','" . $idEstacionamento . "','" . $idAcomodacao . "',
+             '" . $data_checkin . "', .'" . $data_checkout . "', '" . $n_clientes . "', null)";
+    }if ($saida <= $entrada) {
+        echo ("A data de checkin deve ser posterior a data atual");
+    }if (mysqli_num_rows($resultado_filtro) > 0) {
+        echo ("Desculpe! Esta acomodação já está ocupada no período selecionado.");
+        //confirmada
+        //colocar um switch case para calcular o valor por (id_acomodação*n_clientes)*quantidade_dias
+
+
+    }else {
+    }
+
+    #valor total pago ficou para pensar o que fazer com ele
+    // valor total pago da reserva = (valor_reserva * n_pessoas) * dias_de_reserva
+    // dias de reserva = diferença entre check-in e check-out, pode ser usado a função diff()
+
+
+    // include_once '../_config/conn.php';
+
+
 
 
     $sqli = "insert into reserva values(null,
-            '" . $idusuario . "','" . $idEstacionamento . "','" . $idAcomodacao . "',
-             '" . $data_checkin . "', .'" . $data_checkout . "', '" . $n_clientes . "', null)";
-
-}
-if($saida <= $entrada){
-    echo( "A data de checkin deve ser posterior a data atual");
-
-
-}
-
-if (mysqli_num_rows($resultado_filtro) > 0){
-    echo("Desculpe! Esta acomodação já está ocupada no período selecionado.");
-    //confirmada
-    //colocar um switch case para calcular o valor por (id_acomodação*n_clientes)*quantidade_dias
-
-
-}else{
-
-
-
-
-}
-
-#valor total pago ficou para pensar o que fazer com ele
-// valor total pago da reserva = (valor_reserva * n_pessoas) * dias_de_reserva
-// dias de reserva = diferença entre check-in e check-out, pode ser usado a função diff()
-
-
-// include_once '../_config/conn.php';
-
-
-
-
-$sqli = "insert into reserva values(null,
             '" . $idusuario . "','" . $idEstacionamento . "','" . $idAcomodacao . "',
              '" . $data_checkin . "', .'" . $data_checkout . "', '" . $n_clientes . "', null)";
 
@@ -108,7 +102,7 @@ $sqli = "insert into reserva values(null,
     $saida = new DateTime($data_checkout);
 
     #criar o intervalo de dias  
-    $dias = $entrada -> diff($saida);
+    $dias = $entrada->diff($saida);
 
     #quantidade total de dias
     $quantidade_dias = $dias->days;
@@ -119,34 +113,33 @@ $sqli = "insert into reserva values(null,
     // dias de reserva = diferença entre check-in e check-out, pode ser usado a função diff()
 
 
-//echo $sql;    
-if (mysqli_query($con, $sqli)) {
-    echo "Gravado com sucesso!";
-} else {
-    echo "Erro ao gravar!";
-}
+    //echo $sql;    
+    if (mysqli_query($con, $sqli)) {
+        echo "Gravado com sucesso!";
+    } else {
+        echo "Erro ao gravar!";
+    }
 
 
-mysqli_close($con);
+    mysqli_close($con);
 
     include_once '../_config/conn.php';
-    
+
 
 
 
     if (mysqli_query($con, $sqli)) {
         echo "Gravado com sucesso!";
-    }else {
+    } else {
         echo "Erro ao gravar!";
     }
-
 }
 
 mysqli_close($con);
 
 
-    
-    mysqli_close($con);
+
+mysqli_close($con);
 
 
 ?>
