@@ -10,6 +10,10 @@ $data_checkout = $_POST["data_checkout"];
 $n_clientes = $_POST["n_clientes"];
 $r_status = 'PE'; // recebe status pendente como default
 
+$idEstacionamento = $_POST['idAcomodacao']; // fazer a logica
+
+
+
 $data_atual = date('Y-m-d');
 $entrada = new DateTime($data_checkin);
 $saida = new DateTime($data_checkout);
@@ -43,7 +47,11 @@ $valor_total_pago = ($row_valor_acomodacao * $n_clientes) * $quantidade_dias;
 //  die;
 
 
-if ($data_atual <= $entrada) {
+
+
+
+
+if ($data_atual > $entrada) {
     echo "A data de check-in deve ser posterior a data atual";
 } else if ($saida <= $entrada) {
     echo "A data de check-out deve ser posterior a data de check-in";
@@ -81,7 +89,7 @@ mysqli_close($con);
 
 ?>
 <br>
-<a href="../colaborador/menu_funcionario.php">Painel de Controle</a>
+<a href="../colaborador/painel.php">Painel de Controle</a>
 <br>
 <a href="../include/cadastro_reserva.php">Registrar outra reserva</a>
 <br>
