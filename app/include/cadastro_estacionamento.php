@@ -1,4 +1,6 @@
 //isso não é tela de cadastro, é tela de Atualizacao
+//Cadastro será automático na acomodacao
+
 <!DOCTYPE html>
 <html lang="pt-bt">
 
@@ -41,13 +43,6 @@
         <input type="submit" value="Enviar" />
 
     </form>
-
-
-
-
-
-
-
 </body>
 
 </html>

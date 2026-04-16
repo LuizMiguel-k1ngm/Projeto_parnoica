@@ -27,7 +27,7 @@ CREATE TABLE estacionamento (
     idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
     status VARCHAR(1),
     idAcomodacao INT,
-     CONSTRAINT fk_reserva_acomodacao FOREIGN KEY (idAcomodacao) REFERENCES acomodacao(idAcomodacao)
+    CONSTRAINT fk_reserva_acomodacao FOREIGN KEY (idAcomodacao) REFERENCES acomodacao(idAcomodacao)
 );
 
 -- tabela de itens

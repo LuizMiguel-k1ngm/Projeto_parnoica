@@ -18,21 +18,36 @@ $result = mysqli_query($con, $consulta_numero_quarto);
 if (mysqli_num_rows($result) == 1) {
     echo "Número de acomodação já cadastrado!. Tente novamente";
 } else {
+    
 
 $sqli = "INSERT into parnaoica.acomodacao values(null,
             '" . $nome . "','" . $numero_quarto . "','" . $aStatus . "','" . $tipoAcomodacao . "', '" . $capacidade . "', '" . $valor . "' )";      
    
-$sqli2 = "INSERT into parnaoica.estacionamento (idEstacionamento, status,) values (null, 'L')" ;
-            
+         
 if (mysqli_query($con, $sqli)) {
     echo "Gravado com sucesso!";
+     
+    //O ultimo id criado da acomodacao
+     $ultimoId = mysqli_insert_id($con);
+
+    //Enviar infos para o DB -- fazer
+    $sqli2 = "INSERT INTO parnaoica.estacionamento (idEstacionamento, status, idAcomodacao) values(null, 'L', '$ultimoId')"; 
+
+    if (mysqli_query($con, $sqli2)) {
+       // echo "Gravado com sucesso!";
+    } else {
+        echo "Erro ao gravar estacionamento!";
+    }
+
+
+
 } else {
     echo "Erro ao gravar!";
 }
 
 }
-$con->close();
-// mysqli_close($con);
+//$con->close();
+mysqli_close($con);
 
 ?>
 <br>

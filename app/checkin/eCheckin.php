@@ -1,0 +1,5 @@
+<?php
+//excluir checkin
+
+
+?>
