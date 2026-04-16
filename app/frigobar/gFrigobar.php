@@ -7,7 +7,7 @@
     $fstatus = $_POST['fstatus'];
     
 
-$consulta_frigobar = "SELECT * from parnaoica.frigobar where idAcomodacao = '" . $idAcomodacao . "'";
+$consulta_frigobar = "SELECT * FROM parnaoica.frigobar WHERE idAcomodacao = '$idAcomodacao'";
 $result = mysqli_query($con, $consulta_frigobar);
 
 if(mysqli_num_rows($result) ==1){
@@ -18,8 +18,8 @@ if(mysqli_num_rows($result) ==1){
 else{
 
     
-      $sqli = "INSERT into frigobar values(null,
-                '".$idAcomodacao."','".$fstatus."')";
+      $sqli = "INSERT INTO frigobar(idFrigobar, idAcomodacao, fstatus)  VALUES(null,
+                '$idAcomodacao','$fstatus')";
     //echo $sql;    
     if(mysqli_query($con, $sqli)){
         echo "Gravado com sucesso!";

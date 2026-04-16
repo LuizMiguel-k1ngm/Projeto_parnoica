@@ -32,8 +32,9 @@ $row_frigobar = $idFrigobar['idFrigobar'];
 
 
 
-$sqli = "INSERT INTO consumo_frigobar VALUES(NULL,
- '" . $reserva . "', '" . $row_frigobar . "', '". $idItens . "', '" . $quantidade . "','" . $row_valor . "', '" . $data_consumo . "' )";
+$sqli = "INSERT INTO consumo_frigobar(idConsumo, idReserva, idFrigobar, idItens, quantidade, valor_unitario_pago, data_consumo)
+VALUES(NULL,
+ '$reserva', '$row_frigobar', '$idItens', '$quantidade','$row_valor', '$data_consumo')";
 
   if ($con->query($sqli)) {
         echo "Gravado com sucesso!";

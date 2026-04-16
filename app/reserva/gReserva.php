@@ -9,14 +9,14 @@ $data_checkin = $_POST["data_checkin"];
 $data_checkout = $_POST["data_checkout"];
 $n_clientes = $_POST["n_clientes"];
 $r_status = 'PE'; // recebe status pendente como default
+$hora_checkin =   '11:00:00'; //default de tempo para checkin
+$hora_checkout = '14:00:00'; //default de tempo para checkout
 
 
 
 $idEstacionamento = $_POST['idAcomodacao']; // fazer a logica
 
 //lógica do idEstacionamento
-
-
 
 
 $data_atual = date('Y-m-d');
@@ -69,9 +69,8 @@ if ($data_atual > $entrada) {
     // $valor_total_pago = ($valor_acomodacao * $n_clientes) * $quantidade_dias;
 
     //ver essa entrade de sql
-    $sqli = "insert into reserva values(null,
-            '" . $idusuario . "','" . $idEstacionamento . "','" . $idAcomodacao . "',
-             '" . $data_checkin . "', .'" . $data_checkout . "', '" . $n_clientes . "', '" . $valor_total_pago . "', '" . $r_status . "')";
+    $sqli = "INSERT INTO reserva(idReserva, idusuario, idEstacionamento, idAcomodacao, data_checkin, data_checkout, n_clientes, valor_total_pago, rstatus, hora_checkin, hora_checkout)
+     VALUES(null, '$idusuario', '$idEstacionamento','  $idAcomodacao', '$data_checkin', '$data_checkout', '$n_clientes', '$valor_total_pago', '$r_status', '$hora_checkin', '$hora_checkout')";
 
 
     if (mysqli_query($con, $sqli)) {
