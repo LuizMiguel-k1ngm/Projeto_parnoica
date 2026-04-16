@@ -1,19 +1,9 @@
 <?php
 
-$idEstacionamento = $_POST["idEstacionamento"];
-$status = $_POST["status"];
 
-include_once '../_config/conn.php';
 
-$sqli = "INSERT INTO parnaoica.estacionamento values(null, '".$status."')";
 
-if(mysqli_query($con, $sqli)){
-        echo "Gravado com sucesso!";
-    }else{
-        echo "Erro ao gravar!";
-    }
-    
-    mysqli_close($con);
+
 
 ?>
 <br>

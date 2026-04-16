@@ -10,7 +10,12 @@ $data_checkout = $_POST["data_checkout"];
 $n_clientes = $_POST["n_clientes"];
 $r_status = 'PE'; // recebe status pendente como default
 
+
+
 $idEstacionamento = $_POST['idAcomodacao']; // fazer a logica
+
+//lógica do idEstacionamento
+
 
 
 
@@ -77,15 +82,7 @@ if ($data_atual > $entrada) {
 }
 
 
-// if (mysqli_query($con, $sqli)) {
-//     echo "Gravado com sucesso!";
-// } else {
-//     echo "Erro ao gravar!";
-// }
-
 mysqli_close($con);
-
-
 
 ?>
 <br>
