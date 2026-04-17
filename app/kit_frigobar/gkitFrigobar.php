@@ -5,7 +5,8 @@ include_once '../_config/conn.php';
 $idAcomodacao = $_POST['idAcomodacao'];
 $idItens = $_POST['idItens'];
 $quantidade = $_POST['quantidade'];
-$dataConsumo = date('Y-m-d H:i');
+$dataConsumo = date('Y-m-d H:m:s');
+
 
 
 if (empty($idAcomodacao) || empty($idItens) || empty($quantidade)) {
@@ -20,7 +21,7 @@ if (empty($idAcomodacao) || empty($idItens) || empty($quantidade)) {
     $rowIdFrigobar = $idFrigobar['idFrigobar'];
 
 
-    $sqli = "INSERT INTO kit_frigobar(idConsumo, idReserva, idFrigobar, idItens, valor_unitario_pago, data_consumo)
+    $sqli = "INSERT INTO kit_frigobar(idKitFrigobar, idFrigobar, idItens, quantidade, data_consumo)
     VALUES (NULL, '$rowIdFrigobar', '$idItens ', ' $quantidade', '$dataConsumo ') ";
     if ($con->query($sqli)) {
         echo "Gravado com sucesso!";

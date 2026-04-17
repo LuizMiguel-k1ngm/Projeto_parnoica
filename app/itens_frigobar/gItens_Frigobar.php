@@ -31,6 +31,12 @@ $idFrigobar = mysqli_fetch_assoc($query_idFrigobar);
 $row_frigobar = $idFrigobar['idFrigobar'];
 
 
+$sql_valor = "SELECT valor FROM itens WHERE idItens = $idItens";
+$query_valor = mysqli_query($con, $sql_valor); 
+$valor = mysqli_fetch_assoc($query_valor);
+$row_valor = $valor['valor'];
+
+
 
 $sqli = "INSERT INTO consumo_frigobar(idConsumo, idReserva, idFrigobar, idItens, quantidade, valor_unitario_pago, data_consumo)
 VALUES(NULL,
