@@ -1,5 +1,4 @@
 <?php
-//atualizar checkout
 
 
 ?>
