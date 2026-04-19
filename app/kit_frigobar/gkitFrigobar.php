@@ -2,17 +2,17 @@
 date_default_timezone_set("America/Sao_Paulo");
 include_once '../_config/conn.php';
 
-<<<<<<< HEAD
+ 
 $idAcomodacao = $_POST['idAcomodacao'] ?? null;
 $idItens = $_POST['idItens'] ?? null;
 $quantidade = $_POST['quantidade'] ?? null;
 $dataConsumo = date('Y-m-d H:i') ;
-=======
 $idAcomodacao = $_POST['idAcomodacao'];
 $idItens = $_POST['idItens'];
 $quantidade = $_POST['quantidade'];
-$dataConsumo = date('Y-m-d H:m:s');
->>>>>>> 7425bc655d049640369a0dc9a3ddaee4db2c01a4
+$dataConsumo = date('Y-m-d');
+$horaConsumo = date('H:m:s');
+ 
 
 
 
@@ -28,8 +28,8 @@ if (empty($idAcomodacao) || empty($idItens) || empty($quantidade)) {
     $rowIdFrigobar = $idFrigobar['idFrigobar'];
 
 
-    $sqli = "INSERT INTO kit_frigobar(idKitFrigobar, idFrigobar, idItens, quantidade, data_consumo)
-    VALUES (NULL, '$rowIdFrigobar', '$idItens ', ' $quantidade', '$dataConsumo ') ";
+    $sqli = "INSERT INTO kit_frigobar(idKitFrigobar, idFrigobar, idItens, quantidade, dataConsumo, horaConsumo)
+    VALUES (NULL, '$rowIdFrigobar', '$idItens ', ' $quantidade', '$dataConsumo ', '$horaConsumo') ";
     if ($con->query($sqli)) {
         echo "Gravado com sucesso!";
         $id = mysqli_insert_id($con);
