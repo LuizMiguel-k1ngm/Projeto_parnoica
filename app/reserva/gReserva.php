@@ -3,14 +3,14 @@ date_default_timezone_set("America/Sao_Paulo");
 include_once '../_config/conn.php';
 
 
-<<<<<<< HEAD
+ 
 $idusuario = $_POST["idCliente"] ?? null;
 $idAcomodacao = $_POST["idAcomodacao"] ?? null;
 $data_checkin = $_POST["data_checkin"] ?? null;
 $data_checkout = $_POST["data_checkout"] ?? null;
 $n_clientes = $_POST["n_clientes"] ?? null;
 $r_status = 'PE';
-=======
+
 $idusuario = $_POST["idCliente"];
 $idAcomodacao = $_POST["idAcomodacao"];
 $data_checkin = $_POST["data_checkin"];
@@ -21,7 +21,7 @@ $hora_checkin =   '11:00:00'; //default de tempo para checkin
 $hora_checkout = '14:00:00'; //default de tempo para checkout
 
 
->>>>>>> 7425bc655d049640369a0dc9a3ddaee4db2c01a4
+ 
 
 if(empty($data_checkin) || empty($data_checkout)){
     echo "Escolha uma data válida";
@@ -58,12 +58,8 @@ $sql_filtro_valor = "SELECT * FROM parnaoica.acomodacao
 $resultado_valor_acomodacao_filtro = mysqli_query($con, $sql_filtro_valor);
 $valor_acomodacao = mysqli_fetch_assoc($resultado_valor_acomodacao_filtro);
 $row_valor_acomodacao = $valor_acomodacao['valor'];
-//  var_dump($row_valor_acomodacao);
-//  die;
 
 $valor_total_pago = ($row_valor_acomodacao * $n_clientes) * $quantidade_dias;
-//  var_dump($valor_total_pago);
-//  die;
 
 
 $sql_filtro_estacionamento = "SELECT idEstacionamento from parnaoica.estacionamento
@@ -72,9 +68,6 @@ $sql_filtro_estacionamento = "SELECT idEstacionamento from parnaoica.estacioname
 $resultado_valor_estacionamento = mysqli_query($con, $sql_filtro_estacionamento);
 $valor_estacionamento = mysqli_fetch_assoc($resultado_valor_estacionamento);
 $idEstacionamento = $valor_estacionamento['idEstacionamento'];
-
-
-
 
 
 if ($data_checkin < $data_atual) {
@@ -89,16 +82,9 @@ else if ($saida <= $entrada) {
 } else if ($n_clientes > 2) {
     echo "número de clientes excedeu o limite da acomodação!";
 } else {
-<<<<<<< HEAD
- 
-   $sqli = "INSERT INTO reserva(idReserva, idusuario, idEstacionamento, idAcomodacao, data_checkin, data_checkout, n_clientes, valor_total_pago, rstatus, hora_checkin, hora_checkout)
-=======
-    //criar variavel para conferir status da acomodacao filtrando pelo ID
-    // $valor_total_pago = ($valor_acomodacao * $n_clientes) * $quantidade_dias;
 
-    //ver essa entrade de sql
     $sqli = "INSERT INTO reserva(idReserva, idusuario, idEstacionamento, idAcomodacao, data_checkin, data_checkout, n_clientes, valor_total_pago, rstatus, hora_checkin, hora_checkout)
->>>>>>> 7425bc655d049640369a0dc9a3ddaee4db2c01a4
+
      VALUES(null, '$idusuario', '$idEstacionamento','  $idAcomodacao', '$data_checkin', '$data_checkout', '$n_clientes', '$valor_total_pago', '$r_status', '$hora_checkin', '$hora_checkout')";
 
 
