@@ -29,8 +29,8 @@ if (mysqli_num_rows($result) == 1) {
         echo "Erro ao gravar cliente!";
     }
 }
-<<<<<<< HEAD
+ 
 $con->close();
-=======
-$con->close();
->>>>>>> 7425bc655d049640369a0dc9a3ddaee4db2c01a4
+
+
+ 

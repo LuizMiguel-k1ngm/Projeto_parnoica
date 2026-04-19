@@ -21,7 +21,7 @@ require('../_config/conn.php');
             $queryConsultaAcomodacao = mysqli_query($con, $sqlConsultaAcomodacao);
 
             while ($row = mysqli_fetch_assoc($queryConsultaAcomodacao)) { ?>
-                <option value=<?= $row['idAcomodacao'] ?>><?= $row['nome'] ?> </option>
+            <option value=<?= $row['idAcomodacao'] ?>><?= $row['nome'] ?> </option>
             <?php } ?>
             ?>
         </select>
@@ -33,7 +33,7 @@ require('../_config/conn.php');
             $queryConsultaItens = mysqli_query($con, $sqlConsultaItens);
 
             while ($row = mysqli_fetch_assoc($queryConsultaItens)) { ?>
-                <option value=<?= $row['idItens'] ?>><?= $row['nome'] ?> | R$<?= $row['valor'] ?> </option>
+            <option value=<?= $row['idItens'] ?>><?= $row['nome'] ?> | R$<?= $row['valor'] ?> </option>
 
             <?php } ?>
 
@@ -52,6 +52,12 @@ require('../_config/conn.php');
         <input type="submit" value="Enviar" />
 
     </form>
+
+    <br><br>
+    <a href="../colaborador/painel.php">Inicio</a>
+    <br>
+    <a href="../include/sair.php">Sair</a>
+
 
 </body>
 
