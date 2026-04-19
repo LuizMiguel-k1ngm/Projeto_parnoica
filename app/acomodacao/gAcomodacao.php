@@ -2,7 +2,7 @@
 
 $nome = $_POST["nome"] ?? null;
 $numero_quarto = $_POST["numero_quarto"] ?? null;
-$aStatus = "A"; //default value
+$aStatus = "A";
 $tipoAcomodacao = $_POST["tipoAcomodacao"] ?? null;
 $capacidade = $_POST["capacidade"] ?? null;
 $valor = $_POST["valor"] ?? null;
