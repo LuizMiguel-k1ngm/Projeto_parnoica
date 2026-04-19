@@ -3,10 +3,10 @@
 date_default_timezone_set("America/Sao_Paulo");
 include_once '../_config/conn.php';
 
-$reserva = $_POST['idReserva'];
-$idItens = $_POST['idItens'];
-$quantidade = $_POST['quantidade'];
-$data_consumo = date('Y-m-d H:i') ;
+$reserva = $_POST['idReserva'] ?? null;
+$idItens = $_POST['idItens'] ?? null;
+$quantidade = $_POST['quantidade'] ?? null;
+$data_consumo = date('Y-m-d H:i');
 
 $data_consumo;
 

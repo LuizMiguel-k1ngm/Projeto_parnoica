@@ -2,10 +2,10 @@
 #atualização
 include_once '../_config/conn.php';
 
-$idusuario = $_POST["idusuario"];
-$email =  $_POST["email"];
-$telefone =  $_POST["telefone"];
-$cStatus =  $_POST["cStatus"];
+$idusuario = $_POST["idusuario"] ?? null;
+$email =  $_POST["email"] ?? null;
+$telefone =  $_POST["telefone"] ?? null;
+$cStatus =  $_POST["cStatus"] ?? null;
 
 //criar uma maneira de filtrar o que vai para o banco de dados
 

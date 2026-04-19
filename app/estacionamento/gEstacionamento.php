@@ -1,7 +1,7 @@
 <?php
 
-$idEstacionamento = $_POST["idEstacionamento"];
-$status = $_POST["status"];
+$idEstacionamento = $_POST["idEstacionamento"] ?? null;
+$status = $_POST["status"] ?? null;
 
 include_once '../_config/conn.php';
 

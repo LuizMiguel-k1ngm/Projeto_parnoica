@@ -3,8 +3,8 @@
     include_once '../_config/conn.php';
 
 
-    $idAcomodacao = $_POST["idAcomodacao"];
-    $fstatus = $_POST['fstatus'];
+    $idAcomodacao = $_POST["idAcomodacao"] ?? null;
+    $fstatus = $_POST['fstatus'] ?? null;
     
 
 $consulta_frigobar = "SELECT * from parnaoica.frigobar where idAcomodacao = '" . $idAcomodacao . "'";

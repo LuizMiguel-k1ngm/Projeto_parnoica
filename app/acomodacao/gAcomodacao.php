@@ -1,11 +1,11 @@
 <?php
 
-$nome = $_POST["nome"];
-$numero_quarto = $_POST["numero_quarto"];
+$nome = $_POST["nome"] ?? null;
+$numero_quarto = $_POST["numero_quarto"] ?? null;
 $aStatus = "A"; //default value
-$tipoAcomodacao = $_POST["tipoAcomodacao"];
-$capacidade = $_POST["capacidade"];
-$valor = $_POST["valor"];
+$tipoAcomodacao = $_POST["tipoAcomodacao"] ?? null;
+$capacidade = $_POST["capacidade"] ?? null;
+$valor = $_POST["valor"] ?? null;
 
 $valor_sem_ponto = str_replace('.', '', $valor);
 $valor = str_replace(',', '.', $valor_sem_ponto);

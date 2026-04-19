@@ -17,23 +17,23 @@
 
     <form action="../reserva/gReserva.php" method="post">
 
-        <select name="idCliente"> 
+        <select name="idCliente">
             <?php $sqlConsultaCliente = "SELECT idusuario, nome FROM cliente"; 
             $queryConsultaCliente = mysqli_query($con, $sqlConsultaCliente);
              while($row = mysqli_fetch_assoc($queryConsultaCliente)) 
                 { ?> <option value=<?= $row['idusuario'] ?>><?= $row['nome']
                  ?></option> <?php }?> </select>
 
-<br><br>
+        <br><br>
 
         <select name="idAcomodacao">
-              <?php 
+            <?php 
                 $sqlConsultaAcomodacao = "SELECT idAcomodacao, nome FROM acomodacao";
                 $queryConsultaAcomodacao = mysqli_query($con, $sqlConsultaAcomodacao);
 
                 while($row = mysqli_fetch_assoc($queryConsultaAcomodacao)) { ?>
-                    <option value=<?= $row['idAcomodacao'] ?>><?= $row['nome'] ?></option>
-                <?php }?>
+            <option value=<?= $row['idAcomodacao'] ?>><?= $row['nome'] ?></option>
+            <?php }?>
 
         </select>
 
@@ -53,6 +53,8 @@
 
 
         <input type="submit" value="Enviar" />
+
+
 
     </form>
 

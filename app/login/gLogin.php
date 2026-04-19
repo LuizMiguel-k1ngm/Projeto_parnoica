@@ -3,10 +3,10 @@ include_once '../_config/conn.php';
 # campos do tabela funcionario: idFuncionario (null), nome, status, idCargo; 
 
 date_default_timezone_set("America/Sao_Paulo");
-$matricula = $_POST["matricula"];
-$login = $_POST["login"];
-$senha = $_POST["senha"];
-$perfil = $_POST["perfil"];
+$matricula = $_POST["matricula"] ?? null;
+$login = $_POST["login"] ?? null;
+$senha = $_POST["senha"] ?? null;
+$perfil = $_POST["perfil"] ?? null;
 
 
 
@@ -32,4 +32,3 @@ if (mysqli_num_rows($result) == 1) {
     }
 }
 $con->close();
-

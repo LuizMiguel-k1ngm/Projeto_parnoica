@@ -2,8 +2,8 @@
 include_once '../_config/conn.php';
 
 $idAcomodacao = $_POST['idAcomodacao'];
-$aStatus = $_POST['aStatus'];
-$valor = $_POST['valor'];
+$aStatus = $_POST['aStatus'] ?? null;
+$valor = $_POST['valor'] ?? null;
 
 
 if(!empty($aStatus) && !empty($valor)){
@@ -29,7 +29,3 @@ mysqli_close($con);
 <a href="../colaborador/painel.php">Painel</a>
 <br>
 <a href="../include/sair.php">Sair</a>
-
-
-
-

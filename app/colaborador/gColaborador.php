@@ -4,37 +4,18 @@ include_once '../_config/conn.php';
  
 
 date_default_timezone_set("America/Sao_Paulo");
-$nome = $_POST["nome"];
-$dia = $_POST["dia"];
-$mes = $_POST["mes"];
-$ano = $_POST["ano"];
-$cpf = $_POST["cpf"];
-$email = $_POST["email"];
-$telefone = $_POST["telefone"];
-$idCargo = $_POST["idCargo"];
-$status = 'A';
+$nome = $_POST["nome"] ?? null;
+$dia = $_POST["dia"] ?? null;
+$mes = $_POST["mes"] ?? null;
+$ano = $_POST["ano"] ?? null;
+$cpf = $_POST["cpf"] ?? null;
+$email = $_POST["email"] ?? null;
+$telefone = $_POST["telefone"] ?? null;
+$idCargo = $_POST["idCargo"] ?? null;
+$status = 'A' ?? null;
 
 $data_nascimento = $ano . "-" . $mes . "-" . $dia;
 
-
-date_default_timezone_set("America/Sao_Paulo");
-   $nome = $_POST["nome"];
-    $dia = $_POST["dia"];
-    $mes = $_POST["mes"];
-    $ano = $_POST["ano"];
-    $cpf = $_POST["cpf"];
-    $email = $_POST["email"];
-    $telefone = $_POST["telefone"];
-    $idCargo = $_POST["idCargo"];
-    $status = 'A';
-
-    $data_nascimento = $ano . "-" . $mes . "-" . $dia;
-
-    include_once '../_config/conn.php';
-
-
-//consultar pelo CPF a existecia do cliente    
- 
 $consultacpf = "SELECT * from parnaoica.funcionario where cpf = '" . $cpf . "'";
 $result = mysqli_query($con, $consultacpf);
 if (mysqli_num_rows($result) == 1) {
@@ -68,4 +49,3 @@ $con->close();
 <a href="../colaborador/painel.php">Página inicial</a><br>
 <a href="../include/cadastro_colaborador.php">Cadastrar outro colaborador</a><br>
 <a href="../include/sair.php">sair</a>
- 
