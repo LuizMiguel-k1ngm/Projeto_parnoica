@@ -10,15 +10,22 @@
 <body>
     <h3>Check-in: hospedes</h3>
 
+<<<<<<< HEAD
     <form action="checkin.php" method="GET">
         CPF: <br>
         <input type="text" name="cpf" required value="<?php echo $_GET['cpf'] ?? ''; ?>">
+=======
+    <form action="checkin.php">
+        CPF: <br>
+        <input type="text" name="cpf" required>
+>>>>>>> 7425bc655d049640369a0dc9a3ddaee4db2c01a4
         <br>
         <br>
         <input type="submit" value="Buscar">
     </form>
 
     <hr>
+<<<<<<< HEAD
 
     <?php
     // consultar a reserva
@@ -39,6 +46,25 @@
         include '../checkin/gCheckin.php';
     }
     ?>
+=======
+    <?php
+    //consultar a reserva
+    include '../reserva/cReserva.php';
+
+
+    ?>
+
+    <form action="status">
+        <input type="button" name='cStatus' , value='confirmar' required>
+        <input type="button" name='cStatus' value='cancelar'>
+    </form>
+<!-- 
+    <?php
+    //  include '../checkin/gCheckin.php';
+
+    ?> -->
+
+>>>>>>> 7425bc655d049640369a0dc9a3ddaee4db2c01a4
 
 </body>
 

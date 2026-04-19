@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 include_once '../_config/conn.php';
 date_default_timezone_set("America/Sao_Paulo");
 
@@ -27,4 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Erro: O formulário não enviou 'idReserva' ou 'rStatus'.";
     }
 }
+=======
+
+
+
+
+>>>>>>> 7425bc655d049640369a0dc9a3ddaee4db2c01a4
 ?>

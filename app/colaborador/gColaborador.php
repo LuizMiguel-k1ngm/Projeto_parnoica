@@ -1,7 +1,7 @@
 <?php
 include_once '../_config/conn.php';
 # campos do tabela funcionario: idFuncionario (null), nome, status, idCargo; 
- 
+
 
 date_default_timezone_set("America/Sao_Paulo");
 $nome = $_POST["nome"] ?? null;
@@ -16,31 +16,46 @@ $status = 'A' ?? null;
 
 $data_nascimento = $ano . "-" . $mes . "-" . $dia;
 
+<<<<<<< HEAD
 $consultacpf = "SELECT * from parnaoica.funcionario where cpf = '" . $cpf . "'";
+=======
+
+date_default_timezone_set("America/Sao_Paulo");
+$nome = $_POST["nome"];
+$dia = $_POST["dia"];
+$mes = $_POST["mes"];
+$ano = $_POST["ano"];
+$cpf = $_POST["cpf"];
+$email = $_POST["email"];
+$telefone = $_POST["telefone"];
+$idCargo = $_POST["idCargo"];
+$status = 'A';
+
+$data_nascimento = $ano . "-" . $mes . "-" . $dia;
+
+include_once '../_config/conn.php';
+
+$consultacpf = "SELECT * from parnaoica.funcionario where cpf = '$cpf'";
+>>>>>>> 7425bc655d049640369a0dc9a3ddaee4db2c01a4
 $result = mysqli_query($con, $consultacpf);
 if (mysqli_num_rows($result) == 1) {
     echo "Colaborador ja cadastrado!";
 } else {
 
 
-    $sqli = "INSERT into parnaoica.funcionario values(null,
-            '" . $nome . "','" . $cpf . "','" . $telefone . "','" . $email . "', '" . $status . "', '" . $idCargo . "','" . $data_nascimento . "' )";
+    $sqli = "INSERT into parnaoica.funcionario (idFuncionario, nome, cpf, telefone, email, status, idCargo, data_nascimento )
+     values(null, '$nome', '$cpf', '$telefone', '$email', '$status', '$idCargo', '$data_nascimento')";
 
     if ($con->query($sqli)) {
         //gravou cliente, tenta gravar endereço
         //retorna o id gerado pela ultima inserção
         echo "Gravado com sucesso!";
         $id = mysqli_insert_id($con);
- 
-    
-
-
- 
     } else {
         echo "Erro ao gravar cliente!";
     }
 }
- 
+
 $con->close();
 
 ?>

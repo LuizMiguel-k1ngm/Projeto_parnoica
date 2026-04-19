@@ -25,13 +25,15 @@ CREATE TABLE rStatus (
 
 CREATE TABLE estacionamento (
     idEstacionamento INT PRIMARY KEY AUTO_INCREMENT,
-    status VARCHAR(1) 
+    status VARCHAR(1),
+    idAcomodacao INT,
+    CONSTRAINT fk_reserva_acomodacao FOREIGN KEY (idAcomodacao) REFERENCES acomodacao(idAcomodacao)
 );
 
 -- tabela de itens
 
-CREATE TABLE items (
-    iditems INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE itens (
+    iditens INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50),
     quantidade INT,
     valor DECIMAL(10,2),
@@ -108,13 +110,13 @@ CREATE TABLE consumo_frigobar (
     idConsumo INT PRIMARY KEY AUTO_INCREMENT,
     idReserva INT NOT NULL,
     idFrigobar INT NOT NULL,
-    idItems INT NOT NULL,
+    idItens INT NOT NULL,
     quantidade INT NOT NULL,
     valor_unitario_pago DECIMAL(10,2),
     data_consumo DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_consumo_reserva FOREIGN KEY (idReserva) REFERENCES reserva(idReserva),
     CONSTRAINT fk_consumo_frigobar FOREIGN KEY (idFrigobar) REFERENCES frigobar(idFrigobar),
-    CONSTRAINT fk_consumo_items FOREIGN KEY (idItems) REFERENCES items(iditems)
+    CONSTRAINT fk_consumo_itens FOREIGN KEY (idItens) REFERENCES itens(iditens)
 );
 
 -- TABELA DE LOG 
@@ -125,6 +127,18 @@ CREATE TABLE logs (
     tabela_afetada VARCHAR(50),
     data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_log_func FOREIGN KEY (idFuncionario) REFERENCES funcionario(idFuncionario)
+);
+
+
+CREATE TABLE kit_frigobar (
+idKitFrigobar INT PRIMARY KEY AUTO_INCREMENT,
+idFrigobar INT,
+idItens INT , 
+quantidade int not null,
+dataHora DATETIME DEFAULT CURRENT_TIMESTAMP,
+CONSTRAINT fk_id_frigobar FOREIGN KEY (idFrigobar) REFERENCES frigobar(idFrigobar),
+CONSTRAINT fk_id_itens FOREIGN KEY (idItens) REFERENCES itens(iditens)
+
 );
 
 

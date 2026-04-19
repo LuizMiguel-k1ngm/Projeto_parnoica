@@ -23,15 +23,15 @@ include_once '../_config/conn.php';
 
 
 //consultar pelo CPF a existecia do cliente    
-$consultacpf = "SELECT * from parnaoica.cliente where cpf = '" . $cpf . "'";
+$consultacpf = "SELECT * FROM parnaoica.cliente WHERE cpf = '" . $cpf . "'";
 $result = mysqli_query($con, $consultacpf);
 if (mysqli_num_rows($result) == 1) {
     echo "Cliente já cadastrado!";
 } else {
 
 
-    $sqli = "INSERT into parnaoica.cliente values(null,
-            '" . $nome . "','" . $data_nascimento . "','" . $cpf . "','" . $email . "', '" . $telefone . "', '" . $estado . "','" . $cidade . "', '" . $status . "' )";
+    $sqli = "INSERT INTO parnaoica.cliente (idusuario, nome, data_nascimento, cpf, email, telefone, estado, cidade, cStatus)  values(null,
+           '$nome' , '$data_nascimento' ,' $cpf ', '$email' , '$telefone' , '$estado' , '$cidade' , '$status'  )";
 
     if ($con->query($sqli)) {
         echo "Gravado com sucesso!";
