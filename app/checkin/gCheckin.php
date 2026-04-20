@@ -6,15 +6,18 @@ date_default_timezone_set("America/Sao_Paulo");
 $idReserva = $_POST['idReserva'] ?? null;
 $rStatus = $_POST['rStatus'] ?? null;
 
+$data_atual = date('Y-m-d');
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     if(!empty($rStatus) && !empty($idReserva)){
 
         if($rStatus == 'confirmar'){
-            $sqli = "UPDATE reserva SET rStatus = 'CI' WHERE idReserva = '$idReserva'";
+            $sqli = "UPDATE reserva SET rstatus = 'CI' WHERE idReserva = '$idReserva'";
             $msg = "Check-in realizado com sucesso!";
+     
         } else if($rStatus == 'cancelar') {
-            $sqli = "UPDATE reserva SET rStatus = 'CA' WHERE idReserva = '$idReserva'";
+            $sqli = "UPDATE reserva SET rstatus = 'CA' WHERE idReserva = '$idReserva'";
             $msg = "Reserva cancelada com sucesso!";
         }
 

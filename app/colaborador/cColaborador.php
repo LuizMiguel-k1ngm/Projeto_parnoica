@@ -68,7 +68,3 @@ if (!empty($_GET["idCargo"])) {
     mysqli_close($con);
 }
 ?>
-
-<br />
-<a href="../colaborador/menu_adm.php">Página Inicial</a> <br>
-<a href="../index.php">sair</a>

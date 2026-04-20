@@ -13,7 +13,7 @@
 
     <form action="cReserva.php" method="get">
         Status da Reserva: <br>
-          <select name="idAcomodacao">
+        <select name="idAcomodacao">
             <optgroup label="Status da Reserva">
                 <option value=1>Pendente</option>
                 <option value=2>Confirmado</option>
@@ -24,8 +24,8 @@
                 <option value=7>Rejeitado</option>
             </optgroup>
         </select>
-      
-      
+
+
         <input type="submit" value="Buscar">
 
         <hr>
@@ -37,7 +37,9 @@
     </form>
 
 
-    
+    <a href="../colaborador/painel.php">Página Inicial</a><br>
+    <a href="sair.php">Sair</a><br>
+
 
 
 </body>

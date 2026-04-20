@@ -10,7 +10,6 @@
 <body>
     <h3>Cadastro de colaborador</h3>
 
-     <form action="../colaborador/gColaborador.php" method="post">
 
     <form action="../colaborador/gColaborador.php" method="post">
 

@@ -6,7 +6,35 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Check out</h1>
-    
+    <h3>Check-out: hospedes</h3>
+
+    <form action="checkout.php" method="GET">
+        CPF: <br>
+        <input type="text" name="cpf" required value="<?php echo $_GET['cpf'] ?? ''; ?>">
+    </form>
+
+    <hr>
+    <?php
+
+    include '../reserva/eReserva.php';
+    ?> <form action="" method="POST">
+
+        <input type="hidden" name="idReserva" value="<?php echo $idReserva ?? ''; ?>">
+
+        <input type="submit" name='rStatus' value='confirmar check-out'>
+        <input type="submit" name='rStatus' value='cancelar check-out'>
+    </form>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        include '../checkin/gCheckout.php';
+    }
+    ?>
+    <br>
+    <a href="../colaborador/painel.php">Página Inicial</a><br>
+    <a href="sair.php">Sair</a><br>
+
+
+
 </body>
 </html>

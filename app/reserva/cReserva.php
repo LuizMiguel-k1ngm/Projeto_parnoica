@@ -13,7 +13,7 @@ if (!empty($_GET["cpf"])) {
              FROM cliente c
              INNER JOIN reserva r ON c.idusuario = r.idusuario
              INNER JOIN acomodacao a ON r.idAcomodacao = a.idAcomodacao
-             WHERE c.cpf = '$cpf'  and r.data_checkin = '$data_atual' and rstatus = 'PE'";
+             WHERE c.cpf = '$cpf'  and r.data_checkin = '$data_atual' and r.rstatus = 'PE'";
 
     $result = mysqli_query($con, $sqli);
     $totalregistros = mysqli_num_rows($result); 

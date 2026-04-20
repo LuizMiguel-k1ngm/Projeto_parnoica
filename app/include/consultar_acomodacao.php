@@ -42,6 +42,12 @@
 
 
 
+    <a href="../colaborador/painel.php">Página Inicial</a><br>
+    <a href="sair.php">Sair</a><br>
+
+
+
+
 
 </body>
 

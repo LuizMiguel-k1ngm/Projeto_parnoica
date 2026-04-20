@@ -17,13 +17,16 @@ if (mysqli_num_rows($result) == 1) {
 } else {
 
 
-    $sqli = "INSERT into parnaoica.login (id, login, senha, matricula) values(null,
+    $sqli = "INSERT into parnaoica.login (id, login, senha, idFuncionario) values(null,
             '$login', '$senha', '$matricula')";
 
     if ($con->query($sqli)) {
         //gravou cliente, tenta gravar endereço
         //retorna o id gerado pela ultima inserção
-        echo "Gravado com sucesso!";
+        echo "Gravado com sucesso!"; 
+
+
+
         $id = mysqli_insert_id($con);
     } else {
         echo "Erro ao gravar cliente!";
@@ -33,4 +36,6 @@ if (mysqli_num_rows($result) == 1) {
 $con->close();
 
 
- 
+
+
+?>

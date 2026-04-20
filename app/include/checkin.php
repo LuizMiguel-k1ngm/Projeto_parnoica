@@ -13,12 +13,11 @@
     <form action="checkin.php" method="GET">
         CPF: <br>
         <input type="text" name="cpf" required value="<?php echo $_GET['cpf'] ?? ''; ?>">
-
     </form>
 
     <hr>
     <?php
-    
+
     include '../reserva/cReserva.php';
     ?> <form action="" method="POST">
 
@@ -33,6 +32,12 @@
         include '../checkin/gCheckin.php';
     }
     ?>
+    <br>
+    <a href="../colaborador/painel.php">Página Inicial</a><br>
+    <a href="sair.php">Sair</a><br>
+
+
+
 </body>
 
 </html>

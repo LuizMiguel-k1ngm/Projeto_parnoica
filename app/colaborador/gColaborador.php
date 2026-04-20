@@ -12,31 +12,13 @@ $cpf = $_POST["cpf"] ?? null;
 $email = $_POST["email"] ?? null;
 $telefone = $_POST["telefone"] ?? null;
 $idCargo = $_POST["idCargo"] ?? null;
-$status = 'A' ?? null;
-
-$data_nascimento = $ano . "-" . $mes . "-" . $dia;
-
-<<<<<<< HEAD
-$consultacpf = "SELECT * from parnaoica.funcionario where cpf = '" . $cpf . "'";
-=======
-
-date_default_timezone_set("America/Sao_Paulo");
-$nome = $_POST["nome"];
-$dia = $_POST["dia"];
-$mes = $_POST["mes"];
-$ano = $_POST["ano"];
-$cpf = $_POST["cpf"];
-$email = $_POST["email"];
-$telefone = $_POST["telefone"];
-$idCargo = $_POST["idCargo"];
 $status = 'A';
 
 $data_nascimento = $ano . "-" . $mes . "-" . $dia;
 
-include_once '../_config/conn.php';
+ 
+$consultacpf = "SELECT * from parnaoica.funcionario where cpf = '" . $cpf . "'";
 
-$consultacpf = "SELECT * from parnaoica.funcionario where cpf = '$cpf'";
->>>>>>> 7425bc655d049640369a0dc9a3ddaee4db2c01a4
 $result = mysqli_query($con, $consultacpf);
 if (mysqli_num_rows($result) == 1) {
     echo "Colaborador ja cadastrado!";

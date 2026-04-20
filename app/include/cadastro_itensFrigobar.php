@@ -18,7 +18,7 @@
 
         Código da reserva: <br><select name="idReserva">
             <?php 
-                $sqlConsultaReserva = "SELECT idReserva, idAcomodacao FROM reserva WHERE rStatus = 'CI'";
+                $sqlConsultaReserva = "SELECT idReserva, idAcomodacao FROM reserva WHERE rstatus = 'CI'";
                 $queryConsultaReserva = mysqli_query($con, $sqlConsultaReserva);
 
                 while($row = mysqli_fetch_assoc($queryConsultaReserva)) { ?>
