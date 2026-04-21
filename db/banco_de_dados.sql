@@ -142,6 +142,9 @@ CONSTRAINT fk_id_itens FOREIGN KEY (idItens) REFERENCES itens(iditens)
 );
 
 
+ALTER TABLE consumo_frigobar 
+ADD total DECIMAL(10,2) AS (quantidade * valor_unitario_pago) VIRTUAL;
+
 //criei tambem uma tabela para Status do frigobar;
 
 //colocar o status na reserva 
