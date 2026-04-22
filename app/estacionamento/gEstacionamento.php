@@ -1,10 +1,10 @@
 <?php
 
-<<<<<<< HEAD
+ 
 $idEstacionamento = $_POST["idEstacionamento"] ?? null;
 $status = $_POST["status"] ?? null;
-=======
->>>>>>> 7425bc655d049640369a0dc9a3ddaee4db2c01a4
+
+ 
 
 
 

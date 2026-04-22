@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=], initial-scale=1.0">
     <title>Cosulta Reserva</title>
 </head>
-
 <body>
-
     <h3>Consulta das reservas</h3>
 
     <form action="cReserva.php" method="get">
@@ -25,9 +22,7 @@
             </optgroup>
         </select>
 
-
         <input type="submit" value="Buscar">
-
         <hr>
         <?php
         include '../reserva/cReserva.php';
@@ -35,8 +30,6 @@
         ?>
         <hr>
     </form>
-
-
     <a href="../colaborador/painel.php">Página Inicial</a><br>
     <a href="sair.php">Sair</a><br>
 

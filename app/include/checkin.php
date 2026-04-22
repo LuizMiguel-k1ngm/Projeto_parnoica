@@ -13,6 +13,7 @@
     <form action="checkin.php" method="GET">
         CPF: <br>
         <input type="text" name="cpf" required value="<?php echo $_GET['cpf'] ?? ''; ?>">
+          <input type="submit" value="buscar">
     </form>
 
     <hr>
@@ -25,6 +26,7 @@
 
         <input type="submit" name='rStatus' value='confirmar'>
         <input type="submit" name='rStatus' value='cancelar'>
+        
     </form>
 
     <?php

@@ -50,6 +50,11 @@ if (!empty($_GET["tipoAcomodacao"])) {
 </table>
 <?php
         echo "Total de registros: " . $totalregistros;
+
+        
+
+
+
     } else {
         echo "Nenhuma acomodação encontrada!";
     }

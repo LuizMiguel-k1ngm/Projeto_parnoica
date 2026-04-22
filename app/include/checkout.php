@@ -11,6 +11,7 @@
     <form action="checkout.php" method="GET">
         CPF: <br>
         <input type="text" name="cpf" required value="<?php echo $_GET['cpf'] ?? ''; ?>">
+          <input type="submit" value="buscar">
     </form>
 
     <hr>
@@ -21,13 +22,14 @@
 
         <input type="hidden" name="idReserva" value="<?php echo $idReserva ?? ''; ?>">
 
-        <input type="submit" name='rStatus' value='confirmar check-out'>
-        <input type="submit" name='rStatus' value='cancelar check-out'>
+        <input type="submit" name='rStatus' value='confirmar'>
+        <input type="submit" name='rStatus' value='cancelar'>
+        
     </form>
 
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        include '../checkin/gCheckout.php';
+        include '../checkout/gCheckout.php';
     }
     ?>
     <br>

@@ -2,17 +2,17 @@
 date_default_timezone_set("America/Sao_Paulo");
 include_once '../_config/conn.php';
 
- 
+
 $idAcomodacao = $_POST['idAcomodacao'] ?? null;
 $idItens = $_POST['idItens'] ?? null;
 $quantidade = $_POST['quantidade'] ?? null;
-$dataConsumo = date('Y-m-d H:i') ;
+$dataConsumo = date('Y-m-d H:i');
 $idAcomodacao = $_POST['idAcomodacao'];
 $idItens = $_POST['idItens'];
 $quantidade = $_POST['quantidade'];
 $dataConsumo = date('Y-m-d');
 $horaConsumo = date('H:m:s');
- 
+
 
 
 

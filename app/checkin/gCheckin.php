@@ -19,7 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else if($rStatus == 'cancelar') {
             $sqli = "UPDATE reserva SET rstatus = 'CA' WHERE idReserva = '$idReserva'";
             $msg = "Reserva cancelada com sucesso!";
+        }else{
+            $msg = "Erro ao gravar check-in";
         }
+
+
 
         if (mysqli_query($con, $sqli)) {
             echo "<b>$msg</b>";

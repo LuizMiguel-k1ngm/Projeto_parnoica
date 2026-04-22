@@ -14,15 +14,20 @@ include_once './validar.php';
 
 <body>
     <?php
-    echo "Seja bem vindo(a) " . $_SESSION["login"];
+    
 
     ?>
 
     <?php
     if ($_SESSION["login"] == 'adm') {
+        echo "Seja bem vindo(a) " . $_SESSION["login"];
         include_once 'menu_adm.php';
     } elseif ($_SESSION["login"] == 'funcionario') {
+        echo "Seja bem vindo(a) " . $_SESSION["login"];
         include_once 'menu_funcionario.php';
+    }else{
+        echo "Erro, usuario não cadastrado!";
+        
     }
     ?>
 

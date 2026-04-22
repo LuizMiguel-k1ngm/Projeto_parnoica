@@ -40,6 +40,23 @@ if (!empty($telefone_fomartado) && !empty($email_formatado)) {
 
 if (mysqli_query($con, $sqli)) {
     echo "Dados atualizados com sucesso!";
+
+    $log = fopen("../log/atualizar_cliente.txt", "a+");
+        //escrever o log
+        fwrite($log, "Cadastrado em: " . date("d/m/Y") . " as " . date("H:i:s"));
+        fwrite($log, "\nEditados Por:" . $_SESSION["login"]);
+        fwrite($log, "\nId cliente: " . $idusuario);
+        fwrite($log, "\nEmail: " . $email);
+        fwrite($log, "\nTelefone: " . $telefone);
+        fwrite($log, "\nStatus cliente: " . $cStatus);
+
+        fwrite($log, "\n----------------------------\n\n");
+
+        //fecha o arquivo
+        fclose($log);
+
+
+
 } else {
     echo "Erro ao atualizar!";
 }

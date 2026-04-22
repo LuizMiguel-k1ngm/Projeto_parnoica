@@ -35,6 +35,26 @@ if (mysqli_query($con, $sqli)) {
 
     if (mysqli_query($con, $sqli2)) {
        // echo "Gravado com sucesso!";
+
+       
+        $log = fopen("../log/cadastrar_acomodacao.txt", "a+");
+        //escrever o log
+        fwrite($log, "Cadastrado em: " . date("d/m/Y") . " as " . date("H:i:s"));
+        fwrite($log, "\nEditados Por:" . $_SESSION["login"]);
+        fwrite($log, "\nNome da acomodação: " . $nome);
+        fwrite($log, "\nTipo: " . $tipoAcomodacao);
+        fwrite($log, "\nStatus: " . $aStatus);
+        fwrite($log, "\nCapacidade: " . $capacidade);
+        fwrite($log, "\nValor: R$" . $valor);
+
+        fwrite($log, "\n----------------------------\n\n");
+
+        //fecha o arquivo
+        fclose($log);
+
+
+
+
     } else {
         echo "Erro ao gravar estacionamento!";
     }

@@ -1,5 +1,5 @@
 <?php
-    require('../_config/conn.php');
+require('../_config/conn.php');
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title> 
+    <title>Document</title>
 </head>
 
 <body>
@@ -18,19 +18,19 @@
 
 
         <select name="idAcomodacao">
-            <?php 
-                $sqlConsultaAcomodacao = "SELECT idAcomodacao, nome FROM acomodacao";
-                $queryConsultaAcomodacao = mysqli_query($con, $sqlConsultaAcomodacao);
+            <?php
+            $sqlConsultaAcomodacao = "SELECT idAcomodacao, nome FROM acomodacao";
+            $queryConsultaAcomodacao = mysqli_query($con, $sqlConsultaAcomodacao);
 
-                while($row = mysqli_fetch_assoc($queryConsultaAcomodacao)) { ?>
-                    <option value=<?= $row['idAcomodacao'] ?>><?= $row['nome'] ?></option>
-                <?php }?>
+            while ($row = mysqli_fetch_assoc($queryConsultaAcomodacao)) { ?>
+                <option value=<?= $row['idAcomodacao'] ?>><?= $row['nome'] ?></option>
+            <?php } ?>
             ?>
-    
+
         </select>
         <br />
         <br>
-        
+
         Frigobar status<br />
         <input type="radio" name="fstatus" value="A" required /> Ativo
         <input type="radio" name="fstatus" value="I" /> Inativo <br>
@@ -41,7 +41,8 @@
     </form>
 
 
-
+    <a href="../colaborador/painel.php">Página Inicial</a><br>
+    <a href="sair.php">Sair</a><br>
 
 </body>
 
