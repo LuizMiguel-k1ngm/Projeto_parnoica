@@ -1,6 +1,5 @@
 <?php
  
- //criar lógica de cobrança
 include_once '../_config/conn.php';
 date_default_timezone_set("America/Sao_Paulo");
 
@@ -13,13 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     if(!empty($rStatus) && !empty($idReserva)){
 
-        if($rStatus == 'confirmar'){
+        if($rStatus == 'confirmar check-out' ){
             $sqli = "UPDATE reserva SET rstatus = 'CO' WHERE idReserva = '$idReserva'";
             $msg = "Check-in realizado com sucesso!";
-        } else if($rStatus == 'cancelar') {
+        } else if($rStatus == 'cancelar check-out') {
             $sqli = "UPDATE reserva SET rstatus = 'CA' WHERE idReserva = '$idReserva'";
             $msg = "Reserva cancelada com sucesso!";
+        }else{
+            echo "Erro ao gravar check-out";
         }
+
+
 
         if (mysqli_query($con, $sqli)) {
             echo "<b>$msg</b>";

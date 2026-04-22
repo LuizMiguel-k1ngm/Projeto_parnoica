@@ -85,22 +85,11 @@ if (!empty($_GET["cpf"])) {
     <?php 
                     }
                 } else {
-                    echo "<tr><td colspan='4'>Nenhum item consumido.</td></tr>";
+                    echo "Nenhum item consumido.";
                 }
                 ?>
 </table>
 <hr>
-
-
-
-
-
-
-
-
-
-
-
 
 <?php
 
