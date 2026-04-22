@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h3>Check-out: hospedes</h3>
 
     <form action="checkout.php" method="GET">
         CPF: <br>
         <input type="text" name="cpf" required value="<?php echo $_GET['cpf'] ?? ''; ?>">
+<<<<<<< HEAD
           <input type="submit" value="buscar">
+=======
+        <input type="submit" value="buscar">
+>>>>>>> 626e190af689bba4bea1379965b229023363742e
     </form>
 
     <hr>
@@ -39,4 +45,5 @@
 
 
 </body>
+
 </html>

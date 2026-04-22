@@ -13,7 +13,11 @@
     <form action="checkin.php" method="GET">
         CPF: <br>
         <input type="text" name="cpf" required value="<?php echo $_GET['cpf'] ?? ''; ?>">
+<<<<<<< HEAD
           <input type="submit" value="buscar">
+=======
+        <input type="submit" value="buscar">
+>>>>>>> 626e190af689bba4bea1379965b229023363742e
     </form>
 
     <hr>

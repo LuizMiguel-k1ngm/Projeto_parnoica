@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if($rStatus == 'confirmar'){
             $sqli = "UPDATE reserva SET rstatus = 'CI' WHERE idReserva = '$idReserva'";
             $msg = "Check-in realizado com sucesso!";
-     
         } else if($rStatus == 'cancelar') {
             $sqli = "UPDATE reserva SET rstatus = 'CA' WHERE idReserva = '$idReserva'";
             $msg = "Reserva cancelada com sucesso!";
