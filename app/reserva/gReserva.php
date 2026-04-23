@@ -2,8 +2,6 @@
 date_default_timezone_set("America/Sao_Paulo");
 include_once '../_config/conn.php';
 
-
- 
 $idusuario = $_POST["idCliente"] ?? null;
 $idAcomodacao = $_POST["idAcomodacao"] ?? null;
 $data_checkin = $_POST["data_checkin"] ?? null;
