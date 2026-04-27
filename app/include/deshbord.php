@@ -10,8 +10,8 @@
 
 <body>
 
-    <div>
-        <canvas id="myChart" style="height: 250px; width: 500px;"> </canvas>
+    <div id="desh">
+        <canvas id="myChart"></canvas>
     </div>
     <script>
         const ctx = document.getElementById('myChart');
