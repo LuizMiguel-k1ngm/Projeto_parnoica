@@ -34,13 +34,14 @@ include './validar.php'
 <a href="../include/cadastro_colaborador.php">Cadastrar Colaborador</a>
 <br>
 
-
-
-
 <a href="../include/cadastro_login_colaborador.php">Cadastrar acesso do colaborador</a>
 <br>
 
 <a href="../include/relatorio.php" tipe="button">Relatórios</a>
+<br>
+
+
+<a href="../include/deshbord.php">Deshbord</a>
 <br>
 
 <a href="../index.php">Sair</a>

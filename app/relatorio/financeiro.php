@@ -96,7 +96,7 @@ td {
     $sql_con = "SELECT r.idReserva, i.nome, cf.quantidade, cf.total
                 FROM consumo_frigobar cf
                 JOIN reserva r ON cf.idReserva = r.idReserva
-                JOIN itens i ON cf.idItems = i.iditens
+                JOIN itens i ON cf.idItens = i.iditens
                 WHERE r.data_checkin BETWEEN '$data_i' AND '$data_f'";
     $q_con = mysqli_query($con, $sql_con);
     while($c = mysqli_fetch_assoc($q_con)): 

@@ -9,7 +9,7 @@
 
 <body>
 
-    <form action="../cliente/cCliente.php" method="get">
+    <form action="consultar_cliente.php" method="get">
 
         <h3>Consulta Clientes</h3>
 
@@ -18,6 +18,10 @@
         <br>
         <input type="submit" value="Buscar">
 
+
+        <?php  include_once "../cliente/cCliente.php";
+ ?>
+      
 
 
     </form>

@@ -16,7 +16,8 @@ $result = mysqli_query($con, $sql);
 if (mysqli_num_rows($result) === 1) {
     $row = mysqli_fetch_array($result);
     
-    if (password_verify($senha, $row["senha"])) {
+ //   if (password_verify($senha, $row["senha"])) {
+ if (password_verify($senha, $row["senha"])) {
         
       
         $_SESSION["login"] = $row["login"];
