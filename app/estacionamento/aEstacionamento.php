@@ -1,5 +1,5 @@
 <?php
-//ver se a lógica está finalizada
+
 
 $idEstacionamento = $_POST["idEstacionamento"];
 $status = $_POST["status"];

@@ -14,6 +14,8 @@ if (!empty($_GET["cStatus"])) {
        
 ?>
 <table width="900px" border="1px">
+
+    <caption>Consulta: cliente</caption>
     <tr>
         <th>Id do cliente</th>
         <th>Nome</th>

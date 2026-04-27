@@ -1,6 +1,3 @@
-//isso não é tela de cadastro, é tela de Atualizacao
-//Cadastro será automático na acomodacao
-
 <!DOCTYPE html>
 <html lang="pt-bt">
 
@@ -37,7 +34,7 @@
 
         Estacionamento status<br />
         <input type="radio" name="status" value="A" required /> Ativo
-        <input type="radio" name="status" value="I"  required/> Inativo <br>
+        <input type="radio" name="status" value="I" required /> Inativo <br>
 
 
         <input type="submit" value="Enviar" />

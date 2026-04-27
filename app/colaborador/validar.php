@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    @session_start();
     
     if(!isset($_SESSION["login"])){
         
@@ -17,5 +17,3 @@
     }else{
         $_SESSION["tempo"] = time();
     }   
-
-

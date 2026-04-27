@@ -1,6 +1,6 @@
 <?php
 #gravar usuario
-
+@session_start();
 date_default_timezone_set("America/Sao_Paulo");
 
 $nome = $_POST["nome"];
@@ -12,7 +12,7 @@ $email = $_POST["email"];
 $telefone = $_POST["telefone"];
 $estado = $_POST["estado"];
 $cidade = $_POST["cidade"];
-$status = 'A'; //default para cadastro
+$status = 'A'; 
 
 
 $data_nascimento = $ano . "-" . $mes . "-" . $dia;
@@ -23,8 +23,7 @@ $data_formatada = date('d-m-Y', strtotime($data_nascimento));
 
 include_once '../_config/conn.php';
 
-
-//consultar pelo CPF a existecia do cliente    
+   
 $consultacpf = "SELECT * FROM parnaoica.cliente WHERE cpf = '" . $cpf . "'";
 $result = mysqli_query($con, $consultacpf);
 if (mysqli_num_rows($result) == 1) {
@@ -39,10 +38,10 @@ if (mysqli_num_rows($result) == 1) {
         echo "Gravado com sucesso!";
         $id = mysqli_insert_id($con);
 
-        //criar o log
+        
 
         $log = fopen("../log/cadastrar_cliente.txt", "a+");
-        //escrever o log
+        
         fwrite($log, "Cadastrado em: " . date("d/m/Y") . " as " . date("H:i:s"));
         fwrite($log, "\nEditados Por:" . $_SESSION["login"]);
         fwrite($log, "\nNome cliente: " . $nome);
@@ -53,7 +52,7 @@ if (mysqli_num_rows($result) == 1) {
 
         fwrite($log, "\n----------------------------\n\n");
 
-        //fecha o arquivo
+       
         fclose($log);
     } else {
         echo "Erro ao gravar cliente!";

@@ -1,28 +1,40 @@
 <?php
-
 session_start();
-//session -> espaço de memória no BROWSER
-$login = $_POST["login"];
-$senha = $_POST["senha"];
-
-//http://php.net/manual/pt_BR/function.mysql-real-escape-string.php
-
 include_once '../_config/conn.php';
 
-echo $sql = "select * from login where 
-                login = '" . $login . "' AND senha = '" . $senha . "'";
+$login = mysqli_real_escape_string($con, $_POST["login"]);
+$senha = $_POST["senha"]; 
+
+
+$sql = "SELECT l.login, l.senha, l.idFuncionario, f.idCargo 
+        FROM login AS l
+        INNER JOIN funcionario AS f ON l.idFuncionario = f.idFuncionario
+        WHERE l.login = '$login'";
 
 $result = mysqli_query($con, $sql);
 
-if (mysqli_num_rows($result) >= 1) {
-    //echo "logado";
+if (mysqli_num_rows($result) === 1) {
     $row = mysqli_fetch_array($result);
-    $_SESSION["login"] = $row["login"]; //guardando no navegador(sessao) o valor do login
-    $_SESSION["idCargo"] = $row["idCargo"];
-    $_SESSION["tempo"] = time();
-    header("location:painel.php");
-} else {
-    $msg = "Login/Senha invalido(s)";
-    header("location:../index.php?msg=" . $msg);
-}
+    
+    if (password_verify($senha, $row["senha"])) {
+        
+      
+        $_SESSION["login"] = $row["login"];
+        $_SESSION["idCargo"] = $row["idCargo"];
+        $_SESSION["tempo"] = time();
+        
+        header("location:painel.php");
+        exit();
 
+    } else {
+
+        $msg = "Senha incorreta!";
+        header("location:../index.php?msg=" . urlencode($msg));
+        exit();
+    }
+} else {
+    
+    $msg = "Usuário não encontrado!";
+    header("location:../index.php?msg=" . urlencode($msg));
+    exit();
+}

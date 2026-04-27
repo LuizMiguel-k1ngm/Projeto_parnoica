@@ -7,9 +7,6 @@ $status = $_POST["status"] ?? null;
  
 
 
-
-
-
 ?>
 <br>
 <a href="../colaborador/painel.php">Página Inicial</a><br>

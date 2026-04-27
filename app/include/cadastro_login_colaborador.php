@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -8,13 +7,12 @@
 </head>
 
 <body>
-<!-- Seria a tele de cadastro login do funcionario -->   
 
     <h4>Cadastro login do Colaborador</h4>
 
     <form action="../login/gLogin.php" method="post">
 
-       Matricula:<br />
+        Matricula:<br />
         <input type="text" name="matricula" /><br />
 
         Login:<br />
@@ -31,7 +29,7 @@
         <input type="submit" value="Enviar" />
 
     </form>
-    
+
     <a href="../colaborador/painel.php">Página Inicial</a><br>
     <a href="sair.php">Sair</a><br>
 

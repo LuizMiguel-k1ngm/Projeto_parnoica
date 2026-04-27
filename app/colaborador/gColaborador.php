@@ -1,6 +1,6 @@
 <?php
 include_once '../_config/conn.php';
-# campos do tabela funcionario: idFuncionario (null), nome, status, idCargo; 
+
 
 
 date_default_timezone_set("America/Sao_Paulo");
@@ -29,8 +29,7 @@ if (mysqli_num_rows($result) == 1) {
      values(null, '$nome', '$cpf', '$telefone', '$email', '$status', '$idCargo', '$data_nascimento')";
 
     if ($con->query($sqli)) {
-        //gravou cliente, tenta gravar endereço
-        //retorna o id gerado pela ultima inserção
+      
         echo "Gravado com sucesso!";
         $id = mysqli_insert_id($con);
     } else {

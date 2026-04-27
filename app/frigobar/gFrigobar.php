@@ -1,7 +1,5 @@
 <?php
-
     include_once '../_config/conn.php';
-
 
     $idAcomodacao = $_POST["idAcomodacao"] ?? null;
     $fstatus = $_POST['fstatus'] ?? null;
@@ -20,7 +18,7 @@ else{
     
       $sqli = "INSERT INTO frigobar(idFrigobar, idAcomodacao, fstatus)  VALUES(null,
                 '$idAcomodacao','$fstatus')";
-    //echo $sql;    
+  
     if(mysqli_query($con, $sqli)){
         echo "Gravado com sucesso!";
     }else{

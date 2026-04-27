@@ -1,5 +1,5 @@
 <?php
-#exclusão
+
 $idFrigobar = $_GET["idFrigobar"];
 
 include_once '../_config/conn.php';
@@ -13,5 +13,5 @@ if (mysqli_query($con,$sqli)) {
 }
 mysqli_close($con);
 ?>
-<br/>
+<br />
 <a href="../index.php">Página Inicial</a>

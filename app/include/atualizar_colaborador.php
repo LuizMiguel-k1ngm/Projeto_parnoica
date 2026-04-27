@@ -17,7 +17,6 @@
     include_once '../_config/conn.php';
 
 
-    // $sqli = "select * from parnaoica.funcionario where idFuncionario = " . $idFuncionario;
     $sqli = "select *
     from funcionario
     inner join cargo on funcionario.idCargo = cargo.idCargo and idFuncionario = " . $idFuncionario;
@@ -27,7 +26,7 @@
     $row = mysqli_fetch_array($result);
     ?>
 
-    <h3>Atualizar do informações dos clientes</h3>
+    <h3>Atualizar do informações do colaborador</h3>
 
     <form action="../colaborador/aColaborador.php" method="post">
 
@@ -52,7 +51,8 @@
         <input type="text" name="email" require="true" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
         <br>
         <br><br>
-        Novo telefone: <br><input type="tel" name="telefone" pattern="[0-9]{11}" title="Digite apenas os números do telefone sem espaços">
+        Novo telefone: <br><input type="tel" name="telefone" pattern="[0-9]{11}"
+            title="Digite apenas os números do telefone sem espaços">
         <br>
 
 

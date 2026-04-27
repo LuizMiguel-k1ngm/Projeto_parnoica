@@ -1,0 +1,18 @@
+Cadastrado em: 27/04/2026 as 02:29:20
+Editados Por:luiz
+Nome da acomodação: Suite Paraguai
+Tipo: suíte
+Status: A
+Capacidade: 2
+Valor: R$300.00
+----------------------------
+
+Cadastrado em: 26/04/2026 as 21:30:33
+Editados Por:luiz
+Nome da acomodação: Suite França
+Tipo: suíte
+Status: A
+Capacidade: 2
+Valor: R$500.00
+----------------------------
+

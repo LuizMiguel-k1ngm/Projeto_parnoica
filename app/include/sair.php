@@ -5,3 +5,4 @@
     
     $msg = "Logout efetuado!";
     header("location:../index.php?msg=".$msg);
+?>

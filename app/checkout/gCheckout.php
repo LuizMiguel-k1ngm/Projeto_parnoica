@@ -5,6 +5,8 @@ date_default_timezone_set("America/Sao_Paulo");
 $idReserva = $_POST['idReserva'] ?? null;
 $rStatus = $_POST['rStatus'] ?? null;
 
+
+
 $data_atual = date('Y-m-d');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

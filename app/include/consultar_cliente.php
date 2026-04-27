@@ -4,29 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta Frigobar</title>
+    <title>Consulta Cliente</title>
 </head>
 
 <body>
-    <h3>Consulta cliente</h3>
 
-    <form action="consultar_cliente.php" method="get">
-        Status do Cliente: <br>
+    <form action="../cliente/cCliente.php" method="get">
+
+        <h3>Consulta Clientes</h3>
+
         <input type="radio" name="cStatus" value="A" required /> Ativo
         <input type="radio" name="cStatus" value="I" /> Inativo <br>
+        <br>
         <input type="submit" value="Buscar">
+
+
+
     </form>
 
-    </hr>
-    <?php
-    include_once '../cliente/cCliente.php';
-    ?>
-
-    <hr />
-
-
-    <a href="../colaborador/painel.php">Página Inicial</a><br>
-    <a href="sair.php">Sair</a><br>
 </body>
 
 </html>

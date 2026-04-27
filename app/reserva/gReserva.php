@@ -1,4 +1,4 @@
-<?php
+ <?php
 date_default_timezone_set("America/Sao_Paulo");
 include_once '../_config/conn.php';
 

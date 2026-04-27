@@ -1,6 +1,6 @@
 <?php
 include_once '../_config/conn.php';
-# campos do tabela funcionario: idFuncionario (null), nome, status, idCargo; 
+
 
 date_default_timezone_set("America/Sao_Paulo");
 $matricula = $_POST["matricula"] ?? null;
@@ -17,12 +17,16 @@ if (mysqli_num_rows($result) == 1) {
 } else {
 
 
+$senha_criptografada = password_hash($senha, PASSWORD_DEFAULT);
+
+
+
+
     $sqli = "INSERT into parnaoica.login (id, login, senha, idFuncionario) values(null,
-            '$login', '$senha', '$matricula')";
+            '$login', '$senha_criptografada', '$matricula')";
 
     if ($con->query($sqli)) {
-        //gravou cliente, tenta gravar endereço
-        //retorna o id gerado pela ultima inserção
+        
         echo "Gravado com sucesso!"; 
 
 

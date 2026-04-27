@@ -1,6 +1,7 @@
 <?php
 include_once '../_config/conn.php';
 
+
 $idAcomodacao = $_POST['idAcomodacao'];
 $aStatus = $_POST['aStatus'] ?? null;
 $valor = $_POST['valor'] ?? null;

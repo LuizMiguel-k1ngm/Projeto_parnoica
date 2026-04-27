@@ -1,5 +1,5 @@
 <?php
-#atualização
+@session_start();
 include_once '../_config/conn.php';
 
 $idusuario = $_POST["idusuario"] ?? null;
@@ -7,9 +7,6 @@ $email =  $_POST["email"] ?? null;
 $telefone =  $_POST["telefone"] ?? null;
 $cStatus =  $_POST["cStatus"] ?? null;
 
-//criar uma maneira de filtrar o que vai para o banco de dados
-
-//inputs formatados
 $telefone_fomartado = trim($telefone);
 $email_formatado = trim($email);
 
@@ -28,21 +25,12 @@ if (!empty($telefone_fomartado) && !empty($email_formatado)) {
 
 
 
-// mexer nessa parte do update do db
-# update parnaoica.frigobar set fstatus = "I" where idFrigobar = 1;
-
-#criar um jeito de criar uma tela que retorne a lista de frigobar cadastrados no db e colar as escolhas de
-#alterar o status 
-
-//fazer o update de multiplas variaveis
-
-//  $sqli = "update parnaoica.cliente set email = '".$email."', telefone = '".$telefone."', cStatus = '".$cStatus."' where idusuario = '".$idusuario."' ";
 
 if (mysqli_query($con, $sqli)) {
     echo "Dados atualizados com sucesso!";
 
     $log = fopen("../log/atualizar_cliente.txt", "a+");
-        //escrever o log
+        
         fwrite($log, "Cadastrado em: " . date("d/m/Y") . " as " . date("H:i:s"));
         fwrite($log, "\nEditados Por:" . $_SESSION["login"]);
         fwrite($log, "\nId cliente: " . $idusuario);
@@ -52,7 +40,7 @@ if (mysqli_query($con, $sqli)) {
 
         fwrite($log, "\n----------------------------\n\n");
 
-        //fecha o arquivo
+      
         fclose($log);
 
 

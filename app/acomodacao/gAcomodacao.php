@@ -1,4 +1,7 @@
 <?php
+date_default_timezone_set("America/Sao_Paulo");
+
+@session_start();
 
 $nome = $_POST["nome"] ?? null;
 $numero_quarto = $_POST["numero_quarto"] ?? null;
@@ -27,14 +30,14 @@ $sqli = "INSERT INTO parnaoica.acomodacao (idAcomodacao, nome, numero_quarto, aS
 if (mysqli_query($con, $sqli)) {
     echo "Gravado com sucesso!";
      
-    //O ultimo id criado da acomodacao
+   
      $ultimoId = mysqli_insert_id($con);
 
-    //Enviar infos para o DB -- fazer
+  
     $sqli2 = "INSERT INTO parnaoica.estacionamento (idEstacionamento, status, idAcomodacao) VALUES(null, 'L', '$ultimoId')"; 
 
     if (mysqli_query($con, $sqli2)) {
-       // echo "Gravado com sucesso!";
+ 
 
        
         $log = fopen("../log/cadastrar_acomodacao.txt", "a+");
@@ -49,7 +52,7 @@ if (mysqli_query($con, $sqli)) {
 
         fwrite($log, "\n----------------------------\n\n");
 
-        //fecha o arquivo
+       
         fclose($log);
 
 
@@ -66,7 +69,7 @@ if (mysqli_query($con, $sqli)) {
 }
 
 }
-//$con->close();
+
 mysqli_close($con);
 
 ?>

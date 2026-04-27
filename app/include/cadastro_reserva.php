@@ -31,7 +31,7 @@ require('../_config/conn.php')
             $queryConsultaAcomodacao = mysqli_query($con, $sqlConsultaAcomodacao);
 
             while ($row = mysqli_fetch_assoc($queryConsultaAcomodacao)) { ?>
-                <option value=<?= $row['idAcomodacao'] ?>><?= $row['nome'] ?></option>
+            <option value=<?= $row['idAcomodacao'] ?>><?= $row['nome'] ?></option>
             <?php } ?>
 
         </select>
@@ -48,7 +48,6 @@ require('../_config/conn.php')
         Numero de Pessoas:<br />
         <input type="number" name="n_clientes" min='1' max='2' /><br />
         <br>
-        <!-- criar o valor_total_pago-->
 
 
         <input type="submit" value="Enviar" />
