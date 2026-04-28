@@ -7,7 +7,7 @@ $mes_filtro = isset($_GET['mes']) ? $_GET['mes'] : date('m');
 $sql = "SELECT a.nome, SUM(r.valor_total_pago) as total_lucro 
         FROM reserva r 
         INNER JOIN acomodacao a ON r.idAcomodacao = a.idAcomodacao 
-        WHERE MONTH(r.data_checkin) = '$mes_filtro'
+        WHERE MONTH(r.data_checkin) = '$mes_filtro' and rstatus = 'CO'
         GROUP BY a.idAcomodacao 
         ORDER BY total_lucro DESC";
 
