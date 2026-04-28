@@ -1,58 +1,83 @@
+<?php 
+// Inclui a lógica que criamos acima
+include_once "../deshbord/consulta_lucro.php"; 
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deshbord</title>
+    <title>Dashboard Hotel</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f4f4f4;
+    }
+
+    .box {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 700px;
+        margin: auto;
+    }
+    </style>
 </head>
 
 <body>
 
-    <div id="desh">
-        <canvas id="myChart"></canvas>
-    </div>
-    <script>
-        const ctx = document.getElementById('myChart');
-        let acomodacao = ["SLP", "SPC", "SLA", "AP1", "AP2", "AP3", "AP4", "AP5", "AP6", "AP7", "AP8", "AP9", "AP10"];
-        let valores = [5000, 6000, 8000, 3000, 2500, 2000, 3200, 4000, 2500, 3500, 3000, 2500, 3500];
+    <div class="box">
+        <h2>Lucro por Acomodação</h2>
 
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: acomodacao,
-                datasets: [{
-                    label: 'VALOR',
-                    data: valores,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+        <form method="GET">
+            <label>Selecione o Mês: </label>
+            <select name="mes" onchange="this.form.submit()">
+                <option value="01" <?php if($mes_filtro == '01') echo 'selected'; ?>>Janeiro</option>
+                <option value="02" <?php if($mes_filtro == '02') echo 'selected'; ?>>Fevereiro</option>
+                <option value="03" <?php if($mes_filtro == '03') echo 'selected'; ?>>Março</option>
+                <option value="04" <?php if($mes_filtro == '04') echo 'selected'; ?>>Abril</option>
+                <option value="05" <?php if($mes_filtro == '05') echo 'selected'; ?>>Maio</option>
+                <option value="06" <?php if($mes_filtro == '06') echo 'selected'; ?>>Junho</option>
+            </select>
+        </form>
+
+        <hr>
+
+        <canvas id="meuGrafico"></canvas>
+    </div>
+
+    <script>
+    const ctx = document.getElementById('meuGrafico').getContext('2d');
+
+    // Passando os dados do MySQLi (PHP) para o Chart.js (JS)
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: <?php echo json_encode($nomes_grafico); ?>,
+            datasets: [{
+                label: 'Total Arrecadado (R$)',
+                data: <?php echo json_encode($valores_grafico); ?>,
+                backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
-        });
+        }
+    });
     </script>
 
-    <form action="deshbord.php" method="get">
-
-        <?php include_once "../deshbord/cDeshbord.php";
-        ?>
-
-    </form>
-
-
-    <form action="deshbord.php">
-
-    <?php  include_once "../deshbord/cProdutoDeshbord.php" ?>
-    </form>
-
-
-
+    <table>
+        <?php include '../deshbord/cDeshbord.php' ?>
+    </table>
 
 </body>
 

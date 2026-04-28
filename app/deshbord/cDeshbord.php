@@ -19,7 +19,7 @@ $sqli = "select * from parnaoica.cliente where cStatus like '" . $cStatus . "%'"
         <th>cpf</th>
         <th>email</th>
         <th>telefone</th>
-       
+
     </tr>
     <?php
             while ($row = mysqli_fetch_array($result)) {
