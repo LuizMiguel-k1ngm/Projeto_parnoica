@@ -12,7 +12,7 @@ $email = $_POST["email"];
 $telefone = $_POST["telefone"];
 $estado = $_POST["estado"];
 $cidade = $_POST["cidade"];
-$status = 'A'; 
+$status = 'I'; 
 
 
 $data_nascimento = $ano . "-" . $mes . "-" . $dia;

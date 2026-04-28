@@ -3,10 +3,10 @@ include './validar.php'
 
 ?>
 
-<h3>Menu de administrador</h3>
+<h2>Menu de administrador</h2>
 <br>
 
-<p>Opções: </p>
+<h3>Opções: </h3>
 <hr>
 <a href="../include/consultar_frigobar.php">Consultar frigobar</a>
 <br>

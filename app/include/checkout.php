@@ -16,8 +16,6 @@
 
         <input type="submit" value="buscar">
 
-        <input type="submit" value="buscar">
-
     </form>
 
     <hr>

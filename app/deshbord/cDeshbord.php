@@ -5,12 +5,12 @@ $cStatus = "A";
 $sqli = "select * from parnaoica.cliente where cStatus like '" . $cStatus . "%'";
 
     $result = mysqli_query($con, $sqli);
-    $totalregistros = mysqli_num_rows($result); //num de linhas
+    $totalregistros = mysqli_num_rows($result); 
 
     if ($totalregistros > 0) {
        
 ?>
-<table width="900px" border="1px">
+<table width="700px" border="1px">
 
     <caption>Consulta: cliente ativos</caption>
     <tr>
@@ -39,7 +39,7 @@ $sqli = "select * from parnaoica.cliente where cStatus like '" . $cStatus . "%'"
             ?>
 </table>
 <?php
-        echo "Total de registros: " . $totalregistros;
+
     } else {
         echo "Nenhum cliente encontrado!";
     }

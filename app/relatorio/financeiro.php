@@ -60,11 +60,14 @@ td {
         <th>Cliente</th>
         <th>Quarto</th>
         <th>Check-in</th>
-        <th>Valor</th>
+        <th>Check-out</th>
+        <th>Diaria</th>
+        <th>N°</th>
+        <th>Total</th>
     </tr>
     <?php
     $t_res = 0;
-    $sql_res = "SELECT r.idReserva, c.nome, a.nome as quarto, r.data_checkin, a.valor
+    $sql_res = "SELECT r.idReserva,  c.nome, a.nome as quarto, r.n_clientes, r.data_checkin, r.data_checkout, a.valor, r.valor_total_pago
                 FROM reserva r
                 JOIN cliente c ON r.idusuario = c.idusuario
                 JOIN acomodacao a ON r.idAcomodacao = a.idAcomodacao
@@ -78,7 +81,10 @@ td {
         <td><?=$r['nome']?></td>
         <td><?=$r['quarto']?></td>
         <td><?=date('d/m/y', strtotime($r['data_checkin']))?></td>
+        <td><?=date('d/m/y', strtotime($r['data_checkout']))?></td>
         <td>R$ <?=number_format($r['valor'], 2, ',', '.')?></td>
+        <td><?=$r['n_clientes']?></td>
+        <td>R$ <?=number_format($r['valor_total_pago'], 2, ',', '.')?></td>
     </tr>
     <?php endwhile; ?>
 </table>

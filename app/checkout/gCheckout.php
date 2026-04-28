@@ -4,41 +4,39 @@ date_default_timezone_set("America/Sao_Paulo");
 
 $idReserva = $_POST['idReserva'] ?? null;
 $rStatus = $_POST['rStatus'] ?? null;
-
-
-
 $data_atual = date('Y-m-d');
+
+//puxar o id do cliente 
+//depois dar update no cliente para Status de Inativo 
+
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
- 
+
     if (!empty($rStatus) && !empty($idReserva)) {
+        $idusuario = "SELECT idusuario FROM reserva WHERE idReserva = '$idReserva'";
+        $result_idusuario = mysqli_query($con, $idusuario);
+        $result = $result_idusuario -> fetch_array()[0];
+
 
         if ($rStatus == 'confirmar') {
             $sqli = "UPDATE reserva SET rstatus = 'CO' WHERE idReserva = '$idReserva'";
+
+            $sqli2 = "UPDATE cliente SET cStatus = 'I' WHERE idusuario = '$result'";
+
             $msg = "Check-out realizado com sucesso!";
         } else if ($rStatus == 'cancelar') {
             $sqli = "UPDATE reserva SET rstatus = 'CA' WHERE idReserva = '$idReserva'";
-            
             $msg = "Check-out cancelado com sucesso!";
         } else {
             $msg = "Erro ao gravar Check-out";
-
-        if($rStatus == 'confirmar check-out' ){
-            $sqli = "UPDATE reserva SET rstatus = 'CO' WHERE idReserva = '$idReserva'";
-            $msg = "Check-in realizado com sucesso!";
-        } else if($rStatus == 'cancelar check-out') {
-            $sqli = "UPDATE reserva SET rstatus = 'CA' WHERE idReserva = '$idReserva'";
-            $msg = "Reserva cancelada com sucesso!";
-        }else{
-            echo "Erro ao gravar check-out";
- 
         }
 
-        }
-
- 
         if (mysqli_query($con, $sqli)) {
+        mysqli_query($con, $sqli2);
+
+    
             echo "<b>$msg</b>";
         } else {
             echo "Erro no banco de dados.";

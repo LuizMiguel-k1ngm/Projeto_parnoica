@@ -65,7 +65,7 @@ if (!empty($_GET["cpf"])) {
                 // Busca os itens desta reserva específica
                 $sql_itens = "SELECT i.nome, cf.quantidade, cf.valor_unitario_pago, cf.total 
                               FROM consumo_frigobar AS cf 
-                              INNER JOIN itens AS i ON cf.idItems = i.idItens 
+                              INNER JOIN itens AS i ON cf.idItens = i.idItens 
                               WHERE cf.idReserva = '$idReserva'";
                 
                 $result_itens = mysqli_query($con, $sql_itens);

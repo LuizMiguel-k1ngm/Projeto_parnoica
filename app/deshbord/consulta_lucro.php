@@ -1,5 +1,5 @@
 <?php
-// consulta_lucro.php
+
 include '../_config/conn.php';
 
 $mes_filtro = isset($_GET['mes']) ? $_GET['mes'] : date('m');
