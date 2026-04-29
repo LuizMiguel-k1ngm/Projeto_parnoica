@@ -25,7 +25,7 @@ if (!empty($_GET["data_inicial"]) && !empty($_GET['data_final'])) {
              FROM cliente AS c
              INNER JOIN reserva r ON c.idusuario = r.idusuario
              INNER JOIN acomodacao a ON r.idAcomodacao = a.idAcomodacao
-             WHERE r.data_checkin BETWEEN '$data_inicial' AND '$data_final'";
+             WHERE r.data_checkin BETWEEN '$data_inicial' AND '$data_final' AND r.rstatus = 'CO'";
 
     $result = mysqli_query($con, $sqli);
 
