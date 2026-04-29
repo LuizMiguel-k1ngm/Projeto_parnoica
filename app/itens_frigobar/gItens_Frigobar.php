@@ -11,7 +11,7 @@ $data_consumo = date('Y-m-d H:i');
 $data_consumo;
 
 if(empty($reserva)|| empty($idItens) || empty($quantidade)){
-    echo "erro, campos inválidos";
+  //  echo "erro, campos inválidos";
 
 }else {
 
@@ -43,7 +43,7 @@ VALUES(NULL,
  '$reserva', '$row_frigobar', '$idItens', '$quantidade','$row_valor', '$data_consumo')";
 
   if ($con->query($sqli)) {
-        echo "Gravado com sucesso!";
+    //    echo "Gravado com sucesso!";
         $id = mysqli_insert_id($con);
     } else {
         echo "Erro ao gravar item!";
@@ -53,7 +53,7 @@ $con->close();
 
 ?>
 
-<br>
+<!-- <br>
 <a href="../include/cadastro_itensFrigobar.php">Cadastrar outro item</a><br>
 <a href="../colaborador/menu_adm.php">Painel</a><br>
-<a href="../include/sair.php">Sair</a>
+<a href="../include/sair.php">Sair</a> -->

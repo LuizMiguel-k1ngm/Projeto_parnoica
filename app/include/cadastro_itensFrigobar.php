@@ -14,7 +14,7 @@
 
 
     <h1>Cadastro itens consumidos do frigobar</h1>
-    <form action="../itens_frigobar/gItens_Frigobar.php" method="post">
+    <form action="cadastro_itensFrigobar.php" method="post">
 
         Código da reserva: <br><select name="idReserva">
             <?php 
@@ -56,7 +56,9 @@
         <br>
 
 
-        <input type="submit" value="Enviar" />
+        <input type="submit" value="Enviar" /> <br>
+        
+        <?php include '../itens_frigobar/gItens_Frigobar.php'?>
 
     </form>
     <br><br>
