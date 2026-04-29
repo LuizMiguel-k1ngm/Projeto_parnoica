@@ -71,7 +71,7 @@ td {
                 FROM reserva r
                 JOIN cliente c ON r.idusuario = c.idusuario
                 JOIN acomodacao a ON r.idAcomodacao = a.idAcomodacao
-                WHERE r.data_checkin BETWEEN '$data_i' AND '$data_f'";
+                WHERE r.data_checkin BETWEEN '$data_i' AND '$data_f' AND r.rstatus = 'CO'";
     $q_res = mysqli_query($con, $sql_res);
     while($r = mysqli_fetch_assoc($q_res)): 
         $t_res += $r['valor'];
