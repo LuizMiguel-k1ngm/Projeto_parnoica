@@ -1,4 +1,5 @@
 <?php
+@session_start();
 include_once '../_config/conn.php';
 date_default_timezone_set("America/Sao_Paulo");
 
@@ -28,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $msg = "Check-out realizado com sucesso!";
         } else if ($rStatus == 'cancelar') {
             $sqli = "UPDATE reserva SET rstatus = 'CA' WHERE idReserva = '$idReserva'";
+             $sqli2 = "UPDATE cliente SET cStatus = 'A' WHERE idusuario = '$result'";
             $msg = "Check-out cancelado com sucesso!";
         } else {
             $msg = "Erro ao gravar Check-out";
@@ -35,9 +37,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (mysqli_query($con, $sqli)) {
         mysqli_query($con, $sqli2);
+         echo "<b>$msg</b>";
+         
 
-    
-            echo "<b>$msg</b>";
+            $log = fopen("../log/cadastrar_checkout.txt", "a+");
+        
+        fwrite($log, "Cadastrado em: " . date("d/m/Y") . " as " . date("H:i:s"));
+        fwrite($log, "\nEditados Por:" . $_SESSION["login"]);
+        fwrite($log, "\nNumero da reserva: " . $idReserva);
+        fwrite($log, "\nStatus: " . $rStatus);
+     
+        fwrite($log, "\n----------------------------\n\n");
+
+       
+        fclose($log);
+
+
+
+
         } else {
             echo "Erro no banco de dados.";
         }

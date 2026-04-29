@@ -1,6 +1,5 @@
 <?php
 
-
 date_default_timezone_set("America/Sao_Paulo");
 
 if (!empty($_GET["cpf"])) {
@@ -9,7 +8,7 @@ if (!empty($_GET["cpf"])) {
 
     $data_atual = date('Y-m-d');
 
-    // Query principal
+  
     $sqli = "SELECT c.nome, c.cpf, c.email, c.telefone, 
                     r.idReserva, r.data_checkin, r.data_checkout, 
                     a.nome AS nome_acomodacao, SUM(cf.total) as total_pago 
@@ -62,7 +61,7 @@ if (!empty($_GET["cpf"])) {
         <th>Subtotal</th>
     </tr>
     <?php
-                // Busca os itens desta reserva específica
+                
                 $sql_itens = "SELECT i.nome, cf.quantidade, cf.valor_unitario_pago, cf.total 
                               FROM consumo_frigobar AS cf 
                               INNER JOIN itens AS i ON cf.idItens = i.idItens 
@@ -88,7 +87,7 @@ if (!empty($_GET["cpf"])) {
 </table>
 <hr>
 <?php 
-        } // Fim do while principal
+        } 
         echo "Total de registros encontrados: " . $totalregistros;
     } else {
         echo "Nenhum cliente com checkout pendente encontrado para este CPF hoje.";

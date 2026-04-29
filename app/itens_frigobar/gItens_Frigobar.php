@@ -1,5 +1,8 @@
 <?php
 
+@session_start();
+date_default_timezone_set("America/Sao_Paulo");
+
 date_default_timezone_set("America/Sao_Paulo");
 include_once '../_config/conn.php';
 
@@ -45,6 +48,28 @@ VALUES(NULL,
   if ($con->query($sqli)) {
     //    echo "Gravado com sucesso!";
         $id = mysqli_insert_id($con);
+
+       $log = fopen("../log/consumo_frigobar.txt", "a+");
+        
+        fwrite($log, "Cadastrado em: " . date("d/m/Y") . " as " . date("H:i:s"));
+        fwrite($log, "\nEditados Por:" . $_SESSION["login"]);
+        fwrite($log, "\nNúmero da reserva: " . $reserva);
+        fwrite($log, "\nId do item: " . $idItens);
+        fwrite($log, "\nQuantidade: " . $quantidade);
+        fwrite($log, "\nValor R$: " . $row_valor);
+        fwrite($log, "\n----------------------------\n\n");
+
+       
+        fclose($log);
+        
+
+
+
+
+
+
+
+
     } else {
         echo "Erro ao gravar item!";
     }

@@ -6,3 +6,19 @@ Telefone:
 Status cliente: I
 ----------------------------
 
+Cadastrado em: 30/04/2026 as 00:56:27
+Editados Por:miguel
+Id cliente: 3
+Email: 
+Telefone: 
+Status cliente: I
+----------------------------
+
+Cadastrado em: 29/04/2026 as 19:56:59
+Editados Por:miguel
+Id cliente: 3
+Email: 
+Telefone: 
+Status cliente: A
+----------------------------
+
