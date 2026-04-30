@@ -27,7 +27,7 @@ require('../_config/conn.php')
 
         <select name="idAcomodacao">
             <?php
-            $sqlConsultaAcomodacao = "SELECT idAcomodacao, nome FROM acomodacao";
+            $sqlConsultaAcomodacao = "SELECT idAcomodacao, nome FROM acomodacao WHERE aStatus = 'A'";
             $queryConsultaAcomodacao = mysqli_query($con, $sqlConsultaAcomodacao);
 
             while ($row = mysqli_fetch_assoc($queryConsultaAcomodacao)) { ?>
